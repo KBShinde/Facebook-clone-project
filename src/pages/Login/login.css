@@ -1,0 +1,139 @@
+.login {
+    background-color: #eeeeee;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.fb-img {
+    height: 85px;
+    margin-top: 35px;
+}
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #dddfe2;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,.1), 0 8px 16px rgba(0,0,0,.1);
+    height: 380px;
+    width: 396px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.login-container h3 {
+    font-weight: 700;
+    margin-top: 24px;
+    margin-bottom: 20px;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+.login-container > form > center > input {
+    height: 50px;
+    margin-bottom: 15px;
+    background-color: white;
+    width: 303px;
+    border: 0.5px solid gray;
+    border-radius: 5px;
+    outline: none;
+    padding-left: 20px;
+    background: #FFFFFF;
+    border: 1px solid #dddfe2;
+    color: #1d2129;
+    line-height: 16px;
+    font-size: 17px;
+    vertical-align: middle;
+}
+
+.login-container > form > center > input ::-webkit-input-placeholder {
+    font-size: 17px;
+    color: rbg(128,128,128);
+    padding: 0;
+}
+
+.login-btn {
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+    white-space: nowrap;
+    position: relative;
+    text-align: center;
+    text-shadow: none;
+    vertical-align: middle;
+    font-weight: bold;
+    justify-content: center;
+    background-color: #1877f2;
+    border: none;
+    border-radius: 6px;
+    font-size: 20px;
+    line-height: 48px;
+    padding: 0 16px;
+    width: 332px;
+    color: #fff;
+}
+
+.login-btn:hover {
+    background-color: #165cdb;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.forget-pass {
+    color: #1877f2;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.forget-pass:hover {
+    color: #165cdb;
+    text-decoration: underline;
+}
+
+.signup-btn {
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+    white-space: nowrap;
+    position: relative;
+    text-align: center;
+    text-shadow: none;
+    vertical-align: middle;
+    font-weight: bold;
+    justify-content: center;
+    background-color: #42b72a;
+    border: none;
+    border-radius: 6px;
+    font-size: 17px;
+    line-height: 48px;
+    padding: 0 16px;
+    width: 210px;
+    color: #fff;
+}
+
+.signup-btn:hover {
+    background-color: #36a420;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+}
+@media (max-width: 600px) {
+    .login-container {
+        padding: 10px;
+        width: 90%;
+    }
+
+    .fb-img {
+        width: 120px;
+    }
+
+    input, button {
+        width: 100%;
+        margin-right: 10px;
+    }
+}
+
+@media (max-width: 400px) {
+    .fb-img {
+        width: 100px;
+    }
+}

@@ -1,0 +1,154 @@
+.navbar {
+    display: flex;
+    padding: 10px 20px;
+    justify-content: space-between;
+    position: sticky;
+    background-color: white;
+    z-index: 100;
+    top: 0;
+    box-shadow: 0px 5px 8px -9px rgba(0, 0, 0, 0.75);
+    height: 50px;
+}
+
+.navbar-left {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-left img {
+    height: 30px; 
+}
+
+.navbar-input {
+    display: flex;
+    align-items: center;
+    background-color: #eff2f5;
+    padding: 5px;
+    margin-left: 10px;
+    border-radius: 999px;
+    transition: all 0.3s ease;
+}
+
+.navbar-input input {
+    border: none;
+    background-color: transparent;
+    outline: none;
+    width: 150px;
+    transition: width 0.3s ease;
+}
+
+.navbar-input.active input {
+    width: 150px;
+}
+
+.navbar-middle {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.navbar-option {
+    display: flex;
+    align-items: center;
+    padding: 0 25px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.navbar-option .MuiSvgIcon-root {
+    color: gray;
+    transition: color 0.3s ease;
+}
+
+.navbar-option:hover {
+    background-color: #eff2f5;
+}
+
+.navbar-option:hover .MuiSvgIcon-root,
+.active .MuiSvgIcon-root {
+    color: #2e81f4;
+}
+
+.active {
+    border-bottom: 4px solid #2e81f4;
+}
+
+.navbar-info {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-info h4 {
+    margin-left: 10px;
+    font-size: 14px;
+    color: #1d2129;
+}
+
+.navbar-right {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Adjust spacing between icons */
+  }
+
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 10px 15px;
+        box-shadow: none;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    
+      .navbar-left {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 40%;
+      }
+    
+      .navbar-right {
+        position: absolute; /* Change to fixed position to keep it visible */
+        right: 10px; /* Reduce right padding for mobile */
+        top: 5px;    /* Reduce top padding for mobile */
+        /* gap: 8px;    Adjust gap to fit icons better */
+        width: auto; /* Allow the width to adjust based on content */
+        max-width: calc(100% - 20px); /* Ensure it fits within the viewport */
+        overflow-x: auto; /* Enable horizontal scrolling if needed */
+        white-space: nowrap; /* Prevent wrapping */
+      }
+      .navbar-input {
+        flex-grow: 1;
+        margin-left: 0;
+        justify-content: space-between;
+        padding: 5px;
+        background-color: transparent;
+        /* width: 40px; */
+      }
+    
+      .navbar-input.active {
+        width: 100%;
+        background-color: #eff2f5;
+        margin-left: 10px;
+        margin-top: 10px;
+      }
+    
+      .navbar-input.active input {
+        width: 100%;
+      }
+    
+
+    .navbar-middle {
+        width: 100%;
+        justify-content: space-around;
+        margin-top: 20px;
+        border-top: 2px solid rgb(213, 213, 213);
+        padding-top: 10px;
+    }
+}

@@ -1,0 +1,165 @@
+.register {
+    background-color: #E9EBEE;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.register-container {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #dddfe2;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    background-color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.register-container h1 {
+    font-weight: 700;
+    margin-bottom: -10px; 
+    margin-top: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.register-container p {
+    font-size: 14px;
+    color: #606770;
+    margin-bottom: 20px;
+
+}
+
+.form {
+    margin-top: 0;
+}
+
+.row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.row input {
+    height: 40px;
+    background-color: white;
+    border: 1px solid #dddfe2;
+    border-radius: 5px;
+    outline: none;
+    padding-left: 15px;
+    font-size: 16px;
+    color: #1d2129;
+    width: 100%;
+}
+
+
+.form > form > center > input {
+    height: 40px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    background-color: white;
+    border: 0.5px solid gray;
+    border-radius: 5px;
+    outline: none;
+    padding-left: 20px;
+    border: 1px solid #dddfe2;
+    color: #1d2129;
+    line-height: 16px;
+    font-size: 17px;
+    vertical-align: middle;
+    margin-right: 10px; 
+    width: 90%;
+}
+.register-btn {
+    cursor: pointer;
+    display: inline-block;
+    font-weight: bold;
+    background-color: #36a420;
+    border: none;
+    border-radius: 6px;
+    font-size: 17px;
+    padding: 10px 20px;
+    width: 100%;
+    color: #fff;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.register-btn:hover {
+    background-color: #42b72a;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.dates,
+.months,
+.years {
+    height: 40px;
+    width: 100%;
+    outline: none;
+    border: 1px solid #dddfe2;
+    border-radius: 5px;
+    margin-top: 0px;
+    padding: 0 10px;
+}
+
+.birth-date, 
+.gender {
+    font-size: 12px;
+    color: #606770;
+    font-weight: 400;
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.radio-container {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.wrapper {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    border: 1px solid rgba(128,128,128,0.493);
+    border-radius: 5px;
+    width: 100%;
+    flex: 1;
+}
+
+.wrapper label {
+    margin-right: auto;
+}
+
+.wrapper input {
+    margin-left: 10px;
+}
+
+.policy {
+    font-size: 12px;
+    color: #606770;
+    margin-top: 20px;
+    text-align: left;
+}
+
+.policy span {
+    color: #385898;
+    cursor: pointer;
+}
+
+.have-account-text {
+    font-size: 14px;
+    color: #385898;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.have-account-text:hover {
+    color: #007bff; 
+    text-decoration: underline;
+}
