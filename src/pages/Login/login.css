@@ -137,3 +137,17 @@
         width: 100px;
     }
 }
+
+.error {
+    color: #ff4d4f; 
+    font-size: 14px; 
+    margin-top: 10px; 
+    margin-bottom: 10px; 
+    font-weight: 500; 
+    background-color: #fff2f0; 
+    padding: 8px 12px; 
+    border-radius: 5px; 
+    border-left: 4px solid #ff4d4f; 
+    display: inline-block; 
+    width: 90%; 
+}

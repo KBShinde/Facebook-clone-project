@@ -44,7 +44,7 @@
     margin-bottom: 15px;
 }
 
-.row input {
+.register-name {
     height: 40px;
     background-color: white;
     border: 1px solid #dddfe2;
@@ -53,7 +53,21 @@
     padding-left: 15px;
     font-size: 16px;
     color: #1d2129;
-    width: 100%;
+    width: 170px; 
+}
+
+.error {
+    color: #ff4d4f;
+    font-size: 14px;
+    margin-top: 5px;
+    margin-bottom: 0; 
+    font-weight: 500;
+    background-color: #fff2f0;
+    padding: 8px 12px;
+    border-radius: 5px;
+    border-left: 4px solid #ff4d4f;
+    display: inline-block;
+    width: calc(100% - 30px);
 }
 
 
@@ -162,4 +176,10 @@
 .have-account-text:hover {
     color: #007bff; 
     text-decoration: underline;
+}
+
+.error {
+    color: #ff4d4f;
+    font-size: 14px;
+    margin-top: 4px;
 }

@@ -2,22 +2,21 @@
     display: flex;
     padding: 10px 20px;
     justify-content: space-between;
-    position: sticky;
+    position: sticky;  
     background-color: white;
     z-index: 100;
     top: 0;
     box-shadow: 0px 5px 8px -9px rgba(0, 0, 0, 0.75);
-    height: 50px;
+    height: 50px; /* Adjusted height for better spacing */
 }
 
 .navbar-left {
     display: flex;
-    justify-content: space-between;
     align-items: center;
 }
 
 .navbar-left img {
-    height: 30px; 
+    height: 30px;  
 }
 
 .navbar-input {
@@ -25,56 +24,90 @@
     align-items: center;
     background-color: #eff2f5;
     padding: 5px;
-    margin-left: 10px;
+    margin: 0 10px;
     border-radius: 999px;
     transition: all 0.3s ease;
+    flex: 1;
+    position: relative;
 }
 
 .navbar-input input {
     border: none;
     background-color: transparent;
     outline: none;
-    width: 150px;
+    width: 100px;
     transition: width 0.3s ease;
 }
 
 .navbar-input.active input {
-    width: 150px;
+    width: 200px; 
+}
+
+.search-container {
+    position: relative;
+}
+
+.search-results {
+    position: absolute;
+    top: 100%; 
+    left: 0;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.75);
+    max-height: 300px;
+    overflow-y: auto;
+    z-index: 100;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
+.search-result {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+}
+
+.search-result:last-child {
+    border-bottom: none;
+}
+
+.search-result:hover {
+    background-color: #f0f0f0;
 }
 
 .navbar-middle {
     display: flex;
     flex: 1;
     justify-content: center;
-    align-items: center;
     height: 100%;
+    margin: 0;
 }
 
 .navbar-option {
     display: flex;
     align-items: center;
-    padding: 0 25px;
+    padding: 0 50px;  
     cursor: pointer;
     border-radius: 10px;
     transition: background-color 0.3s ease;
 }
 
 .navbar-option .MuiSvgIcon-root {
-    color: gray;
+    color: gray;  
     transition: color 0.3s ease;
 }
 
 .navbar-option:hover {
-    background-color: #eff2f5;
+    background-color: #eff2f5;  
 }
 
 .navbar-option:hover .MuiSvgIcon-root,
 .active .MuiSvgIcon-root {
-    color: #2e81f4;
+    color: #2e81f4; 
 }
 
 .active {
-    border-bottom: 4px solid #2e81f4;
+    border-bottom: 4px solid #2e81f4; 
 }
 
 .navbar-info {
@@ -85,18 +118,36 @@
 .navbar-info h4 {
     margin-left: 10px;
     font-size: 14px;
-    color: #1d2129;
+    color: #1d2129;  
 }
 
 .navbar-right {
-    position: absolute;
-    right: 15px;
-    top: 10px;
     display: flex;
     align-items: center;
-    gap: 10px; /* Adjust spacing between icons */
-  }
+    gap: 10px;  
+}
 
+.mobile-sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 250px; 
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    overflow-y: auto;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+}
+
+.mobile-sidebar.open {
+    transform: translateX(0);
+}
+
+.desktop-sidebar {
+    display: block;
+}
 
 @media (max-width: 768px) {
     .navbar {
@@ -104,51 +155,47 @@
         box-shadow: none;
         flex-direction: column;
         align-items: flex-start;
-      }
-    
-      .navbar-left {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 40%;
-      }
-    
-      .navbar-right {
-        position: absolute; /* Change to fixed position to keep it visible */
-        right: 10px; /* Reduce right padding for mobile */
-        top: 5px;    /* Reduce top padding for mobile */
-        /* gap: 8px;    Adjust gap to fit icons better */
-        width: auto; /* Allow the width to adjust based on content */
-        max-width: calc(100% - 20px); /* Ensure it fits within the viewport */
-        overflow-x: auto; /* Enable horizontal scrolling if needed */
-        white-space: nowrap; /* Prevent wrapping */
-      }
-      .navbar-input {
+    }
+
+    .navbar-left {
+        width: 100%; 
+        margin-bottom: 10px; 
+    }
+
+    .navbar-right {
+        position: relative;  
+        right: 0;
+        top: 0;
+        width: 100%;
+        overflow-x: auto;  
+        white-space: nowrap; 
+    }
+
+    .navbar-input {
         flex-grow: 1;
         margin-left: 0;
-        justify-content: space-between;
-        padding: 5px;
         background-color: transparent;
-        /* width: 40px; */
-      }
-    
-      .navbar-input.active {
-        width: 100%;
+    }
+
+    .navbar-input.active {
+        width: 30%;  
         background-color: #eff2f5;
-        margin-left: 10px;
         margin-top: 10px;
-      }
-    
-      .navbar-input.active input {
-        width: 100%;
-      }
-    
+    }
+
+    .navbar-input.active input {
+        width: 30%;  
+    }
 
     .navbar-middle {
         width: 100%;
         justify-content: space-around;
         margin-top: 20px;
         border-top: 2px solid rgb(213, 213, 213);
-        padding-top: 10px;
+        padding: 10px;
+    }
+
+    .desktop-sidebar {
+        display: none; 
     }
 }

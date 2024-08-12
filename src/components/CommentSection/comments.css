@@ -1,0 +1,125 @@
+.comments-container {
+    padding: 10px; 
+    background-color: #fafafa;
+    border-radius: 8px;
+    max-width: 500px; 
+    margin: auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+}
+
+.comments-loading, .comments-error {
+    text-align: center;
+    color: #999;
+    font-size: 18px; 
+    padding: 5px 0;
+}
+
+.comments-empty {
+    text-align: center;
+    color: #666;
+    font-style: italic;
+    font-size: 18px; 
+    padding: 5px 0; 
+}
+
+.comment-item {
+    display: flex;
+    align-items: flex-start;
+    padding: 4px;
+    border-bottom: 1px solid #e0e0e0; 
+    background-color: #f1f1f1;
+    border-radius: 8px;
+    margin-bottom: 8px; 
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.comment-item:hover {
+    background-color: #e7e7e7; 
+    transform: scale(1.02); 
+}
+
+.comment-avatar {
+    width: 35px; 
+    height: 35px;
+    margin-right: 10px;
+    border-radius: 50%; 
+    overflow: hidden; 
+}
+
+.comment-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.comment-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 4px;
+    position: relative;
+}
+
+.comment-author {
+    font-size: 14px; 
+    font-weight: bold;
+    margin: 0;
+    color: #222; 
+}
+
+.comment-content {
+    margin-top: 3px; 
+    font-size: 14px;
+    color: #444;
+    line-height: 1.5; 
+    word-wrap: break-word; 
+}
+
+.comment-form {
+    position: relative; 
+    display: flex;
+    flex-direction: column;
+}
+
+.comment-form textarea {
+    outline: none;
+    width: 96%;
+    padding: 10px;
+    border: none; 
+    border-radius: 8px;
+    resize: none;
+    font-size: 14px;
+    line-height: 1.6;
+    background-color: #f1f1f1;
+     margin-bottom: -30px;
+}
+
+.send-icon {
+    left: 230px; 
+    bottom :30px;
+    padding: 8px;
+    border: none;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.delete-button {
+    background: none;
+    border: none;
+    color: #dc3545;
+    font-size: 14px;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.2s ease;
+    display: flex;
+    align-items: center;
+}
+
+.delete-button:hover {
+    color: #c82333;
+    transform: scale(1.05);
+}
+
+.delete-button::before {
+    font-size: 16px;
+    margin-right: 5px;
+}

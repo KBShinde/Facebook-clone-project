@@ -1,0 +1,24 @@
+.story-reel {
+  display: flex;
+  justify-content: space-between;
+  overflow-x: scroll;
+  margin: 0 auto; 
+  max-width: 640px; 
+  padding: 10px 0;
+}
+
+.story-reel::-webkit-scrollbar {
+  display: none; 
+}
+
+.story-reel {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@media (max-width: 768px) {
+  .story-reel {
+      max-width: 100%;
+      padding: 10px;
+  }
+}
