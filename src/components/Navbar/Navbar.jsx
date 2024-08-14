@@ -7,18 +7,33 @@ import SubscriptionsIcon from '@mui/icons-material/Subscriptions';
 import StorefrontIcon from '@mui/icons-material/Storefront';
 import GroupsIcon from '@mui/icons-material/Groups';
 import ChatIcon from '@mui/icons-material/Chat';
-import NotificationsIcon from '@mui/icons-material/Notifications';
-import MenuIcon from '@mui/icons-material/Menu';
+import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
 import AddIcon from '@mui/icons-material/Add';
 import { Avatar, IconButton } from "@mui/material";
+import CloseIcon from '@mui/icons-material/Close';
 import Sidebar from "../Sidebar/Sidebar";
+import Messanger from "../Messanger/Messanger";
+import Notifications from "../Notifications/Notifications";
+import MessangerIcon from "../Icons/MessangerIcon";
+import MenuIconSvg from "../Icons/MenuIconSvg";
+import Bell from "../Icons/Bell";
+import UserMenu from "../UserMenu/UserMenu";
+import NavbarMenu from "../NavbarMenu.jsx/NavbarbarMenu";
 
-const Navbar = () => {
-  const [searchOpen, setSearchOpen] = useState(window.innerWidth > 768);
+
+
+
+const Navbar = ({ data = [] }) => {
+  const [searchOpen, setSearchOpen] = useState(true);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
+  const [notificationsOpen, setNotificationsOpen] = useState(false);
+  const [messangerOpen, setMessangerOpen] = useState(false);
+  const [userMenuOpen, setuserMenuOpen] = useState(false);
+  const [navbarMenuOpen, setNavbarMenuOpen] = useState(false);
+  const [activeIcon, setActiveIcon] = useState(null); 
 
   useEffect(() => {
     const handleResize = () => {
@@ -44,15 +59,37 @@ const Navbar = () => {
     if (searchQuery.length > 0) {
       const fetchData = async () => {
         try {
-          const response = await fetch(`https://academics.newtonschool.co/api/v1/facebook/post?search={"field":"${searchQuery}"}`, {
+          const response = await fetch(`https://academics.newtonschool.co/api/v1/facebook/post?search={"author.name":"${encodeURIComponent(searchQuery)}"}`, {
+            method: 'GET',
             headers: {
-              'projectID': 'f104bi07c490'
+              'Content-Type': 'application/json',
+              'projectID': 'f104bi07c490',
             }
           });
+
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+
           const data = await response.json();
-          console.log("dat:" , data)
-          setSearchResults(data.results); 
-          console.log('data :', data)
+          console.log("Full response data:", data);
+
+          if (data && Array.isArray(data.data)) {
+            const seenIds = new Set();
+            const uniqueResults = data.data.filter(result => {
+              if (seenIds.has(result.author.name)) {
+                return false; 
+              } else {
+                seenIds.add(result.author.name);
+                return true;
+              }
+            });
+
+            setSearchResults(uniqueResults);
+          } else {
+            console.warn("Unexpected data structure:", data);
+            setSearchResults([]);
+          }
         } catch (error) {
           console.error("Error fetching search results:", error);
         }
@@ -68,6 +105,55 @@ const Navbar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
+  const handleSearchIconClick = () => {
+    setSearchOpen(true);
+  };
+
+  const handleSearchInputChange = (e) => {
+    const query = e.target.value;
+    setSearchQuery(query);
+    if (query) {
+      setSearchResults([]);
+    }
+  };
+
+  const handleCloseSearch = () => {
+    setSearchQuery(""); 
+    setSearchResults([]); 
+  };
+
+  const handleNavbarMenuClick = () => {
+    setActiveIcon('menu'); 
+    setNavbarMenuOpen(!navbarMenuOpen);
+    setMessangerOpen(false);
+    setuserMenuOpen(false);
+    setNotificationsOpen(false)
+  };
+
+  const handleNotificationsClick = () => {
+    setActiveIcon('bell'); 
+    setNotificationsOpen(!notificationsOpen);
+    setMessangerOpen(false);
+    setuserMenuOpen(false);
+    setNavbarMenuOpen(false)
+  };
+
+  const handleOpenMessangerClick = () => {
+    setActiveIcon('messanger'); 
+    setMessangerOpen(!messangerOpen);
+    setNotificationsOpen(false);
+    setuserMenuOpen(false);
+    setNavbarMenuOpen(false)
+  };
+
+  const handleUserMenuClick = () => {
+    setActiveIcon('avatar'); 
+    setuserMenuOpen(!userMenuOpen);
+    setMessangerOpen(false);
+    setNotificationsOpen(false);
+    setNavbarMenuOpen(false)
+  };
+
   return (
     <div className="navbar">
       <div className="navbar-left">
@@ -76,26 +162,39 @@ const Navbar = () => {
           alt="Facebook Logo"
         />
         <div className={`navbar-input ${searchOpen ? "active" : ""}`}>
-          <SearchIcon onClick={() => setSearchOpen(!searchOpen)} />
-          {searchOpen && (
+          <SearchIcon onClick={handleSearchIconClick} />
+          <input
+            type="text"
+            placeholder="Search Facebook"
+            value={searchQuery}
+            onChange={handleSearchInputChange}
+            className={searchOpen ? "open" : ""}
+          />
+          {searchQuery && (
             <div className="search-container">
-              <input
-                type="text"
-                placeholder="Search Facebook"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
+              <CloseIcon
+                style={{ color: '#888', cursor: 'pointer' }}
+                onClick={handleCloseSearch}
+                className="search-close"
               />
-              {searchQuery && (
+              {searchResults.length > 0 ? (
                 <div className="search-results">
-                  {searchResults.length > 0 ? (
-                    searchResults.map(result => (
-                      <div key={result.id} className="search-result">
-                        <p>{result.title}</p> 
-                      </div>
-                    ))
-                  ) : (
-                    <p>No results found</p>
-                  )}
+                  {searchResults.map(result => (
+                    <div key={result._id} className="search-result">
+                      <Avatar
+                        style={{
+                          border: '2px solid #333',
+                          backgroundColor: '#f0f0f0',
+                          color: 'white', 
+                        }}
+                      />
+                      <h4>{result.author.name}</h4>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div className="search-results">
+                  <p>No results found</p>
                 </div>
               )}
             </div>
@@ -122,38 +221,49 @@ const Navbar = () => {
       </div>
 
       <div className="navbar-right">
-        <div className="navbar-info">
+        <IconButton className={`navbar-right-icons ${activeIcon === 'menu' ? 'active' : ''}`} onClick={handleNavbarMenuClick}>
+          <MenuIconSvg />
+        </IconButton>
+        <IconButton className={`navbar-right-icons ${activeIcon === 'messanger' ? 'active' : ''}`} onClick={handleOpenMessangerClick}>
+          <MessangerIcon />
+        </IconButton>
+        <IconButton className={`navbar-right-icons ${activeIcon === 'bell' ? 'active' : ''}`} onClick={handleNotificationsClick}>
+          <Bell />
+        </IconButton>
+        <IconButton className={`navbar-right-icons ${activeIcon === 'avatar' ? 'active' : ''}`} onClick={handleUserMenuClick}>
           <Avatar />
-          <h4>Kunal Shinde</h4>
-        </div>
-        <IconButton>
-          <AddIcon />
         </IconButton>
-        <IconButton>
-          <NotificationsIcon />
-        </IconButton>
-        <IconButton>
-          <ChatIcon />
-        </IconButton>
-        {isMobile && (
-          <IconButton onClick={handleMoreClick}>
-            <MenuIcon />
-          </IconButton>
-        )}
       </div>
 
-      {/* Sidebar handling
       {isMobile && isSidebarOpen && (
         <div className="mobile-sidebar">
           <Sidebar isMobileView={true} />
         </div>
       )}
 
-      {!isMobile && (
-        <div className="desktop-sidebar">
-          <Sidebar isMobileView={false} />
+      {navbarMenuOpen && (
+        <div className="navbar-menu-dropdown">
+          <NavbarMenu />
         </div>
-      )} */}
+      )}
+
+      {notificationsOpen && (
+        <div className="notifications-dropdown">
+          <Notifications />
+        </div>
+      )}
+
+      {messangerOpen && (
+        <div className="messanger-dropdown">
+          <Messanger />
+        </div>
+      )}
+
+      {userMenuOpen && (
+        <div className="user-menu-dropdown">
+          <UserMenu />
+        </div>
+      )}
     </div>
   );
 };

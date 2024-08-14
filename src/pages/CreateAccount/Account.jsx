@@ -73,6 +73,7 @@ const Account = () => {
                 });
 
                 if (response.ok) {
+                    localStorage.setItem('user', JSON.stringify(userData.name))
                     navigate('/');
                 } else {
                     console.error("Failed to register:", response.statusText);

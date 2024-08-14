@@ -1,17 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
+import DeleteIcon from '@mui/icons-material/Delete';
 import SendIcon from '@mui/icons-material/Send';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
 import './comments.css'; 
 
-const Comments = ({ postId, userId }) => {
+const Comments = ({ postId, updateCommentCount }) => {
     const [comments, setComments] = useState([]);
     const [newComment, setNewComment] = useState('');
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
     const [isTyping, setIsTyping] = useState(false);
+    const [anchorEl, setAnchorEl] = useState(null);
+    const [selectedComment, setSelectedComment] = useState(null);
 
-    const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2OTc3YzI3NGNkZTY0OGNjMzk2MzBkYSIsImlhdCI6MTcyMjk1ODAzMywiZXhwIjoxNzU0NDk0MDMzfQ.fUM5HrusoPtB7aIJA8EB2hvDVIz4BFq1VCHAqNfaJpU';
+    const token = localStorage.getItem("token");
+    const userId = localStorage.getItem("userId");  
 
     useEffect(() => {
         const fetchComments = async () => {
@@ -33,6 +40,7 @@ const Comments = ({ postId, userId }) => {
 
                 if (response.ok && data.status === 'success') {
                     setComments(data.data);
+                
                 } else {
                     setError('Failed to fetch comments.');
                 }
@@ -81,6 +89,7 @@ const Comments = ({ postId, userId }) => {
                 setNewComment(""); 
                 setIsTyping(false); 
                 setComments(prevComments => [data.data, ...prevComments]); 
+                updateCommentCount(1);  // Increase comment count by 1
             } else {
                 setError(data.message || 'Failed to post comment.');
             }
@@ -90,28 +99,30 @@ const Comments = ({ postId, userId }) => {
         }
     };
 
-    const handleCommentDelete = async (commentId) => {
-        if (!commentId) {
+    const handleMenuOpen = (event, comment) => {
+        setAnchorEl(event.currentTarget);
+        setSelectedComment(comment);
+    };
+
+    const handleMenuClose = () => {
+        setAnchorEl(null);
+        setSelectedComment(null);
+    };
+
+    const handleCommentDelete = async () => {
+        if (!selectedComment?._id) {
             console.error('Comment ID is missing.');
             return;
         }
-        
-        const commentToDelete = comments.find(comment => comment._id === commentId);
-        
-        if (!commentToDelete) {
-            console.error('Comment not found.');
-            return;
-        }
 
-        if (commentToDelete.author_details.userId !== userId) {
-            setError('You can only delete your own comments.');
-            return;
-        }
-        
         if (!window.confirm('Are you sure you want to delete this comment?')) return;
         
+        // Optimistically update the UI
+        setComments(prevComments => prevComments.filter(comment => comment._id !== selectedComment._id));
+        updateCommentCount(-1);  // Decrease comment count by 1
+
         try {
-            const response = await fetch(`https://academics.newtonschool.co/api/v1/facebook/comment/${commentId}`, {
+            const response = await fetch(`https://academics.newtonschool.co/api/v1/facebook/comment/${selectedComment._id}`, {
                 method: 'DELETE',
                 headers: {
                     'Authorization': `Bearer ${token}`,
@@ -123,12 +134,16 @@ const Comments = ({ postId, userId }) => {
                 const errorText = await response.text();
                 throw new Error(`Error ${response.status}: ${errorText}`);
             }
-    
-            setComments(prevComments => prevComments.filter(comment => comment.id !== commentId));
+
         } catch (err) {
             console.error('Error deleting comment:', err);
             setError(`An error occurred while deleting the comment: ${err.message}`);
+            // Revert the optimistic update in case of an error
+            setComments(prevComments => [...prevComments, selectedComment]);
+            updateCommentCount(1);  // Revert the comment count decrease
         }
+
+        handleMenuClose();
     };
 
     if (loading) return <p className="comments-loading">Loading...</p>;
@@ -150,26 +165,36 @@ const Comments = ({ postId, userId }) => {
                     <SendIcon />
                 </IconButton>
             </div>
-
+    
             {comments.length === 0 ? (
                 <p className="comments-empty">No comments yet.</p>
             ) : (
                 comments.map((comment) => (
-                    <div key={comment.id} className="comment-item">
+                    <div key={comment._id} className="comment-item">
                         <Avatar src={comment.author_details?.profileImage || '/default-avatar.png'} className="comment-avatar" />
                         <div className="comment-content-wrapper">
                             <div className="comment-header">
                                 <h4 className="comment-author">{comment.author_details?.name || 'Unknown Author'}</h4>
-
-                                {comment.author_details?.userId === userId && (
-                                    <button className="delete-button" onClick={() => handleCommentDelete(comment._id)}>Delete</button>
-                                )}
+                                <IconButton className="more-icon" onClick={(e) => handleMenuOpen(e, comment)}>
+                                    <MoreVertIcon />
+                                </IconButton>
                             </div>
                             <p className="comment-content">{comment.content}</p>
                         </div>
                     </div>
                 ))
             )}
+
+            <Menu
+                anchorEl={anchorEl}
+                open={Boolean(anchorEl)}
+                onClose={handleMenuClose}
+            >
+                <MenuItem onClick={handleCommentDelete}>
+                    <DeleteIcon style={{ marginRight: 8 }} />
+                    Delete
+                </MenuItem>
+            </Menu>
         </div>
     );
 };

@@ -1,0 +1,111 @@
+.notifications-container {
+    background-color: #ffffff; 
+    border-radius: 12px; 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); 
+    max-width: 400px;
+    margin: 20px 0; 
+    padding: 15px;
+    position: absolute;
+    top: 50px; 
+    right: 0; 
+    z-index: 1000; 
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.notifications-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #eee; 
+    padding-bottom: 10px;
+}
+
+.notifications-header h2 {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 600;
+    color: #333; 
+}
+
+.notifications-header .MuiSvgIcon-root {
+    color: #555;
+    transition: color 0.3s ease;
+}
+
+.notifications-header .MuiSvgIcon-root:hover {
+    color: #007bff; 
+}
+
+.notifications-tabs {
+    display: flex;
+    gap: 10px; 
+}
+
+.tab-button-notification {
+    background: #ebebeb; 
+    color: #007bff;
+    border-radius: 20px; 
+    border: none;
+    font-size: 16px; 
+    font-weight: 600; 
+    padding: 8px 20px; 
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tab-button-unread {
+    border: none;
+    background: none; 
+    font-size: 16px; 
+    font-weight: 600; 
+    padding: 8px 20px; 
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+
+.notification-other-tab {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    gap: 10px;
+}
+
+.notification-other-tab h4 {
+    margin: 0;
+    font-size: 18px; 
+    font-weight: 600;
+    color: #333; 
+}
+
+.notification-other-tab p {
+    margin: 0;
+    font-size: 16px; 
+    color: #007bff; 
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.notification-other-tab p:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+.notifications-content {
+    text-align: center;
+}
+
+.no-notifications {
+    color: #555;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.footer {
+    font-size: 12px;
+    color: #888;
+    text-align: center;
+    margin-top: 0px;
+}

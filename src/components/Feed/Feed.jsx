@@ -7,7 +7,7 @@ const Feed = () => {
   return (
     <div className="feed">
       <StoryReel/>
-      <Messagesender/>
+      {/* <Messagesender/> */}
       <Post/>
     </div>
   )

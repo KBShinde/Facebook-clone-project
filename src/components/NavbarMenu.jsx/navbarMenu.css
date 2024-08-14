@@ -1,0 +1,50 @@
+/* navbarMenu.css */
+
+.menu-container {
+    background-color: #ffffff; 
+    border-radius: 12px; 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); 
+    max-width: 500px;
+    margin: 20px 0; 
+    padding: 15px;
+    position: absolute;
+    top: 50px; 
+    right: 0; 
+    z-index: 1000; 
+    display: flex;
+    flex-direction: column;
+
+}
+
+.menu-content {
+    display: flex;
+    flex-direction: row;
+}
+
+
+.menu-section-left {
+    flex: 3;
+
+}
+
+.menu-section-right {
+    flex: 1.6; 
+
+}
+
+.menu-section-left h3, .menu-section-right h3 {
+    margin: 0;
+    padding: 10px 30px; 
+    font-size: 1.2rem; 
+    font-weight: 600;
+}
+
+.menu-section .MuiListItem-root {
+    border-radius: 8px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; 
+}
+
+.menu-section .MuiListItem-root:hover {
+    background-color: #f9f9f9; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+}

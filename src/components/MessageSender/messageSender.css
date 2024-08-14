@@ -5,8 +5,8 @@
     border-radius: 15px;
     box-shadow: 0px 5px 7px -7px rgba(0, 0, 0, 0.75);
     width: 100%;
-    max-width: 640px;
-    margin: 20px auto; 
+    max-width: 100%px;
+    margin: 20px auto;
 }
 
 .message-sender-top {
@@ -19,30 +19,42 @@
 .message-sender-top form {
     flex: 1;
     display: flex;
+    align-items: center; 
+    justify-content: space-between;
 }
 
 .message-sender-top > form > input {
     outline-width: 0;
     border: none;
-    padding: 5px 20px;
+    padding: 10px 20px;
     margin: 0 10px;
     border-radius: 999px;
     background-color: #eff2f5;
+    flex-grow: 1; 
 }
 
-.message-sender-top > form > button {
-    display: none;
+.message-sender-form .MuiIconButton-root {
+    display: inline-flex; 
+    padding: 6px;
+    background-color: #4990f3;
+    color: white;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-right: 10px; 
+}
+
+.message-sender-form .MuiIconButton-root svg {
+    font-size: 24px;
 }
 
 .message-sender-input {
     flex: 1;
 }
 
-
 .message-sender-bottom {
     display: flex;
     justify-content: space-evenly;
-    padding: 10px 0;
+    padding: 5px 0;
 }
 
 .message-sender-option {
@@ -57,7 +69,6 @@
 
 .message-sender-option h3 {
     font-size: medium;
-    color: gray;
     margin-left: 10px;
 }
 
@@ -66,20 +77,39 @@
     border-radius: 20px;
 }
 
+/* Responsive Styles */
 @media (max-width: 768px) {
     .message-sender {
-        margin-top: 20px;
-        padding: 15px;
+        margin: 20px;
+        padding: 10px;
+    }
+
+    .message-sender-top {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .message-sender-top form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .message-sender-top > form > input {
+        margin: 10px 0;
     }
 
     .message-sender-bottom {
-        flex-direction: column; 
+        flex-direction: column;
         align-items: center;
     }
 
     .message-sender-option {
-        justify-content: center;
-        width: 100%; 
+        width: 100%;
         margin: 5px 0;
+        justify-content: center;
+    }
+
+    .message-sender-option h3 {
+        font-size: small;
     }
 }

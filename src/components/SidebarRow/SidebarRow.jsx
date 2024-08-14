@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Avatar } from '@mui/material';
 import './sidebarRow.css';
 
@@ -11,5 +12,6 @@ const SidebarRow = ({ src, Icon, title }) => {
     </div>
   );
 };
+
 
 export default SidebarRow;
