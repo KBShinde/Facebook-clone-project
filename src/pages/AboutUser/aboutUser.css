@@ -1,0 +1,107 @@
+.about-user {
+  padding: 20px;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto; /* Centers the component horizontally */
+}
+
+.about-container {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  display: flex;
+  flex-direction: row; /* Default to row for larger screens */
+  justify-content: flex-start; /* Align children to the start of the container */
+}
+
+.about-tabs {
+  display: flex;
+  flex-direction: column;
+  width: 40%; 
+  border-right: 1px solid #ddd;
+  padding-right: 20px; /* Add padding to avoid the text touching the border */
+}
+
+.about-tabs button {
+  padding: 10px 15px;
+  border: none;
+  background-color: transparent;
+  font-size: 17px;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: left; 
+  color: #5f5f5f;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.about-tabs button:hover {
+  background-color: rgb(234, 254, 255);
+  border-radius: 5px;
+}
+
+.about-tabs button.active {
+  color: rgb(0, 98, 255);
+}
+
+.about-content {
+  width: 60%; 
+}
+
+.about-content h3 {
+  margin: 30px;
+}
+
+.about-content p {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-left: 50px;
+  color: #333;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .about-container {
+      flex-direction: column; /* Stack the tabs and content vertically on smaller screens */
+      padding: 10px;
+  }
+
+  .about-tabs {
+      width: 100%;
+      border-right: none;
+      border-bottom: 1px solid #ddd;
+      padding-right: 0;
+      padding-bottom: 20px; /* Add padding at the bottom to separate from content */
+  }
+
+  .about-content {
+      width: 100%;
+      margin-top: 20px; /* Add some space between tabs and content */
+  }
+
+  .about-content h3 {
+      margin: 20px;
+  }
+
+  .about-content p {
+      margin-left: 0; /* Remove left margin for mobile view */
+      font-size: 15px; /* Slightly smaller font size for mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .about-tabs button {
+      font-size: 16px;
+      padding: 8px 12px;
+  }
+
+  .about-content h3 {
+      margin: 15px;
+      font-size: 18px;
+  }
+
+  .about-content p {
+      font-size: 14px;
+      line-height: 1.4;
+  }
+}

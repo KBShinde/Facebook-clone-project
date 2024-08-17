@@ -1,0 +1,270 @@
+/* Wrapper container for centering the profile section */
+.page-profile-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 20px; 
+    background-color: #f1f2f5;
+}
+
+/* Container for the entire profile section */
+.page-profile-container-bottom {
+    display: flex;
+    justify-content: space-between; /* Ensures left and right sections are spaced apart */
+    align-items: flex-start;
+    width: 1000px; /* Set to match the width of your top component */
+    gap: 20px; 
+}
+
+.page-profile-left {
+    width: 35%;
+    position: sticky;
+    top: 0;
+    margin-top: 20px;
+}
+
+
+.page-user-posts {
+    width: 60%;
+    overflow-y: auto; 
+    margin-top: -20px;
+}
+
+.page-profile-intro {
+    background-color: white;
+    padding: 10px 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    width: 100%; /* Ensure it takes full width of the parent container */
+}
+
+.page-profile-intro h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 10px;
+
+}
+
+.page-intro-item {
+    display: flex;
+    align-items: center;
+}
+
+.page-intro-icon {
+    margin-right: 12px;
+    color: #5a5a5a;
+}
+
+.page-intro-item p {
+    font-size: 17px;
+    color: #4b4b4b;
+}
+
+.page-user-photos,
+.page-user-friends {
+    background-color: white;
+    padding: 0px 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;  /* Ensure it takes full width of the parent container */
+}
+
+.page-user-photos h2,
+.page-user-friends h2 {
+    font-size: 24px;
+    color: #333;
+}
+
+.page-user-photos p,
+.page-user-friends p {
+    font-size: 18px;
+    color: #1877f2;
+}
+
+/* User Post Section */
+.page-user-post {
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px; /* Increased margin for better spacing */
+    width: 100%;
+}
+
+.page-user-post-top {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; /* Spacing between top section and content */
+}
+
+.page-user-post-top-left {
+    display: flex;
+    align-items: center; /* Ensures alignment of avatar and text */
+}
+
+.page-user-post-avatar {
+    height: 40px;
+    width: 40px;
+    margin-right: 15px;
+    border-radius: 50%; /* Ensures avatar is circular */
+}
+
+.page-user-post-top-info h3 {
+    font-size: 18px;
+    color: #333;
+    margin: 0;
+}
+
+.page-user-post-top-info p {
+    font-size: 14px;
+    color: #777;
+    margin: 0;
+}
+
+.page-user-post-img img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    margin-top: 10px; /* Spacing above image */
+}
+
+.page-user-post-img {
+    padding: 10px;
+}
+
+.page-user-post-img p {
+    color: #5a5a5a;
+    margin-top: 0; /* Remove margin if unnecessary */
+}
+
+.page-user-likes-comment-count {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px; /* Add margin for spacing */
+}
+
+.page-user-count-item {
+    display: flex;
+    align-items: center;
+}
+
+.page-user-count-item p {
+    font-size: 16px;
+    margin-left: 8px;
+}
+
+.page-user-post-options {
+    display: flex;
+    justify-content: space-around;
+    border-top: 1px solid #e0e0e0;
+    padding-top: 10px;
+}
+
+.page-user-post-option {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: #777;
+}
+
+.page-user-post-option p {
+    margin-left: 8px;
+    font-size: 16px;
+}
+
+/* Post Header Section */
+.page-post-header {
+    padding: 20px;
+    background-color: white;
+    margin-top: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.page-post-header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.page-post-header-top h2 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+.page-post-header-top-btn {
+    display: flex;
+    gap: 15px;
+}
+
+.page-post-header-top-btn button {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #f0f0f0;
+    color: #333;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.page-post-header-top-btn button svg {
+    margin-right: 8px;
+    font-size: 18px;
+}
+
+.page-post-header-bottom {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.page-post-header-bottom p {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    font-size: 18px;
+    color: #007bff;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.page-post-header-bottom p svg {
+    margin-right: 8px;
+    font-size: 18px;
+}
+
+.page-post-header-bottom p:hover {
+    color: #0056b3;
+}
+
+/* No Posts Message */
+.page-no-posts {
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-size: 18px;
+    color: #5a5a5a;
+    width: 100%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center content vertically and horizontally */
+    margin-top: 20px; /* Space above the no posts message */
+}

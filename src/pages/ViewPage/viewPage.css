@@ -1,0 +1,188 @@
+/* Profile Container */
+.page-main-container {
+    background-color: white;
+}
+.page-profile-container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px;
+    padding-bottom: 50px;
+    border-radius: 10px;
+    font-family: Arial, sans-serif;
+}
+
+.page-profile-container-top {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px;
+    border-radius: 10px;
+    font-family: Arial, sans-serif;
+}
+
+
+/* Cover Photo */
+.page-cover-photo {
+    position: relative;
+    width: 100%;
+    height: 350px;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.page-cover-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Profile Info */
+.page-profile-info {
+    text-align: center;
+    margin-top: -70px;
+}
+
+/* Profile Avatar */
+.page-profile-avatar {
+    position: relative;
+    margin: 0 auto;
+    width: 130px;
+    height: 130px;
+    border: 5px solid white;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: white;
+}
+
+.page-profile-avatar .page-profile-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.page-profile-info h1 {
+    margin-top: 10px;
+    color: #333;
+    font-size: 24px;
+    font-weight: bold;
+}
+/* Profile Tabs and Actions Container */
+.page-profile-tabs-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Ensure vertical alignment */
+    border-top: 1px solid rgb(205, 205, 205);
+    padding-top: 10px; /* Add some space at the top */
+}
+
+.page-profile-actions {
+    display: flex;
+    align-items: center; 
+    gap: 15px;
+}
+
+.page-profile-actions .page-btn-follow,
+.page-profile-actions .page-btn-message,
+.page-profile-actions .page-btn-more {
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    padding: 10px 20px; 
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px; 
+    cursor: pointer;
+    color: #525252;
+    background-color: #e4e6eb;
+}
+
+.page-profile-actions .page-btn-follow:hover,
+.page-profile-actions .page-btn-message:hover,
+.page-profile-actions .page-btn-more:hover {
+    background-color: #d1d3d8;
+    color: #333; 
+}
+
+.page-profile-tabs {
+    display: flex;
+    gap: 10px;
+}
+
+.page-profile-tabs button {
+    position: relative;
+    padding: 2px 10px;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    color: #535353;
+    transition: color 0.3s ease;
+}
+
+.page-profile-tabs button:hover,
+.page-profile-tabs button.active {
+    color: #1877f2; 
+}
+
+.page-profile-tabs button.active::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 100%;
+    height: 3px;
+    background-color: #1877f2; 
+    border-radius: 2px 2px 0 0;
+}
+
+
+.page-profile-actions button svg {
+    margin-right: 8px; 
+}
+
+.page-profile-actions .page-btn-more svg {
+    margin-right: 0; 
+}
+
+.page-profile-tabs button svg {
+    margin-right: 5px; 
+}
+
+.story-friends-btn {
+    text-align: right;
+    margin-bottom: 20px;
+    margin-top: -30px; 
+  }
+  
+  .story-friends-btn button {
+    display: inline-flex; 
+    align-items: center;
+    padding: 10px 25px; 
+    border: none;
+    border-radius: 5px; 
+    font-size: 15px; 
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 10px; 
+  }
+  
+  .story-friends-btn button svg {
+    margin-right: 8px; 
+    font-size: 20px;
+    color: inherit; 
+  }
+  
+  .story-friends-btn button:first-of-type {
+    color: #525252;
+    background-color: #e4e6eb; 
+  }
+  
+
+  .story-friends-btn button:last-of-type {
+    background-color: #007bff;
+    color: white;
+  }
+  

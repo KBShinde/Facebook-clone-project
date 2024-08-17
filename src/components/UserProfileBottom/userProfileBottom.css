@@ -1,0 +1,397 @@
+/* Base Styles */
+/* Container for the entire profile section */
+.profile-container-bottom {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 0;
+    gap: 20px; /* Adjust gap between left and right sections */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+/* Left side: Locked Profile, Intro, Photos, and Friends */
+.profile-left {
+    width: 30%;
+    position: sticky;
+    top: 0; /* Sticks to the top of the viewport */
+    margin-right: 0;
+}
+
+.profile-right {
+    width: 65%;
+    overflow-y: auto; /* Enable vertical scrolling */
+}
+
+/* Profile Locked Section */
+.profile-locked {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    width: 90%; /* Ensure it takes full width of the parent container */
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.profile-locked img {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.profile-locked p {
+    font-size: 17px;
+    color: #333;
+    margin: 0;
+}
+
+.profile-locked h4 {
+    font-size: 14px;
+    color: #1877f2;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+/* Profile Intro Section */
+.profile-intro {
+    background-color: white;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    width: 90%; /* Ensure it takes full width of the parent container */
+}
+
+.profile-intro h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 10px;
+}
+
+.intro-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.intro-icon {
+    margin-right: 12px;
+    color: #5a5a5a;
+}
+
+.intro-item p {
+    font-size: 17px;
+    color: #4b4b4b;
+}
+
+/* User Photos Section */
+.user-photos,
+.user-friends {
+    background-color: white;
+    padding: 10px 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;  /* Ensure it takes full width of the parent container */
+}
+
+.user-photos h2,
+.user-friends h2 {
+    font-size: 24px;
+    color: #333;
+}
+
+.user-photos p,
+.user-friends p {
+    font-size: 18px;
+    color: #1877f2;
+}
+
+.user-post {
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    width: 500px;
+    height: auto;
+    margin-top: 10px;
+}
+
+.user-post-top {
+    display: flex;
+    align-items: center;
+}
+
+.user-post-top-left {
+    display: flex;
+}
+
+.user-post-avatar {
+    height: 40px;
+    width: 40px;
+    margin-right: 15px;
+}
+
+.user-post-top-info h3 {
+    font-size: 18px;
+    color: #333;
+    margin: 0;
+}
+
+.user-post-top-info p {
+    font-size: 14px;
+    color: #777;
+    margin: 0;
+}
+
+.user-post-img img {
+    width: 100%;
+    height: auto; /* Adjust height to auto for responsive resizing */
+    border-radius: 12px;
+}
+.user-post-img {
+    padding: 10px;
+}
+.user-post-img p {
+    color: #5a5a5a;
+}
+.user-likes-comment-count {
+    display: flex;
+    justify-content: space-between;
+}
+
+.user-count-item {
+    display: flex;
+    align-items: center;
+}
+
+.user-count-item p {
+    font-size: 16px;
+    margin-left: 8px;
+}
+
+.user-post-options {
+    display: flex;
+    justify-content: space-around;
+    border-top: 1px solid #e0e0e0;
+    padding-bottom: 0;
+}
+
+.user-post-option {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: #777;
+}
+
+.user-post-option p {
+    margin-left: 8px;
+    font-size: 16px;
+}
+
+.post-header {
+    padding: 20px;
+    background-color: white;
+    margin-top: 40px;
+    border-radius: 8px; /* Rounded corners for the header */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for a floating effect */
+  }
+  
+  .post-header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Aligns items vertically in the center */
+    border-bottom: 1px solid #ddd; /* Lighter border for a cleaner look */
+    padding-bottom: 10px; /* Adds padding at the bottom of the top section */
+  }
+  
+  .post-header-top h2 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .post-header-top-btn {
+    display: flex;
+    gap: 15px; /* Increased gap for better spacing */
+  }
+  
+  .post-header-top-btn button {
+    display: flex;
+    align-items: center; /* Aligns icon and text vertically */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #f0f0f0; /* Light gray background */
+    color: #333;
+    transition: background-color 0.3s ease, color 0.3s ease; 
+  }
+  
+  .post-header-top-btn button svg {
+    margin-right: 8px; /* Space between the icon and text */
+    font-size: 18px; /* Adjust icon size */
+  }
+  
+  
+  .post-header-bottom {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+  }
+  
+  .post-header-bottom p {
+    display: flex;
+    align-items: center; 
+    margin: 0;
+    font-size: 18px;
+    color: #007bff;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  .post-header-bottom p svg {
+    margin-right: 8px; 
+    font-size: 18px; 
+  }
+  
+  .post-header-bottom p:hover {
+    color: #0056b3; 
+  }
+
+
+@media (max-width: 768px) {
+    .profile-left, .profile-posts {
+        width: 100%;
+        position: static; 
+        margin-top: -20px;
+    }
+
+    .user-post-avatar {
+        width: 35px;
+        height: 35px;
+        margin-right: 8px;
+    }
+
+    .user-post-top-info h3 {
+        font-size: 14px;
+    }
+
+    .user-post-top-info p {
+        font-size: 11px;
+    }
+
+    .user-post-img p {
+        margin: 10px 0;
+        font-size: 14px;
+    }
+
+    .user-likes-comment-count {
+        font-size: 13px;
+    }
+
+    .user-count-item p {
+        margin-left: 4px;
+        font-size: 13px;
+    }
+
+    .user-post-options {
+        padding-top: 8px;
+    }
+
+    .user-post-option {
+        padding: 4px 8px;
+    }
+
+    .user-post-option p {
+        font-size: 13px;
+    }
+}
+
+/* For smaller smartphones (480px and below) */
+@media (max-width: 480px) {
+    .profile-locked img {
+        height: 40px;
+        width: 40px;
+        margin-right: 10px;
+    }
+
+    .profile-locked p {
+        font-size: 14px;
+    }
+
+    .profile-locked h4 {
+        font-size: 12px;
+    }
+
+    .profile-intro h2, .user-photos h2, .user-friends h2 {
+        font-size: 20px;
+    }
+
+    .intro-item p, .user-count-item p {
+        font-size: 14px;
+    }
+
+    .user-post {
+        padding: 8px;
+        margin-bottom: 10px;
+    }
+
+    .user-post-avatar {
+        width: 30px;
+        height: 30px;
+        margin-right: 6px;
+    }
+
+    .user-post-top-info h3 {
+        font-size: 13px;
+    }
+
+    .user-post-top-info p {
+        font-size: 10px;
+    }
+
+    .user-post-img p {
+        margin: 8px 0;
+        font-size: 13px;
+    }
+
+    .user-likes-comment-count {
+        font-size: 12px;
+    }
+
+    .user-count-item p {
+        margin-left: 3px;
+        font-size: 12px;
+    }
+
+    .user-post-options {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 6px;
+    }
+
+    .user-post-option {
+        width: 100%;
+        justify-content: center;
+        padding: 6px;
+        font-size: 12px;
+        margin-bottom: 5px;
+    }
+
+    .user-post-option p {
+        font-size: 12px;
+    }
+}

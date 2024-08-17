@@ -1,0 +1,308 @@
+/* General Styles */
+.main-container {
+    background-color: white;
+}
+
+.profile-container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px;
+    padding-bottom: 50px;
+    border-radius: 10px;
+    font-family: Arial, sans-serif;
+}
+
+/* Cover Photo */
+.cover-photo {
+    position: relative;
+    width: 100%;
+    height: 350px;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.cover-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Profile Info */
+.profile-info {
+    text-align: center;
+    margin-top: -70px;
+}
+
+/* Profile Avatar */
+.profile-avatar {
+    position: relative;
+    margin: 0 auto;
+    width: 130px;
+    height: 130px;
+    border: 5px solid white;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: white;
+}
+
+.profile-avatar .profile-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-info h1 {
+    margin-top: 10px;
+    color: #333;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Profile Tabs and Actions Container */
+.profile-tabs-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgb(205, 205, 205);
+    padding-top: 10px;
+}
+
+.profile-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.profile-actions .btn-follow,
+.profile-actions .btn-message,
+.profile-actions .btn-more {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #525252;
+    background-color: #e4e6eb;
+}
+
+.profile-actions .btn-follow:hover,
+.profile-actions .btn-message:hover,
+.profile-actions .btn-more:hover {
+    background-color: #d1d3d8;
+    color: #333;
+}
+
+.profile-tabs {
+    display: flex;
+    gap: 10px;
+}
+
+.profile-tabs button {
+    position: relative;
+    padding: 2px 10px;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    color: #535353;
+    transition: color 0.3s ease;
+}
+
+.profile-tabs button:hover,
+.profile-tabs button.active {
+    color: #1877f2;
+}
+
+.profile-tabs button.active::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 100%;
+    height: 3px;
+    background-color: #1877f2;
+    border-radius: 2px 2px 0 0;
+}
+
+.profile-actions button svg {
+    margin-right: 8px; 
+}
+
+.profile-actions .btn-more svg {
+    margin-right: 0; 
+}
+
+.profile-tabs button svg {
+    margin-right: 5px;
+}
+
+.profile-locked {
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    background-color: white;
+    padding: 15px;
+    margin-top: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.profile-locked img {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+
+.add-stroy-btn {
+    text-align: right;
+    margin-bottom: 20px;
+    margin-top: -30px;
+}
+
+.add-stroy-btn button {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.add-stroy-btn button svg {
+    margin-right: 8px;
+    font-size: 20px;
+    color: inherit;
+}
+
+.add-stroy-btn button:first-of-type {
+    background-color: #007bff;
+    color: white;
+}
+
+.add-stroy-btn button:last-of-type {
+    color: #525252;
+    background-color: #e4e6eb;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-container .navbar {
+        display: none;
+    }
+    /* .profile-container {
+        padding: 10px 15px;
+    } */
+
+    .cover-photo {
+        height: 200px;
+    }
+
+    .profile-avatar {
+        width: 80px;
+        height: 80px;
+        border: 3px solid white;
+    }
+
+    .profile-info h1 {
+        font-size: 20px;
+    }
+
+    .add-story-btn {
+        margin-top: -20px; 
+        display: flex;
+    }
+
+
+    .add-story-btn button svg {
+        font-size: 18px; /* Adjust icon size for smaller screens */
+    }
+
+    .profile-tabs-actions {
+        flex-direction: row;
+        align-items: flex-start;
+    
+    }
+
+    .profile-tabs {
+        margin-bottom: 10px;
+        width: 100%;
+        justify-content: space-around;
+    }
+
+    .profile-actions {
+        width: 100%;
+        justify-content: space-around;
+    }
+
+    .profile-actions .btn-follow,
+    .profile-actions .btn-message,
+    .profile-actions .btn-more {
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+
+    .add-stroy-btn {
+        margin-top: 0;
+        text-align: center;
+    }
+
+    .add-stroy-btn button {
+        margin: 10px 0;
+        width: 100%;
+        padding: 8px 20px;
+        font-size: 14px;
+    }
+
+    .profile-locked {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .profile-locked img {
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .cover-photo {
+        height: 150px;
+    }
+
+    .profile-avatar {
+        width: 80px;
+        height: 80px;
+        border: 2px solid white;
+    }
+
+    .profile-info h1 {
+        font-size: 18px;
+    }
+
+    .profile-tabs button {
+        font-size: 12px;
+    }
+
+    .profile-actions .btn-follow,
+    .profile-actions .btn-message,
+    .profile-actions .btn-more {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+
+    .add-stroy-btn button {
+        padding: 6px 15px;
+        font-size: 12px;
+    }
+}

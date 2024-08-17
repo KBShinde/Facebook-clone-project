@@ -140,6 +140,7 @@
 .navbar-option .MuiSvgIcon-root {
     color: gray;  
     transition: color 0.3s ease;
+    font-size: 30px;
 }
 
 .navbar-option:hover {
@@ -251,11 +252,18 @@
 
     .navbar-middle {
         width: 100%;
-        justify-content: space-around;
-        margin-top: 20px;
+        margin: 0;
         border-top: 2px solid rgb(213, 213, 213);
-        padding: 10px;
+        background-color: white;
+        padding: 0;
     }
+    .navbar-option {
+        padding: 5px 20px;
+    }
+    .navbar-option .MuiSvgIcon-root {
+        font-size: 20px;
+    }
+    
 
     .desktop-sidebar {
         display: none; 

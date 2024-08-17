@@ -14,7 +14,7 @@ const MessageSender = ({ addPost }) => {
 
     const token = localStorage.getItem("token");
     const userId = localStorage.getItem("userId");  
-    const userName = "kunal shinde";  
+    const userName = "Swapnil shinde";  
 
     const handleImageChange = (e) => {
         setImage(e.target.files[0]);
@@ -67,7 +67,8 @@ const MessageSender = ({ addPost }) => {
     return (
         <>
             <div className="message-sender">
-                <div className="message-sender-top">
+            <div className="message-sender-top">
+        
                     <Avatar />
                     <form onSubmit={handleSubmit} className="message-sender-form">
                         <input
@@ -78,13 +79,10 @@ const MessageSender = ({ addPost }) => {
                             onClick={handleInputClick} 
                             readOnly 
                         />
-                        {input && (
-                            <IconButton type="submit" className="message-sender-send-button">
-                                <SendIcon />
-                            </IconButton>
-                        )}
                     </form>
+
                 </div>
+
                 <div className="message-sender-bottom">
                 <div className="message-sender-option">
                     <VideocamIcon fontSize="large" style={{ color: "red" }} />

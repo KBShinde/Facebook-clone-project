@@ -1,0 +1,46 @@
+.page-user-info {
+
+    padding: 16px; /* Padding around the content */
+    max-width: 600px; /* Max width for the container */
+    margin: 0 auto; /* Center the container */
+  }
+  
+  .page-user-info h3 {
+    font-size: 1.5rem; /* Larger font size for the heading */
+    color: #333; /* Dark text color for contrast */
+    margin-bottom: 16px; /* Spacing below the heading */
+  }
+  
+  .page-user-info-item {
+    display: flex; /* Flexbox for alignment */
+    align-items: center; /* Vertically center items */
+    margin-bottom: 12px; /* Spacing between items */
+  }
+  
+  .page-user-info-item p {
+    margin: 0; /* Remove default margin */
+    font-size: 1rem; /* Standard font size */
+    color: #555; /* Slightly lighter text color */
+    margin-left: 8px; /* Spacing between icon and text */
+  }
+  
+  .page-user-info-item svg {
+    font-size: 1.5rem; /* Size of the icons */
+    color: #6c6c6c; /* Color of the icons (Bootstrap primary color) */
+  }
+  
+  @media (max-width: 600px) {
+    .page-user-info {
+      padding: 12px; /* Adjust padding for smaller screens */
+    }
+  
+    .page-user-info-item {
+      flex-direction: column; /* Stack items vertically on smaller screens */
+      align-items: flex-start; /* Align items to the start */
+    }
+  
+    .page-user-info-item svg {
+      font-size: 1.25rem; /* Smaller icons on mobile */
+    }
+  }
+  

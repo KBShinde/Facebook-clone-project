@@ -19,6 +19,7 @@ import MenuIconSvg from "../Icons/MenuIconSvg";
 import Bell from "../Icons/Bell";
 import UserMenu from "../UserMenu/UserMenu";
 import NavbarMenu from "../NavbarMenu.jsx/NavbarbarMenu";
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -34,6 +35,8 @@ const Navbar = ({ data = [] }) => {
   const [userMenuOpen, setuserMenuOpen] = useState(false);
   const [navbarMenuOpen, setNavbarMenuOpen] = useState(false);
   const [activeIcon, setActiveIcon] = useState(null); 
+  const navigate = useNavigate()
+  const [activeOption, setActiveOption] = useState('home');
 
   useEffect(() => {
     const handleResize = () => {
@@ -153,7 +156,16 @@ const Navbar = ({ data = [] }) => {
     setNotificationsOpen(false);
     setNavbarMenuOpen(false)
   };
+  const handlePages = () => {
+    setActiveOption('pages');
+    navigate('/pages')
+    
+};
 
+const handleHome = () => {
+  setActiveOption('home');
+  navigate('/home');
+};
   return (
     <div className="navbar">
       <div className="navbar-left">
@@ -203,20 +215,26 @@ const Navbar = ({ data = [] }) => {
       </div>
 
       <div className="navbar-middle">
-        <div className="navbar-option active">
-          <HomeIcon fontSize="large" />
+      <div
+        className={`navbar-option ${activeOption === 'home' ? 'active' : ''}`}
+        onClick={handleHome}
+      >
+        <HomeIcon />
+      </div>
+      <div
+        className={`navbar-option ${activeOption === 'pages' ? 'active' : ''}`}
+        onClick={handlePages}
+      >
+        <FlagIcon />
+      </div>
+        <div className="navbar-option">
+          <SubscriptionsIcon  />
         </div>
         <div className="navbar-option">
-          <FlagIcon fontSize="large" />
+          <StorefrontIcon/>
         </div>
         <div className="navbar-option">
-          <SubscriptionsIcon fontSize="large" />
-        </div>
-        <div className="navbar-option">
-          <StorefrontIcon fontSize="large" />
-        </div>
-        <div className="navbar-option">
-          <GroupsIcon fontSize="large" />
+          <GroupsIcon />
         </div>
       </div>
 

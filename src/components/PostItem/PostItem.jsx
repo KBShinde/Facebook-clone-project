@@ -34,6 +34,7 @@ const PostItem = ({ post, addPost}) => {
             },
         });
     };
+
     const userId = localStorage.getItem("userId");
 
     const handleLikeClick = () => {
