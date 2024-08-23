@@ -4,14 +4,9 @@
     margin: 20px auto;
     border-radius: 15px;
     background-color: white;
-    box-shadow: 0px 5px 7px -7px rgba(0, 0, 0, 0.75);
     overflow: hidden;
-    transition: box-shadow 0.3s ease-in-out, transform 0.3s ease;
 }
 
-.post:hover {
-    box-shadow: 0px 8px 15px -5px rgba(0, 0, 0, 0.75);
-}
 
 .post-top {
     display: flex;
@@ -20,11 +15,6 @@
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
     position: relative;
-}
-
-.post-top:hover {
-    background-color: #f0f2f5;
-    border-radius: 15px 15px 0 0;
 }
 
 .post-top-left {
@@ -154,10 +144,6 @@
     color: #2e81f4;
 }
 
-/* Liked State */
-.post-option.liked {
-    background-color: #e6f0ff;
-}
 
 .post-option.liked p {
     color: #2e81f4;
@@ -181,68 +167,128 @@
     color: #2e81f4;
 }
 
-/* Additional Media Queries for Responsiveness */
 @media (max-width: 768px) {
-    .post {
-        width: 95%;
-        margin: 10px auto;
-    }
-
-    .post-top {
-        padding: 10px;
-    }
-
-    .post-bottom {
-        padding: 10px 20px;
-        font-size: 14px;
-    }
-
-    .post-img > img {
-        max-height: 400px; /* Adjust image height on smaller screens */
-    }
-
-    .post-options {
-        font-size: small;
-    }
-}
-
-@media (max-width: 480px) {
-    .post {
-        width: 100%;
-        margin: 5px auto;
-        border-radius: 10px;
-    }
-
-    .post-top {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 8px;
+    .post-top-left {
+        flex-direction: row;
+        align-items: center;
+        margin-left: -15px;
     }
 
     .post-avatar {
-        margin-right: 10px;
-        margin-top: 0;
+        width: 35px;
+        height: 35px;
+        margin-bottom: 5px;
     }
 
     .post-top-info h3 {
         font-size: 14px;
+        margin-top: -15px;
     }
 
     .post-top-info p {
+        font-size: 11px;
+        margin-top: 5px;
+    }
+
+    .post-bottom p {
+        font-size: 20px;
+        margin-left: -20px;
+    }
+
+    .post-img img {
+        max-height: 300px;
+        margin-left: 0px;
+    }
+
+    .likes-comment-count {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px;
+    }
+
+    .count-item {
+        width: 100%;
+        padding: 5px 0;
+    }
+
+    .count-item p {
         font-size: 12px;
     }
 
-    .post-bottom {
-        padding: 10px;
-        font-size: 13px;
+    .count-item .MuiIconButton-root {
+        padding: 4px;
     }
 
-    .post-img > img {
-        max-height: 300px;
+    .post-options-btn {
+        padding: 3px;
+        
+    }
+
+    .post-option {
+        flex-direction: row;
+        align-items: center;
+        margin-left: -35px;
+    }
+
+    .default-icon {
+        margin-right: 0;
+        margin-bottom: 5px;
     }
 
     .post-options {
-        font-size: small;
-        padding: 8px 0;
+        justify-content: space-between;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .post {
+        padding: 8px;
+        margin-left: -10px;
+        margin-top: -10px;
+    }
+
+    .post-avatar {
+        width: 30px;
+        height: 30px;
+    }
+
+    .post-top-info h3 {
+        font-size: 13px;
+    }
+
+    .post-top-info p {
+        font-size: 10px;
+    }
+
+    .post-bottom p {
+        font-size: 12px;
+    }
+
+    .post-img img {
+        max-height: 200px;
+    }
+
+    .likes-comment-count {
+        padding: 5px;
+    }
+
+    .count-item {
+        flex-direction: row;
+        align-items: center;
+        gap: 4px;
+    }
+
+    .count-item p {
+        font-size: 11px;
+    }
+
+    .count-item .MuiIconButton-root {
+        padding: 3px;
+    }
+
+    .post-option {
+        padding: 3px;
     }
 }

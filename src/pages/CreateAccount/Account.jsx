@@ -61,7 +61,6 @@ const Account = () => {
                 password,
                 appType: 'facebook',
             };
-
             try {
                 const response = await fetch('https://academics.newtonschool.co/api/v1/user/signup', {
                     method: 'POST',
@@ -73,7 +72,10 @@ const Account = () => {
                 });
 
                 if (response.ok) {
-                    localStorage.setItem('user', JSON.stringify(userData.name))
+                    // Store the user's name in local storage
+                    localStorage.setItem('user', userData.name);
+
+                    // Redirect to the home page
                     navigate('/');
                 } else {
                     console.error("Failed to register:", response.statusText);

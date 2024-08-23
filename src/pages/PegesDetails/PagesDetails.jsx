@@ -29,6 +29,10 @@ const PagesDetails = () => {
     navigate(-1);
   };
 
+  const handleCreatePage = () => {
+    navigate('/pages/create-page')
+  }
+
   const handleViewPageClick = (pageId) => {
     navigate('/pages/view-page', {
       state: {
@@ -83,7 +87,7 @@ const PagesDetails = () => {
         </div>
 
         <ul>
-          <p className="create-page">
+          <p className="create-page" onClick={handleCreatePage}>
             + Create new page
           </p>
           <li>

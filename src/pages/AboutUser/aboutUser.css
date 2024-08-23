@@ -63,7 +63,9 @@
 @media (max-width: 768px) {
   .about-container {
       flex-direction: column; /* Stack the tabs and content vertically on smaller screens */
-      padding: 10px;
+      padding: 0 10px;
+      margin-left: -20px;
+      margin-top: -50px;
   }
 
   .about-tabs {

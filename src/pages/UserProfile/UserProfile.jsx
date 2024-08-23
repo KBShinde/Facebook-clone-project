@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import './userProfile.css'; // Assuming you'll add a CSS file for styling
 import { Avatar } from '@mui/material';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
@@ -13,12 +13,13 @@ import GroupAddSharpIcon from '@mui/icons-material/GroupAddSharp';
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 
 const UserProfile = () => {
+    const { userId } = useParams();
     const [user, setUser] = useState({});
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(true);
     const [userInfo, setUserInfo] = useState({});
     const location = useLocation();
-    const { post, token } = location.state;
+    const { author, token } = location.state;
     const navigate = useNavigate();
     const [showAbout, setShowAbout] = useState(false); 
     const [activeTab, setActiveTab] = useState('posts');
@@ -42,7 +43,7 @@ const UserProfile = () => {
         const fetchUser = async () => {
             setLoading(true);
             try {
-                const userId = post?.author?._id;
+                const userId = author?._id;
 
                 if (!userId) {
                     throw new Error("User ID is undefined or invalid");
@@ -79,13 +80,13 @@ const UserProfile = () => {
         };
 
         fetchUser();
-    }, [post, token]);
+    }, [author, token]);
 
     useEffect(() => {
       const fetchUserInfo = async () => {
           setLoading(true);
           try {
-              const userId = post?.author?._id;
+              const userId = author?._id;
   
               if (!userId) {
                   throw new Error("User ID is undefined or invalid");
@@ -138,12 +139,13 @@ const UserProfile = () => {
         
                     <div className="profile-info">
                         <div className="profile-avatar">
-                            <Avatar src={post.author.profileImage} alt="Profile" className="profile-photo" />
+                            <Avatar src={author.profileImage} alt="Profile" className="profile-photo" />
                         </div>
-                        <h1>{post.author.name}</h1> 
+                        <h1>{author.name}</h1> 
                     <div className='add-stroy-btn'>
-                        <button><AddOutlinedIcon/>Add to story</button>
                         <button><GroupAddSharpIcon/>Friends</button>
+                        <button><MessangerIcon fontSize="large"/> Message</button>
+                    
                     </div>
                     </div>
                 <div className='profile-tabs-actions'>
@@ -167,7 +169,6 @@ const UserProfile = () => {
                 </div>
                     <div className="profile-actions">
                         <button className="btn-follow"><FollowIcon/> Follow</button>
-                        <button className="btn-message"><MessangerIcon fontSize="large"/> Message</button>
                         <button className="btn-more"><MoreHorizIcon fontSize="small" /></button>
                     </div> 
                 </div> 

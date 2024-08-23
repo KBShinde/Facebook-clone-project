@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './postItem.css';
-import { IconButton, Tooltip, Avatar, Dialog, DialogTitle, DialogContent, Menu, MenuItem  } from '@mui/material';
+import { IconButton, Tooltip, Avatar, Dialog, DialogTitle, DialogContent, Menu, MenuItem, Typography, TextField, Button } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import ThumbUpOutlinedIcon from '@mui/icons-material/ThumbUpOutlined';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
@@ -9,33 +9,38 @@ import { formatDistanceToNow } from 'date-fns';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Comments from '../CommentSection/Comments';
-import MessageSender from '../MessageSender/Messagesender';
 import { useNavigate } from 'react-router-dom';
 import CommentIcon from '../Icons/CommentIcon';
+import PhotoLibraryIcon from '@mui/icons-material/PhotoLibrary';
 
-const PostItem = ({ post, addPost}) => {
+const PostItem = ({ post, addPost }) => {
     const [likeCount, setLikeCount] = useState(post.likeCount);
     const [liked, setLiked] = useState(false);
     const [showComment, setShowComment] = useState(false);
     const [commentCount, setCommentCount] = useState(post.commentCount);
-    const [isEditing, setIsEditing] = useState(false);
     const [updatedContent, setUpdatedContent] = useState(post.content);
-    const [updatedImage, setUpdatedImage] = useState(null);
+    const [image, setImage] = useState(null);
     const navigate = useNavigate();
     const [anchorEl, setAnchorEl] = useState(null);
-    const open = Boolean(anchorEl);
-    let token = localStorage.getItem('token')
+    const [openDialog, setOpenDialog] = useState(false);
+    const token = localStorage.getItem('token');
+
+    const handleImageChange = (e) => {
+        setImage(e.target.files[0]);
+    };
+
+    const handleCloseDialog = () => {
+        setOpenDialog(false); 
+    };
 
     const handleUser = () => {
         navigate('/user-profile', {
             state: {
-                post: post,
+                author: post.author,
                 token: token,
             },
         });
     };
-
-    const userId = localStorage.getItem("userId");
 
     const handleLikeClick = () => {
         setLikeCount(likeCount + (liked ? -1 : 1));
@@ -54,24 +59,20 @@ const PostItem = ({ post, addPost}) => {
         setCommentCount(prevCount => prevCount + delta);
     };
 
-    const handleEditClick = () => {
-        setIsEditing(true);
-    };
-
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
-      };
-    
-      const handleClose = () => {
+    };
+
+    const handleClose = () => {
         setAnchorEl(null);
-      };
+    };
 
     const handleUpdatePost = async () => {
         setAnchorEl(null);
         const formData = new FormData();
         formData.append("content", updatedContent);
-        if (updatedImage) {
-            formData.append("images", updatedImage);
+        if (image) {
+            formData.append("images", image);
         }
 
         try {
@@ -86,8 +87,8 @@ const PostItem = ({ post, addPost}) => {
 
             if (response.ok) {
                 const data = await response.json();
-                console.log("Post updated:", data);
-                setIsEditing(false);
+                setOpenDialog(false);
+                addPost(data);
             } else {
                 console.error("Failed to update post.");
             }
@@ -108,8 +109,7 @@ const PostItem = ({ post, addPost}) => {
             });
 
             if (response.ok) {
-                addPost()
-        
+                addPost();
             } else {
                 console.error("Failed to delete post.");
             }
@@ -118,25 +118,29 @@ const PostItem = ({ post, addPost}) => {
         }
     };
 
-    const isAuthor = post.authorId === userId;
+    const handleEdit = () => {
+        setUpdatedContent(post.content);
+        setImage(post.image);
+        setOpenDialog(true);  
+    };
 
     return (
         <div className='post'>
-        <div className='post-top'>
-            <div className='post-top-left' onClick={handleUser}>
-                <Avatar src={post?.author?.profileImage} className='post-avatar' />
-                <div className='post-top-info'>
-                    <h3>{post?.author?.name}</h3>
-                    <p>{formatDistanceToNow(new Date(post.createdAt), { addSuffix: true })}</p> 
+            <div className='post-top'>
+                <div className='post-top-left' onClick={handleUser}>
+                    <Avatar src={post?.author?.profileImage} className='post-avatar' />
+                    <div className='post-top-info'>
+                        <h3>{post?.author?.name}</h3>
+                        <p>{formatDistanceToNow(new Date(post.createdAt), { addSuffix: true })}</p>
+                    </div>
                 </div>
-            </div>
-            <div className='post-top-right'>
+                <div className='post-top-right'>
                     <IconButton onClick={handleClick} className='post-options-btn'>
                         <MoreHorizIcon fontSize="large" />
                     </IconButton>
                     <Menu
                         anchorEl={anchorEl}
-                        open={open}
+                        open={Boolean(anchorEl)}
                         onClose={handleClose}
                         anchorOrigin={{
                             vertical: 'bottom',
@@ -155,34 +159,69 @@ const PostItem = ({ post, addPost}) => {
                             },
                         }}
                     >
-                    <MenuItem onClick={handleUpdatePost} className='post-menu-item'>
-                        <EditIcon fontSize='medium' style={{ marginRight: 8 }} /> Edit
-                    </MenuItem>
-                    <MenuItem onClick={handleDeletePost} className='post-menu-item'>
-                        <DeleteIcon fontSize='medium' style={{ marginRight: 8 }} /> Delete
-                    </MenuItem>
-                </Menu>
-            </div>
-        </div>
+                        <MenuItem onClick={handleEdit} className='post-menu-item'>
+                            <EditIcon fontSize='medium' style={{ marginRight: 8 }} /> Edit
+                        </MenuItem>
+                        <MenuItem onClick={handleDeletePost} className='post-menu-item'>
+                            <DeleteIcon fontSize='medium' style={{ marginRight: 8 }} /> Delete
+                        </MenuItem>
+                    </Menu>
+                </div>
 
-            <div className="post-bottom">
-                {isEditing ? (
-                    <div>
-                        <textarea
+                <Dialog open={openDialog} onClose={handleCloseDialog} fullWidth maxWidth="sm">
+                    <DialogTitle>
+                        Update Post
+                        <IconButton
+                            onClick={handleCloseDialog}
+                            style={{ position: 'absolute', right: 8, top: 8 }}
+                        >
+                            <CloseIcon />
+                        </IconButton>
+                    </DialogTitle>
+                    <DialogContent>
+                        <div style={{ display: 'flex', alignItems: 'center', marginBottom: '16px' }}>
+                            <Avatar src={post?.author?.profileImage} />
+                            <Typography variant="h6" style={{ marginLeft: '8px' }}>
+                                {post?.author?.name}
+                            </Typography>
+                        </div>
+                        <TextField
+                            multiline
+                            rows={4}
+                            variant="outlined"
+                            fullWidth
                             value={updatedContent}
                             onChange={(e) => setUpdatedContent(e.target.value)}
+                            style={{ marginBottom: '16px' }}
                         />
-                        <input
-                            type="file"
-                            accept="image/*"
-                            onChange={(e) => setUpdatedImage(e.target.files[0])}
-                        />
-                        <button onClick={handleUpdatePost}>Update Post</button>
-                        <button onClick={() => setIsEditing(false)}>Cancel</button>
-                    </div>
-                ) : (
-                    <p>{post.content}</p>
-                )}
+                        <div style={{ display: 'flex', alignItems: 'center', marginBottom: '16px' }}>
+                            <input
+                                type="file"
+                                accept="image/*"
+                                id="imageInput"
+                                style={{ display: 'none' }}
+                                onChange={handleImageChange}
+                            />
+                            <label htmlFor="imageInput">
+                                <IconButton component="span">
+                                    <PhotoLibraryIcon fontSize="large" style={{ color: "green" }} />
+                                </IconButton>
+                            </label>
+                            <span>{image ? image.name : "No file chosen"}</span>
+                        </div>
+                        <Button
+                            onClick={handleUpdatePost}
+                            variant="contained"
+                            color="primary"
+                            fullWidth
+                        >
+                            Post
+                        </Button>
+                    </DialogContent>
+                </Dialog>
+            </div>
+            <div className="post-bottom">
+                <p>{post.content}</p>         
             </div>
             <div className='post-img'>
                 {post.images && post.images.length > 0 && (
@@ -220,18 +259,6 @@ const PostItem = ({ post, addPost}) => {
                     <ShareOutlinedIcon className='default-icon' />
                     <p className='default-text'>Share</p>
                 </div>
-                {isAuthor && (
-                    <>
-                        <div className='post-option' onClick={handleEditClick}>
-                            <EditIcon className='default-icon' />
-                            <p className='default-text'>Edit</p>
-                        </div>
-                        <div className='post-option' onClick={handleDeletePost}>
-                            <DeleteIcon className='default-icon' />
-                            <p className='default-text'>Delete</p>
-                        </div>
-                    </>
-                )}
             </div>
             <Dialog 
                         open={showComment} 
@@ -274,8 +301,9 @@ const PostItem = ({ post, addPost}) => {
                     </DialogContent>
             </Dialog>
 
+
         </div>
     );
 };
 
-export default PostItem
+export default PostItem;

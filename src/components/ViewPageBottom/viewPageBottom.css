@@ -268,3 +268,199 @@
     justify-content: center; /* Center content vertically and horizontally */
     margin-top: 20px; /* Space above the no posts message */
 }
+@media (max-width: 767px) {
+    /* Container for the entire profile section */
+    .page-profile-container-bottom {
+        background-color: white;
+        flex-direction: column; 
+        gap: 10px; 
+        margin-left: -10px;
+        margin-top: -20px;
+    }
+
+    
+    .page-profile-left {
+        width: 100%; 
+        position: relative; 
+        margin-right: 0;
+        margin-top: -10px;
+        padding: 0 10px;
+    }
+
+    .page-profile-intro {
+        width: 100%; 
+        padding: 0 10px;
+        margin-top: -40px;
+        margin-left: -20px; 
+    }
+
+    .page-profile-intro h2 {
+        font-size: 20px; /* Reduce font size for mobile */
+    }
+
+    .page-intro-item {
+        flex-direction: row; /* Stack items vertically */
+    }
+
+    .page-intro-icon {
+        margin-right: 10px; /* Remove right margin for mobile */
+        margin-bottom: 5px; /* Space below icon */
+    }
+
+    .page-intro-item p {
+        font-size: 15px; /* Reduce font size for mobile */
+    }
+
+    /* Photos and Friends Sections */
+    .page-user-photos,
+    .page-user-friends {
+        width: 100%; /* Full width on mobile */
+        padding: 5px 10px; 
+        justify-content: space-between;
+        margin-left: -20px;
+        margin-top: -15px;
+    }
+
+    .page-user-photos h2,
+    .page-user-friends h2 {
+        font-size: 20px; 
+    }
+
+    .page-user-photos p,
+    .page-user-friends p {
+        font-size: 15px;
+        margin-right: 50px;
+    }
+    
+    .page-post-header {
+        padding: 15px; /* Adjust padding for mobile */
+        margin-top: -10px; 
+        width: 100%;
+    }
+  
+    .page-post-header-top {
+        flex-direction: column; /* Stack items vertically */
+        align-items: flex-start; /* Align items to the start */
+        border-bottom: none; /* Remove border for a cleaner look on mobile */
+        padding-bottom: 0; /* Remove bottom padding */
+    }
+  
+    .page-post-header-top h2 {
+        font-size: 20px; /* Reduce font size for mobile */
+        margin-bottom: 10px; 
+        
+    }
+  
+    .page-post-header-top-btn {
+        display: none;
+    }
+  
+    .page-post-header-bottom {
+        display: none;
+    }
+  
+    .page-post-header-bottom p {
+        font-size: 16px; /* Reduce font size for mobile */
+        margin-bottom: 10px; /* Add space below each item */
+    }
+  
+    .page-post-header-bottom p svg {
+        margin-right: 5px; /* Adjust space between icon and text */
+        font-size: 16px; /* Adjust icon size for mobile */
+    }
+
+    .page-user-post {
+        margin-bottom: 15px; /* Add spacing between posts */
+        border-radius: 8px; /* Add rounded corners */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+        max-width: 100%;
+    }
+
+    .page-user-post-top {
+        display: flex;
+        flex-direction: column; 
+        align-items: flex-start; 
+    }
+
+    .page-user-post-top-left {
+        display: flex;
+        align-items: center;
+        width: 100%; /* Full width for top section */
+    }
+
+    .page-user-post-avatar {
+        width: 40px; /* Adjust avatar size for mobile */
+        height: 40px;
+        margin-right: 10px; /* Space between avatar and text */
+    }
+
+    .page-user-post-top-info {
+        flex: 1; /* Allow info section to take remaining space */
+    }
+
+    .page-user-post-top-info h3 {
+        font-size: 16px; /* Reduce font size for mobile */
+        margin: 0;
+    }
+
+    .page-user-post-top-info p {
+        font-size: 14px; /* Reduce font size for mobile */
+        color: #888; /* Lighter color for timestamp */
+        margin: 0;
+        margin-top: 5px;
+    }
+
+    .page-user-post-img {
+        margin-left: -20px;
+        margin-top: 10px; /* Space above the image/content */
+        box-sizing: border-box; /* Ensure padding is included in the element's total width */
+        overflow: hidden; /* Prevent content from overflowing */
+    }
+
+    .page-user-post-img p {
+        font-size: 15px; /* Adjust content font size for mobile */
+        margin-bottom: 10px; /* Space below content */
+        word-wrap: break-word; 
+        margin-left: 10px;
+    }
+
+    .page-user-post-img img {
+        width: 100%; /* Ensure the image fits within the container */
+        height: auto; /* Maintain the aspect ratio */
+        border-radius: 8px; /* Rounded corners for the image */
+        display: block; /* Ensure no extra space below the image */
+        margin: 0; /* Remove margin if it was causing issues */
+    }
+
+    .page-user-likes-comment-count {
+        display: flex;
+        flex-direction: row; /* Stack items horizontally */
+        flex-wrap: wrap; /* Allow wrapping on smaller screens */
+        justify-content: space-between ;
+    }
+
+    .page-user-count-item {
+        display: flex;
+        align-items: center;
+        flex: 1; /* Allow items to flex and wrap properly */
+    }
+
+    .page-user-post-options {
+        display: flex;
+        flex-direction: row; /* Stack options horizontally */
+        flex-wrap: wrap; /* Allow wrapping on smaller screens */
+        padding: 0;
+        margin-left: -20px;
+
+    }
+
+    .page-user-post-option {
+        display: flex;
+        align-items: center;
+        font-size: 14px; /* Adjust font size for mobile */
+    }
+
+    .page-user-post-option svg {
+        font-size: 18px; /* Adjust icon size for mobile */
+    }
+}

@@ -186,3 +186,70 @@
     color: white;
   }
   
+  @media (max-width: 480px) {
+
+    .page-main-container .navbar {
+        display: none;
+    }
+
+    .page-cover-photo {
+        height: 200px; 
+        margin-left: -10px;
+    }
+
+    .page-profile-info {
+        margin-top: -50px; /* Adjust margin */
+        padding: 0 10px; /* Add padding */
+    }
+
+    .page-profile-avatar {
+        width: 100px; /* Adjust width */
+        height: 100px; /* Adjust height */
+        border: 3px solid white; /* Adjust border size */
+    }
+
+    .page-profile-avatar .page-profile-photo {
+        width: 100%;
+        height: 100%;
+    }
+
+    .page-profile-info h1 {
+      font-size: 1.25rem;
+    }
+  
+    .story-friends-btn {
+      text-align: center;
+      flex-direction: row;
+      margin-top: 25px;
+    }
+  
+    .story-friends-btn button {
+      width: 35%;
+      padding: 5px;
+      margin-bottom: 10px;
+    }
+  
+    .story-friends-btn button:last-child {
+      margin-bottom: 0;
+    }
+
+    .page-profile-tabs-actions {
+        margin-bottom: -10px;
+        flex-direction: column;
+        margin-bottom: 0;
+    }
+
+    .page-profile-tabs {
+        flex-direction: row;
+        margin-bottom: 20px;
+    }
+
+    .page-profile-tabs button {
+        font-size: 0.75rem; /* Smaller font size for mobile */
+        padding: 5px;
+    }
+
+    .page-profile-actions {
+        display: none;
+    }
+  }

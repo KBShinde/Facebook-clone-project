@@ -1,5 +1,4 @@
 .page-user-info {
-
     padding: 16px; /* Padding around the content */
     max-width: 600px; /* Max width for the container */
     margin: 0 auto; /* Center the container */
@@ -31,12 +30,14 @@
   
   @media (max-width: 600px) {
     .page-user-info {
-      padding: 12px; /* Adjust padding for smaller screens */
+      padding: 12px; 
+      margin-top: -20px;
     }
   
     .page-user-info-item {
-      flex-direction: column; /* Stack items vertically on smaller screens */
-      align-items: flex-start; /* Align items to the start */
+      flex-direction: row; /* Stack items vertically on smaller screens */
+      align-items: flex-start;
+ 
     }
   
     .page-user-info-item svg {

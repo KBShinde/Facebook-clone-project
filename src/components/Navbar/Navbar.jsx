@@ -21,9 +21,6 @@ import UserMenu from "../UserMenu/UserMenu";
 import NavbarMenu from "../NavbarMenu.jsx/NavbarbarMenu";
 import { useNavigate } from "react-router-dom";
 
-
-
-
 const Navbar = ({ data = [] }) => {
   const [searchOpen, setSearchOpen] = useState(true);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -37,6 +34,17 @@ const Navbar = ({ data = [] }) => {
   const [activeIcon, setActiveIcon] = useState(null); 
   const navigate = useNavigate()
   const [activeOption, setActiveOption] = useState('home');
+  const token = localStorage.getItem('token');
+
+ const handleSearch = (result) => {
+  navigate('/user-profile', {
+    state: {
+        token: token,
+        author: result.author
+    },
+});
+}
+
 
   useEffect(() => {
     const handleResize = () => {
@@ -192,7 +200,9 @@ const handleHome = () => {
               {searchResults.length > 0 ? (
                 <div className="search-results">
                   {searchResults.map(result => (
-                    <div key={result._id} className="search-result">
+                    <div key={result._id}
+                    onClick={() => handleSearch(result)}
+                    className="search-result">
                       <Avatar
                         style={{
                           border: '2px solid #333',

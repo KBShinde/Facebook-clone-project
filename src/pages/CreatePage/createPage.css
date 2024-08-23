@@ -1,0 +1,126 @@
+.create-page-wrapper {
+    display: flex;
+    align-items: flex-start; /* Align items at the start of the container */
+    gap: 40px; /* Add 40px gap between the components */
+  }
+  
+  .create-page-container {
+    max-width: 350px; 
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: white;
+    flex: 1; /* Allow it to take up available space */
+  }
+  
+  
+  .icon-heading {
+    display: flex;
+    align-items: center; 
+    gap: 10px; 
+    margin-bottom: 20px; 
+    margin-top: 20px;
+  }
+  
+  .icon-heading h1 {
+    font-size: 24px;
+    color: #333;
+    font-family: 'Helvetica Neue', sans-serif; 
+    margin: 0; 
+  }
+  
+  .icon-heading .MuiSvgIcon-root { 
+    font-size: 28px; 
+    cursor: pointer; 
+    transition: color 0.3s ease, transform 0.2s ease; 
+  }
+  
+  .icon-heading .MuiSvgIcon-root:hover {
+    transform: translateX(-3px);
+  }
+  .create-page-container p {
+    margin-bottom: 20px;
+    font-size: 15px;
+    color: #858585;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 100;
+  }
+  
+  .create-page-form .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .create-page-form label {
+    display: block;
+    font-weight: 100;
+    font-family: sans-serif;
+    margin-bottom: 5px;
+    font-size: 12px;
+    margin-top: 10px;
+    color: #858585;
+  }
+  
+  .create-page-form input[type="text"],
+  .create-page-form input[type="file"],
+  .create-page-form textarea {
+    width: 92%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+  }
+  
+  .create-page-form textarea {
+    height: 80px;
+    resize: none;
+  }
+  
+  .create-page-button {
+    width: 95%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .create-page-button:hover {
+    background-color: #0056b3;
+  }
+
+  
+  .create-page-form input[type="file"] {
+    padding: 5px;
+    background-color: #f0f0f0;
+  }
+  .agreement-text {
+    font-size: 8px;
+    color: #8a8a8a;
+    margin-top: 20px;
+  }
+
+  .agreement-text a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .agreement-text a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+  }
+  
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .create-page-container {
+      max-width: 100%;
+      margin: 10px auto;
+      float: none; /* Center the container on smaller screens */
+    }
+    .create-page-right {
+      display: none;
+    }
+  }
+  

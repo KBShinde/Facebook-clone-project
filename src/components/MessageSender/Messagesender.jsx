@@ -14,7 +14,7 @@ const MessageSender = ({ addPost }) => {
 
     const token = localStorage.getItem("token");
     const userId = localStorage.getItem("userId");  
-    const userName = "Swapnil shinde";  
+    const userName = localStorage.getItem('user')  
 
     const handleImageChange = (e) => {
         setImage(e.target.files[0]);
@@ -50,7 +50,7 @@ const MessageSender = ({ addPost }) => {
 
             if (response.ok) {
                 const data = await response.json();
-                console.log("Post created:", data);
+
                 addPost(data); 
             } else {
                 console.error("Failed to create post.");

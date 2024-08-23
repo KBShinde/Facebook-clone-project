@@ -92,7 +92,7 @@ const UserProfileBottom = ({ user, userInfo}) => {
             <ThumbUpOutlinedIcon />
           </IconButton>
         </Tooltip>
-        <p>{p.likesCount} Likes</p>
+        <p>{p.likesCount} </p>
       </div>
       <div className="user-count-item">
         <Tooltip title="Comments">
@@ -100,7 +100,7 @@ const UserProfileBottom = ({ user, userInfo}) => {
             <CommentIcon />
           </IconButton>
         </Tooltip>
-        <p>{p.commentCount} Comments</p>
+        <p>{p.commentCount}</p>
       </div>
     </div>
     <div className="user-post-options">

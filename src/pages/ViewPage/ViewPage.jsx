@@ -123,7 +123,6 @@ const ViewPage = () => {
               <button>Friends</button>
               <button>Photos</button>
               <button>Videos</button>
-              <button>More</button>
             </div>
             <div className="page-profile-actions">
               <button className="page-btn-message"><MessangerIcon fontSize="large" /> Message</button>

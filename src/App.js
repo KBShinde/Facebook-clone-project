@@ -7,6 +7,7 @@ import PagesDetails from "./pages/PegesDetails/PagesDetails";
 import AboutUser from "./pages/AboutUser/AboutUser";
 import UserProfile from "./pages/UserProfile/UserProfile";
 import ViewPage from "./pages/ViewPage/ViewPage";
+import CreatePage from "./pages/CreatePage/CreatePage";
 
 
 
@@ -23,6 +24,7 @@ function App() {
             <Route path="/user-profile" element={<UserProfile/>} />
             <Route path="/pages" element={<PagesDetails/>} />
             <Route path="//pages/view-page" element={<ViewPage/>} />
+            <Route path="//pages/create-page" element={<CreatePage/>} />
         </Routes>
       </Router>
     </div>

@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   overflow-x: scroll;
-  margin: 0 auto; 
+  margin: 0; /* Remove auto to eliminate empty space */
   max-width: 640px; 
   padding: 10px 0;
 }
@@ -18,8 +18,9 @@
 
 @media (max-width: 768px) {
   .story-reel {
-      max-width: 100%;
-      padding: 10px;
-      margin: 0;
+    max-width: 100%;
+    padding: 10px; /* Maintain padding on all sides */
+    margin-top: -60px; 
+    margin-left: 0; /* Ensure no empty space on the left */
   }
 }

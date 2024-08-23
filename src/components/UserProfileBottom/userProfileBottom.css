@@ -94,7 +94,6 @@
     background-color: white;
     padding: 10px 15px;
     border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 10px;
     display: flex;
     justify-content: space-between;
@@ -118,7 +117,6 @@
     background-color: white;
     padding: 20px;
     border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 10px;
     width: 500px;
     height: auto;
@@ -202,7 +200,6 @@
     background-color: white;
     margin-top: 40px;
     border-radius: 8px; /* Rounded corners for the header */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for a floating effect */
   }
   
   .post-header-top {
@@ -271,127 +268,218 @@
   }
 
 
-@media (max-width: 768px) {
-    .profile-left, .profile-posts {
-        width: 100%;
-        position: static; 
+  /* Mobile Styles */
+@media (max-width: 767px) {
+    /* Container for the entire profile section */
+    .profile-container-bottom {
+         background-color: white;
+        flex-direction: column; 
+        gap: 10px; 
+        margin-left: -10px;
         margin-top: -20px;
     }
 
-    .user-post-avatar {
-        width: 35px;
-        height: 35px;
-        margin-right: 8px;
+    
+    .profile-left {
+        width: 100%; 
+        position: relative; 
+        margin-right: 0;
+        margin-top: -60px;
+        padding: 0 10px;
     }
 
-    .user-post-top-info h3 {
-        font-size: 14px;
+    /* Profile Locked Section */
+    .profile-locked {
+        flex-direction: row; /* Stack content vertically */
+        align-items: flex-start; /* Align items to start */
+        width: 100%; /* Full width on mobile */
     }
 
-    .user-post-top-info p {
-        font-size: 11px;
-    }
-
-    .user-post-img p {
-        margin: 10px 0;
-        font-size: 14px;
-    }
-
-    .user-likes-comment-count {
-        font-size: 13px;
-    }
-
-    .user-count-item p {
-        margin-left: 4px;
-        font-size: 13px;
-    }
-
-    .user-post-options {
-        padding-top: 8px;
-    }
-
-    .user-post-option {
-        padding: 4px 8px;
-    }
-
-    .user-post-option p {
-        font-size: 13px;
-    }
-}
-
-/* For smaller smartphones (480px and below) */
-@media (max-width: 480px) {
     .profile-locked img {
-        height: 40px;
+        height: 40px; /* Adjust image size for mobile */
         width: 40px;
-        margin-right: 10px;
+        margin-bottom: 10px; /* Space below image */
     }
 
     .profile-locked p {
-        font-size: 14px;
+        font-size: 15px; /* Reduce font size for mobile */
     }
 
     .profile-locked h4 {
-        font-size: 12px;
+        font-size: 12px; /* Reduce font size for mobile */
     }
 
-    .profile-intro h2, .user-photos h2, .user-friends h2 {
-        font-size: 20px;
+    /* Profile Intro Section */
+    .profile-intro {
+        width: 100%; 
+        padding: 10px;
+        margin-top: -50px; 
     }
 
-    .intro-item p, .user-count-item p {
+    .profile-intro h2 {
+        font-size: 20px; /* Reduce font size for mobile */
+    }
+
+    .intro-item {
+        flex-direction: row; /* Stack items vertically */
+    }
+
+    .intro-icon {
+        margin-right: 10px; /* Remove right margin for mobile */
+        margin-bottom: 5px; /* Space below icon */
+    }
+
+    .intro-item p {
+        font-size: 15px; /* Reduce font size for mobile */
+    }
+
+    /* Photos and Friends Sections */
+    .user-photos,
+    .user-friends {
+        width: 100%; /* Full width on mobile */
+        padding: 5px 10px; 
+        justify-content: space-between;
+        margin-top: -30px;
+    }
+
+    .user-photos h2,
+    .user-friends h2 {
+        font-size: 17px; 
+    }
+
+    .user-photos p,
+    .user-friends p {
         font-size: 14px;
+        margin-right: 50px;
+    }
+
+    .post-header {
+        padding: 15px; /* Adjust padding for mobile */
+        margin-top: -20px; /* Reduce margin for mobile */
+    }
+  
+    .post-header-top {
+        flex-direction: column; /* Stack items vertically */
+        align-items: flex-start; /* Align items to the start */
+        border-bottom: none; /* Remove border for a cleaner look on mobile */
+        padding-bottom: 0; /* Remove bottom padding */
+    }
+  
+    .post-header-top h2 {
+        font-size: 20px; /* Reduce font size for mobile */
+        margin-bottom: 10px; /* Add space below the heading */
+    }
+  
+    .post-header-top-btn {
+        display: none;
+    }
+  
+    .post-header-bottom {
+        display: none;
+    }
+  
+    .post-header-bottom p {
+        font-size: 16px; /* Reduce font size for mobile */
+        margin-bottom: 10px; /* Add space below each item */
+    }
+  
+    .post-header-bottom p svg {
+        margin-right: 5px; /* Adjust space between icon and text */
+        font-size: 16px; /* Adjust icon size for mobile */
     }
 
     .user-post {
-        padding: 8px;
-        margin-bottom: 10px;
+        border-radius: 8px; /* Add rounded corners */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+        width: 100%;
+        margin-top: -10px;
+    }
+
+    .user-post-top {
+        display: flex;
+        flex-direction: column; 
+        align-items: flex-start; 
+    }
+
+    .user-post-top-left {
+        display: flex;
+        align-items: center;
+        width: 100%; /* Full width for top section */
     }
 
     .user-post-avatar {
-        width: 30px;
-        height: 30px;
-        margin-right: 6px;
+        width: 40px; /* Adjust avatar size for mobile */
+        height: 40px;
+        margin-right: 10px; /* Space between avatar and text */
+    }
+
+    .user-post-top-info {
+        flex: 1; /* Allow info section to take remaining space */
     }
 
     .user-post-top-info h3 {
-        font-size: 13px;
+        font-size: 16px; /* Reduce font size for mobile */
+        margin: 0;
     }
 
     .user-post-top-info p {
-        font-size: 10px;
+        font-size: 14px; /* Reduce font size for mobile */
+        color: #888; /* Lighter color for timestamp */
+        margin: 0;
+        margin-top: 5px;
+    }
+
+    .user-post-img {
+        margin-left: -20px;
+        margin-top: 10px; /* Space above the image/content */
+        box-sizing: border-box; /* Ensure padding is included in the element's total width */
+        overflow: hidden; /* Prevent content from overflowing */
     }
 
     .user-post-img p {
-        margin: 8px 0;
-        font-size: 13px;
+        font-size: 15px; /* Adjust content font size for mobile */
+        margin-bottom: 10px; /* Space below content */
+        word-wrap: break-word; 
+        margin-left: 10px;
+    }
+
+    .user-post-img img {
+        width: 100%; /* Ensure the image fits within the container */
+        height: auto; /* Maintain the aspect ratio */
+        border-radius: 8px; /* Rounded corners for the image */
+        display: block; /* Ensure no extra space below the image */
+        margin: 0; /* Remove margin if it was causing issues */
     }
 
     .user-likes-comment-count {
-        font-size: 12px;
+        display: flex;
+        flex-direction: row; /* Stack items horizontally */
+        flex-wrap: wrap; /* Allow wrapping on smaller screens */
+        justify-content: space-between ;
     }
 
-    .user-count-item p {
-        margin-left: 3px;
-        font-size: 12px;
+    .user-count-item {
+        display: flex;
+        align-items: center;
+        flex: 1; /* Allow items to flex and wrap properly */
     }
 
     .user-post-options {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        padding-top: 6px;
+        display: flex;
+        flex-direction: row; /* Stack options horizontally */
+        flex-wrap: wrap; /* Allow wrapping on smaller screens */
+        padding: 0;
+        margin-left: -20px;
+
     }
 
     .user-post-option {
-        width: 100%;
-        justify-content: center;
-        padding: 6px;
-        font-size: 12px;
-        margin-bottom: 5px;
+        display: flex;
+        align-items: center;
+        font-size: 14px; /* Adjust font size for mobile */
     }
 
-    .user-post-option p {
-        font-size: 12px;
+    .user-post-option svg {
+        font-size: 18px; /* Adjust icon size for mobile */
     }
 }

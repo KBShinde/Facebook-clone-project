@@ -163,7 +163,7 @@
 .add-stroy-btn {
     text-align: right;
     margin-bottom: 20px;
-    margin-top: -30px;
+    margin-top: 20px;
 }
 
 .add-stroy-btn button {
@@ -185,124 +185,82 @@
 }
 
 .add-stroy-btn button:first-of-type {
-    background-color: #007bff;
-    color: white;
-}
-
-.add-stroy-btn button:last-of-type {
     color: #525252;
     background-color: #e4e6eb;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .main-container .navbar {
-        display: none;
-    }
-    /* .profile-container {
-        padding: 10px 15px;
-    } */
-
-    .cover-photo {
-        height: 200px;
-    }
-
-    .profile-avatar {
-        width: 80px;
-        height: 80px;
-        border: 3px solid white;
-    }
-
-    .profile-info h1 {
-        font-size: 20px;
-    }
-
-    .add-story-btn {
-        margin-top: -20px; 
-        display: flex;
-    }
-
-
-    .add-story-btn button svg {
-        font-size: 18px; /* Adjust icon size for smaller screens */
-    }
-
-    .profile-tabs-actions {
-        flex-direction: row;
-        align-items: flex-start;
-    
-    }
-
-    .profile-tabs {
-        margin-bottom: 10px;
-        width: 100%;
-        justify-content: space-around;
-    }
-
-    .profile-actions {
-        width: 100%;
-        justify-content: space-around;
-    }
-
-    .profile-actions .btn-follow,
-    .profile-actions .btn-message,
-    .profile-actions .btn-more {
-        padding: 8px 15px;
-        font-size: 14px;
-    }
-
-    .add-stroy-btn {
-        margin-top: 0;
-        text-align: center;
-    }
-
-    .add-stroy-btn button {
-        margin: 10px 0;
-        width: 100%;
-        padding: 8px 20px;
-        font-size: 14px;
-    }
-
-    .profile-locked {
-        width: 100%;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-
-    .profile-locked img {
-        margin-bottom: 10px;
-    }
+.add-stroy-btn button:last-of-type {
+    background-color: #007bff;
+    color: white;
 }
 
 @media (max-width: 480px) {
+
+    .main-container .navbar {
+        display: none;
+    }
+
     .cover-photo {
-        height: 150px;
+        height: 200px; 
+        margin-left: -10px;
+    }
+
+    .profile-info {
+        margin-top: -50px; /* Adjust margin */
+        padding: 0 10px; /* Add padding */
     }
 
     .profile-avatar {
-        width: 80px;
-        height: 80px;
-        border: 2px solid white;
+        width: 100px; /* Adjust width */
+        height: 100px; /* Adjust height */
+        border: 3px solid white; /* Adjust border size */
+    }
+
+    .profile-avatar .profile-photo {
+        width: 100%;
+        height: 100%;
     }
 
     .profile-info h1 {
-        font-size: 18px;
+      font-size: 1.25rem;
+    }
+  
+    .add-stroy-btn {
+      text-align: center;
+      flex-direction: row;
+    }
+  
+    .add-stroy-btn button {
+      width: 35%;
+      padding: 5px;
+      margin-bottom: 10px;
+    }
+  
+    .add-stroy-btn button:last-child {
+      margin-bottom: 0;
+    }
+
+    .profile-tabs-actions {
+        margin-bottom: -10px;
+        flex-direction: column;
+        margin-bottom: 0;
+    }
+
+    .profile-tabs {
+        flex-direction: row;
+        margin-bottom: 20px;
     }
 
     .profile-tabs button {
-        font-size: 12px;
+        font-size: 0.75rem; /* Smaller font size for mobile */
+        padding: 5px;
+
     }
 
-    .profile-actions .btn-follow,
-    .profile-actions .btn-message,
-    .profile-actions .btn-more {
-        padding: 6px 12px;
-        font-size: 12px;
+    .profile-actions {
+        display: none;
     }
 
-    .add-stroy-btn button {
-        padding: 6px 15px;
-        font-size: 12px;
-    }
-}
+
+
+  }
