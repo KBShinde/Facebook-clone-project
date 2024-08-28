@@ -13,6 +13,7 @@ import { useNavigate } from 'react-router-dom';
 import CommentIcon from '../Icons/CommentIcon';
 import PhotoLibraryIcon from '@mui/icons-material/PhotoLibrary';
 import ShareIcon from '../Icons/ShareIcon';
+import LikeIcon from '../Icons/LikeIcon';
 
 const PostItem = ({ post, addPost }) => {
     const [likeCount, setLikeCount] = useState(post.likeCount);
@@ -233,7 +234,14 @@ const PostItem = ({ post, addPost }) => {
                 <div className='count-item'>
                     <Tooltip title="Likes">
                         <IconButton onClick={handleLikeClick}>
-                            <ThumbUpOutlinedIcon color={"primary"} />
+                        <LikeIcon
+                            style={{
+                                color: "white",
+                                backgroundColor: "#007bff",
+                                borderRadius: "50%", // Makes the border circular
+                                padding: "3px" // Optional, to give some space around the icon
+                            }}
+                            />
                         </IconButton>
                     </Tooltip>
                     <p>{likeCount}</p>
