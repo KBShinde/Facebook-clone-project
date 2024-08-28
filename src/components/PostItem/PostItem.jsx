@@ -12,6 +12,7 @@ import Comments from '../CommentSection/Comments';
 import { useNavigate } from 'react-router-dom';
 import CommentIcon from '../Icons/CommentIcon';
 import PhotoLibraryIcon from '@mui/icons-material/PhotoLibrary';
+import ShareIcon from '../Icons/ShareIcon';
 
 const PostItem = ({ post, addPost }) => {
     const [likeCount, setLikeCount] = useState(post.likeCount);
@@ -235,15 +236,16 @@ const PostItem = ({ post, addPost }) => {
                             <ThumbUpOutlinedIcon color={"primary"} />
                         </IconButton>
                     </Tooltip>
-                    <p>{likeCount} Likes</p>
+                    <p>{likeCount}</p>
                 </div>
                 <div className='count-item'>
+                 <p>{commentCount}</p>
                     <Tooltip title="Comments">
                         <IconButton onClick={handleShowComment}>
-                            <CommentIcon style={{ color: '#2e81f4' }} />
+                            <CommentIcon style={{ color: ' #606770' }} />
                         </IconButton>
                     </Tooltip>
-                    <p>{commentCount} Comments</p>
+                    
                 </div>
             </div>
             <div className='post-options'>
@@ -256,23 +258,23 @@ const PostItem = ({ post, addPost }) => {
                     <p className='default-text'>Comment</p>
                 </div>
                 <div className='post-option'>
-                    <ShareOutlinedIcon className='default-icon' />
+                    <ShareIcon className='default-icon' />
                     <p className='default-text'>Share</p>
                 </div>
             </div>
             <Dialog 
-                        open={showComment} 
-                        onClose={handleCloseComment} 
-                        fullWidth
-                        maxWidth={false}  // Disable default maxWidth to allow custom sizing
-                        sx={{
-                            '& .MuiDialog-paper': {
-                                width: '50%',  // Adjust the percentage as needed
-                                maxWidth: 'none',  // Ensure no maximum width limitation
-                                borderRadius: '20px',  // Optional: add some border radius for aesthetics
-                                padding: '10px',  // Optional: add padding for better spacing
-                            }
-                        }}
+                 open={showComment} 
+                 onClose={handleCloseComment} 
+                 fullWidth
+                 maxWidth={false}  
+                 sx={{
+                    '& .MuiDialog-paper': {
+                     width: '50%', 
+                     maxWidth: 'none', 
+                     borderRadius: '15px',  
+                     padding: '10px',
+                        }
+                    }}
                     >
                     <DialogTitle>
                         Comments

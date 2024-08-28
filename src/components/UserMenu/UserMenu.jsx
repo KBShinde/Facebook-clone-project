@@ -43,7 +43,7 @@ const UserMenu = () => {
     <div className="user-menu-container">
       <div className="user-menu-header">
         <div className="user-info">
-          <AccountCircleIcon className="menu-icon-profile" />
+          <AccountCircleIcon fontSize='large' className="menu-icon-profile" />
           <h3>Kunal Shinde</h3>
         </div>
         <p>See all profiles</p>

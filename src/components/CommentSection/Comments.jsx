@@ -89,7 +89,7 @@ const Comments = ({ postId, updateCommentCount }) => {
                 setNewComment(""); 
                 setIsTyping(false); 
                 setComments(prevComments => [data.data, ...prevComments]); 
-                updateCommentCount(1);  // Increase comment count by 1
+                updateCommentCount(1);  
             } else {
                 setError(data.message || 'Failed to post comment.');
             }
@@ -117,9 +117,9 @@ const Comments = ({ postId, updateCommentCount }) => {
 
         if (!window.confirm('Are you sure you want to delete this comment?')) return;
         
-        // Optimistically update the UI
+        
         setComments(prevComments => prevComments.filter(comment => comment._id !== selectedComment._id));
-        updateCommentCount(-1);  // Decrease comment count by 1
+        updateCommentCount(-1); 
 
         try {
             const response = await fetch(`https://academics.newtonschool.co/api/v1/facebook/comment/${selectedComment._id}`, {

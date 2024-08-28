@@ -57,7 +57,7 @@ const Login = () => {
             });
 
             if (response.ok) {
-                // localStorage.setItem('user', JSON.stringify(userData.name))
+                localStorage.setItem('user', JSON.stringify(userData))
                 const resultRes = await response.json();
                 localStorage.setItem('token', resultRes.token)
                 navigate('/home');

@@ -4,9 +4,9 @@
     background-color: white;
     border-radius: 15px;
     width: 100%;
-    max-width: 100%;
-    margin: 20px auto;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+    max-width: 600px;
+    margin: 5px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }
 
 .message-sender-top {
@@ -57,7 +57,7 @@
 .message-sender-bottom {
     display: flex;
     justify-content: space-evenly;
-    padding: 5px 0;
+    /* padding: 5px 0; */
 }
 
 .message-sender-option {
@@ -71,7 +71,8 @@
 }
 
 .message-sender-option h3 {
-    font-size: medium;
+    font-size: 15px;
+    color: grey;
     margin-left: 10px;
 }
 
@@ -120,8 +121,6 @@
 .dialog-file-input label {
     margin-right: 8px;
 }
-
-/* Improved Responsive Styles */
 @media (max-width: 768px) {
     .message-sender {
         width: 95%;

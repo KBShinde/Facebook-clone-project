@@ -85,17 +85,17 @@ const MessageSender = ({ addPost }) => {
 
                 <div className="message-sender-bottom">
                 <div className="message-sender-option">
-                    <VideocamIcon fontSize="large" style={{ color: "red" }} />
+                    <VideocamIcon style={{ color: "red", fontSize: "30px" }} />
                     <h3>Live Video</h3>
                 </div>
                 <div className="message-sender-option" onClick={handleInputClick}>
                     <label htmlFor="imageInput" className="message-sender-option">
-                        <PhotoLibraryIcon fontSize="large" style={{ color: "green" }} />
+                        <PhotoLibraryIcon  style={{ color: "green", fontSize: "28px" }} />
                         <h3>Photo/Video</h3>
                     </label>
                 </div>
                 <div className="message-sender-option">
-                    <SentimentSatisfiedIcon fontSize="large" style={{ color: "#f8b600" }} />
+                    <SentimentSatisfiedIcon style={{ color: "#f8b600", fontSize: "30px" }} />
                     <h3>Feeling/Activity</h3>
                 </div>
             </div>
