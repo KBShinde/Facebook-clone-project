@@ -6,6 +6,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import SendIcon from '@mui/icons-material/Send';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import './comments.css'; 
 import { ThemeContext } from '../../App';
 
@@ -18,9 +19,8 @@ const Comments = ({ postId, updateCommentCount }) => {
     const [anchorEl, setAnchorEl] = useState(null);
     const [selectedComment, setSelectedComment] = useState(null);
     const {darkTheme} = useContext(ThemeContext)
-
     const token = localStorage.getItem("token");
-    const userId = localStorage.getItem("userId");  
+    const user = JSON.parse(localStorage.getItem('user'));  
 
     useEffect(() => {
         const fetchComments = async () => {
@@ -176,7 +176,7 @@ const Comments = ({ postId, updateCommentCount }) => {
                         <Avatar src={comment.author_details?.profileImage || '/default-avatar.png'} className="comment-avatar" />
                         <div className="comment-content-wrapper">
                             <div className="comment-header">
-                                <h4 className="comment-author">{comment.author_details?.name || 'Unknown Author'}</h4>
+                                <h4 className="comment-author">{comment.author_details?.name || user.name}</h4>
                                 <IconButton className="more-icon" onClick={(e) => handleMenuOpen(e, comment)}>
                                     <MoreVertIcon />
                                 </IconButton>
@@ -192,23 +192,24 @@ const Comments = ({ postId, updateCommentCount }) => {
                 onClose={handleMenuClose}
                 sx={{
                     '& .MuiPaper-root': {
-                        backgroundColor: darkTheme ? '#2c2c2c' : '#ffffff', // Dark mode background
-                        color: darkTheme ? '#e0e0e0' : '#000000', // Dark mode text color
+                        backgroundColor: darkTheme ? '#2c2c2c' : '#ffffff', 
+                        color: darkTheme ? '#e0e0e0' : '#000000', 
                     }
                 }}
             >
                 <MenuItem
                     onClick={handleCommentDelete}
                     sx={{
-                        color: darkTheme ? '#e0e0e0' : '#000000', // Dark mode text color
+                        color: darkTheme ? '#e0e0e0' : '#000000',
                         '&:hover': {
-                            backgroundColor: darkTheme ? '#444' : '#f5f5f5' // Dark mode hover effect
-                        }
+                            backgroundColor: darkTheme ? '#444' : '#f5f5f5',
+                        },
                     }}
                 >
-                    <DeleteIcon style={{ marginRight: 8, color: darkTheme ? '#e0e0e0' : '#000000' }} />
-                    Delete
+                    <VisibilityOffIcon style={{ marginRight: 8, color: darkTheme ? '#e0e0e0' : '#000000' }} />
+                    Hide
                 </MenuItem>
+    
             </Menu>
 
         </div>

@@ -14,6 +14,7 @@ import CommentIcon from '../Icons/CommentIcon';
 import PhotoLibraryIcon from '@mui/icons-material/PhotoLibrary';
 import ShareIcon from '../Icons/ShareIcon';
 import LikeIcon from '../Icons/LikeIcon';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import { useContext } from 'react';
 import { ThemeContext } from '../../App';
 
@@ -28,7 +29,12 @@ const PostItem = ({ post, addPost }) => {
     const [anchorEl, setAnchorEl] = useState(null);
     const [openDialog, setOpenDialog] = useState(false);
     const token = localStorage.getItem('token');
-    const {darkTheme} = useContext(ThemeContext)
+    const user = JSON.parse(localStorage.getItem('user')); 
+    console.log("user:", user); 
+    const { darkTheme } = useContext(ThemeContext);
+    const isUserOwner = user && user._id === post.author._id;
+    
+    
 
     const handleImageChange = (e) => {
         setImage(e.target.files[0]);
@@ -144,33 +150,42 @@ const PostItem = ({ post, addPost }) => {
                     <MoreHorizIcon fontSize="large" />
                 </IconButton>
                 <Menu
-                    anchorEl={anchorEl}
-                    open={Boolean(anchorEl)}
-                    onClose={handleClose}
-                    anchorOrigin={{
+                anchorEl={anchorEl}
+                open={Boolean(anchorEl)}
+                onClose={handleClose}
+                anchorOrigin={{
                     vertical: 'bottom',
                     horizontal: 'right',
-                    }}
-                    transformOrigin={{
+                }}
+                transformOrigin={{
                     vertical: 'top',
                     horizontal: 'right',
-                    }}
-                    PaperProps={{
+                }}
+                PaperProps={{
                     style: {
                         backgroundColor: darkTheme ? '#444' : '#fff',
                         boxShadow: '0px 0px 15px rgba(0, 0, 0, 0.1)',
                         borderRadius: '10px',
                         padding: '8px 0',
                     },
-                    }}
-                >
-                    <MenuItem onClick={handleEdit} className={`post-menu-item ${darkTheme ? 'dark' : ''}`}>
-                    <EditIcon fontSize='medium' style={{ marginRight: 8 }} /> Edit
-                    </MenuItem>
+                }}
+            >
+                {isUserOwner ? (
+                    <>
+                        <MenuItem onClick={handleEdit} className={`post-menu-item ${darkTheme ? 'dark' : ''}`}>
+                            <EditIcon fontSize='medium' style={{ marginRight: 8 }} /> Edit
+                        </MenuItem>
+                        <MenuItem onClick={handleDeletePost} className={`post-menu-item ${darkTheme ? 'dark' : ''}`}>
+                            <DeleteIcon fontSize='medium' style={{ marginRight: 8 }} /> Delete
+                        </MenuItem>
+                    </>
+                ) : (
+                   
                     <MenuItem onClick={handleDeletePost} className={`post-menu-item ${darkTheme ? 'dark' : ''}`}>
-                    <DeleteIcon fontSize='medium' style={{ marginRight: 8 }} /> Delete
+                        <VisibilityOffIcon fontSize='medium' style={{ marginRight: 8 }} /> Hide
                     </MenuItem>
-                </Menu>
+                )}
+            </Menu>
                 </div>
             <Dialog
                 open={openDialog}

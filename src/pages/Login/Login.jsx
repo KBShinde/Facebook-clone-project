@@ -35,17 +35,17 @@ const Login = () => {
     const handleLogin = async (e) => {
         e.preventDefault();
         setError('');
-
+    
         if (!validateForm()) {
             return;
         }
-
+    
         const userData = {
             email: email,
             password: password,
             appType: 'facebook',
         };
-
+    
         try {
             const response = await fetch('https://academics.newtonschool.co/api/v1/user/login', {
                 method: 'POST',
@@ -55,11 +55,11 @@ const Login = () => {
                 },
                 body: JSON.stringify(userData),
             });
-
+    
             if (response.ok) {
-                localStorage.setItem('user', JSON.stringify(userData))
                 const resultRes = await response.json();
-                localStorage.setItem('token', resultRes.token)
+                localStorage.setItem('user', JSON.stringify(resultRes.data.user));
+                localStorage.setItem('token', resultRes.token);
                 navigate('/home');
             } else {
                 const result = await response.json();
@@ -70,6 +70,7 @@ const Login = () => {
             setError("An error occurred. Please try again.");
         }
     };
+    
 
     return (
         <div className='login'>

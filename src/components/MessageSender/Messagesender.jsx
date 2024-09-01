@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Avatar, IconButton, Dialog, DialogContent, DialogTitle, Button, TextField, Typography } from '@mui/material';
 import VideocamIcon from '@mui/icons-material/Videocam';
 import PhotoLibraryIcon from '@mui/icons-material/PhotoLibrary';
@@ -15,8 +15,13 @@ const MessageSender = ({ addPost }) => {
     const {darkTheme} = useContext(ThemeContext)
 
     const token = localStorage.getItem("token");
-    const userId = localStorage.getItem("userId");  
-    const userName = localStorage.getItem('user')  
+    const [name, setName] = useState('');
+    useEffect(() => {
+      const user = JSON.parse(localStorage.getItem('user'));
+      if (user && user.name) {
+          setName(user.name);
+      }
+  }, []);
 
     const handleImageChange = (e) => {
         setImage(e.target.files[0]);
@@ -75,7 +80,8 @@ const MessageSender = ({ addPost }) => {
               <input
                 type="text"
                 className={`message-sender-input ${darkTheme ? 'dark' : ''}`}
-                placeholder="What's on your mind?"
+                placeholder={`What's on your mind ${name}?`}
+
                 value={input}
                 onClick={handleInputClick}
                 readOnly
@@ -119,10 +125,12 @@ const MessageSender = ({ addPost }) => {
                 </IconButton>
             </DialogTitle>
             <DialogContent className={`dialog-content ${darkTheme ? 'dark' : ''}`}>
-                <div className={`dialog-avatar-container ${darkTheme ? 'dark' : ''}`}>
+                <div className={`dialog-avatar-container ${darkTheme ? 'dark' : ''}`}
+                style={{display: 'flex', marginBottom: '10px'}}>
                 <Avatar />
-                <Typography variant="h6" className={darkTheme ? 'dark-text' : ''}>
-                    {userName}
+                <Typography variant="h6" className={darkTheme ? 'dark-text' : ''}
+                style={{marginLeft: '10px'}}>
+                    {name}
                 </Typography>
                 </div>
                 <TextField
@@ -130,7 +138,7 @@ const MessageSender = ({ addPost }) => {
                 rows={4}
                 variant="outlined"
                 fullWidth
-                placeholder={`What's on your mind, ${userName}?`}
+                placeholder={`What's on your mind ${name}?`}
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 className={`dialog-textfield ${darkTheme ? 'dark' : ''}`}

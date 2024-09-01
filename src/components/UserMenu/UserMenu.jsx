@@ -1,5 +1,5 @@
 
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './userMenu.css';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import SettingsIcon from '@mui/icons-material/Settings';
@@ -13,6 +13,13 @@ import { ThemeContext } from '../../App';
 
 const UserMenu = () => {
   const navigate = useNavigate();
+  const [name, setName] = useState('');
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem('user'));
+    if (user && user.name) {
+        setName(user.name);
+    }
+}, []);
   const { darkTheme, toggleTheme } = useContext(ThemeContext);
 
   const handleLogout = () => {
@@ -25,7 +32,7 @@ const UserMenu = () => {
       <div className="user-menu-header">
         <div className="user-info">
           <AccountCircleIcon fontSize="large" className="menu-icon-profile" />
-          <h3>Kunal Shinde</h3>
+          <h3>{name}</h3>
         </div>
         <p>See all profiles</p>
       </div>

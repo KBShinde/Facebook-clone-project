@@ -4,12 +4,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center; /* Center content vertically */
 }
 
 .fb-img {
     height: 85px;
-    margin-top: 35px;
+    margin-bottom: 20px; /* Adjust spacing between logo and container */
 }
+
 
 .login-container {
     display: flex;
@@ -17,40 +19,41 @@
     border: 1px solid #dddfe2;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,.1), 0 8px 16px rgba(0,0,0,.1);
-    height: 380px;
-    width: 396px;
+    width: 100%;
+    max-width: 400px; /* Adjusted width for better responsiveness */
     background-color: #fff;
+    padding: 20px; /* Added padding for better spacing */
     text-align: center;
 }
 
 .login-container h3 {
     font-weight: 700;
-    margin-top: 24px;
     margin-bottom: 20px;
     font-family: Helvetica, Arial, sans-serif;
+    color: #333;
 }
 
 .login-container > form > center > input {
+    position: relative; /* Ensure positioning context for password-eye */
     height: 50px;
     margin-bottom: 15px;
     background-color: white;
-    width: 303px;
-    border: 0.5px solid gray;
+    width: 100%; /* Use full width of the container */
+    max-width: 303px; /* Limit max-width for input */
+    border: 1px solid #dddfe2;
     border-radius: 5px;
     outline: none;
-    padding-left: 20px;
+    padding-left: 40px; /* Increased padding for eye icon space */
     background: #FFFFFF;
-    border: 1px solid #dddfe2;
     color: #1d2129;
     line-height: 16px;
     font-size: 17px;
     vertical-align: middle;
 }
 
-.login-container > form > center > input ::-webkit-input-placeholder {
+.login-container > form > center > input::-webkit-input-placeholder {
     font-size: 17px;
-    color: rbg(128,128,128);
-    padding: 0;
+    color: rgba(128, 128, 128, 0.7); /* Adjusted color for readability */
 }
 
 .login-btn {
@@ -70,8 +73,10 @@
     font-size: 20px;
     line-height: 48px;
     padding: 0 16px;
-    width: 332px;
+    width: 100%; /* Full width of the container */
+    max-width: 332px; /* Limit max-width for button */
     color: #fff;
+    transition: background-color 0.3s, box-shadow 0.3s; /* Smooth transition for hover */
 }
 
 .login-btn:hover {
@@ -84,6 +89,8 @@
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 500;
     cursor: pointer;
+    margin: 10px 0; /* Margin for spacing */
+    transition: color 0.3s, text-decoration 0.3s; /* Smooth transition for hover */
 }
 
 .forget-pass:hover {
@@ -108,14 +115,17 @@
     font-size: 17px;
     line-height: 48px;
     padding: 0 16px;
-    width: 210px;
+    width: 100%; /* Full width of the container */
+    max-width: 210px; /* Limit max-width for button */
     color: #fff;
+    transition: background-color 0.3s, box-shadow 0.3s; /* Smooth transition for hover */
 }
 
 .signup-btn:hover {
     background-color: #36a420;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
 }
+
 @media (max-width: 600px) {
     .login-container {
         padding: 10px;
