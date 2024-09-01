@@ -55,6 +55,22 @@
     color: #333;
 
   }
+  /* Dark theme styles */
+.dark .create-page-right-container {
+  background-color: #242526; /* Darker background */
+  color: #e4e6eb; /* Lighter text color */
+  border: 1px solid #4a4b4d;
+}
+
+.dark .create-page-cover-photo-img {
+  border-color: #3a3b3c; /* Adjust border color for dark theme */
+  background-color: #333;
+}
+
+.dark .create-page-name {
+  color: #e4e6eb; /* Ensure the text is readable in dark theme */
+}
+
 
   @media (max-width: 768px) {
     .create-page-right-container {

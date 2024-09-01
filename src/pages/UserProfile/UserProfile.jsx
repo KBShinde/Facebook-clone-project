@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import './userProfile.css'; // Assuming you'll add a CSS file for styling
 import { Avatar } from '@mui/material';
@@ -11,6 +11,7 @@ import MessangerIcon from '../../components/Icons/MessangerIcon';
 import FollowIcon from '../../components/Icons/FollowIcon';
 import GroupAddSharpIcon from '@mui/icons-material/GroupAddSharp';
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
+import { ThemeContext } from '../../App';
 
 const UserProfile = () => {
     const { userId } = useParams();
@@ -23,6 +24,7 @@ const UserProfile = () => {
     const navigate = useNavigate();
     const [showAbout, setShowAbout] = useState(false); 
     const [activeTab, setActiveTab] = useState('posts');
+    const {darkTheme} = useContext(ThemeContext)
 
     const handleAboutClick = () => {
       setShowAbout(true); 
@@ -129,7 +131,7 @@ const UserProfile = () => {
 
     return (
         <>
-        <div className='main-container'>
+        <div className={`main-container ${darkTheme ? 'dark' : ''}`}>
             <Navbar/>
         <div className="profile-container">
                     <div className="cover-photo">

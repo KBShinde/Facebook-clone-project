@@ -185,6 +185,38 @@
     background-color: #007bff;
     color: white;
   }
+  /* Dark theme styles */
+.dark .page-main-container {
+    background-color: #242526; /* Dark background for the main container */
+    color: #e4e6eb; /* Light text color */
+  }
+  
+  .dark .page-profile-container {
+    background-color: #242526; /* Dark background for profile container */
+  }
+  
+  .dark .page-cover-photo img {
+    border-bottom: 2px solid #3a3b3c; /* Dark border for the cover photo */
+  }
+  
+  .dark .page-profile-info h1 {
+    color: #e4e6eb; /* Light text color for the name */
+  }
+  
+  .dark .story-friends-btn button:first-of-type {
+    background-color: #3a3b3c; /* Dark button background */
+    color: #e4e6eb; /* Light text color for buttons */
+    border: none;
+  }
+  
+  .dark .page-profile-tabs button {
+    color: #e4e6eb; /* Light text color for tabs */
+  }
+  
+  .dark .page-profile-actions button {
+    background-color: #3a3b3c; /* Dark button background */
+    color: #e4e6eb; /* Light text color */
+  }
   
   @media (max-width: 480px) {
 

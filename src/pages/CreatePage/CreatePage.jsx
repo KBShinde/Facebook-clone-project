@@ -4,6 +4,8 @@ import Navbar from "../../components/Navbar/Navbar";
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import { useNavigate } from "react-router-dom";
 import CreatePageRight from "../../components/CreatePageRight/CreatePageRight";
+import { useContext } from "react";
+import { ThemeContext } from "../../App";
 
 const CreatePage = () => {
     const navigate = useNavigate();
@@ -14,6 +16,7 @@ const CreatePage = () => {
     const [file, setFile] = useState(null);
     const token = localStorage.getItem('token')
     console.log("token :", token)
+    const {darkTheme} = useContext(ThemeContext)
 
     const handleBackClick = () => {
         navigate(-1);
@@ -57,7 +60,8 @@ const CreatePage = () => {
     };
 
     return (
-        <>
+        <div className={darkTheme ? 'dark' : ''}>
+
             <Navbar />
             <div className="create-page-wrapper">
                 <div className="create-page-container">
@@ -128,7 +132,7 @@ const CreatePage = () => {
                 pageName={pageName} 
                  className="create-page-right" />
             </div>
-        </>
+        </div>
     );
 };
 

@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './rightSidebar.css';
+import { ThemeContext } from '../../App';
 
 const ads = [
   {
@@ -30,14 +31,15 @@ const ads = [
 ];
 
 const RightSidebar = () => {
+  const {darkTheme} = useContext(ThemeContext);
   return (
-    <div className="right-sidebar">
+    <div className={`right-sidebar ${darkTheme ? 'dark' : ''}`}>
       {ads.map((ad, index) => (
-        <a key={index} href={ad.url} target="_blank" rel="noopener noreferrer" className="ad-container">
+        <a key={index} href={ad.url} target="_blank" rel="noopener noreferrer" className={`ad-container ${darkTheme ? 'dark' : ''}`}>
           <img src={ad.img} alt={ad.title} className="ad-image" />
           <div className="ad-text">
-            <h4>{ad.title}</h4>
-            <p>{ad.description}</p>
+            <h4 className={`ad-title ${darkTheme ? 'dark' : ''}`}>{ad.title}</h4>
+            <p className={`ad-description ${darkTheme ? 'dark' : ''}`}>{ad.description}</p>
           </div>
         </a>
       ))}

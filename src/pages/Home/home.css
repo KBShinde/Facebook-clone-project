@@ -5,6 +5,10 @@
     flex-direction: column;
 }
 
+.home.dark-theme {
+    background-color: #222;
+}
+
 .home-body {
     display: flex;
     justify-content: space-evenly;

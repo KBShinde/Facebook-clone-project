@@ -9,6 +9,8 @@ import { useLocation } from "react-router-dom";
 import PageAbout from "../../components/PageAbout/PageAbout";
 import FollowIcon from "../../components/Icons/FollowIcon";
 import MessangerIcon from "../../components/Icons/MessangerIcon";
+import { useContext } from "react";
+import { ThemeContext } from "../../App";
 
 const ViewPage = () => {
   const [user, setUser] = useState({});
@@ -19,6 +21,7 @@ const ViewPage = () => {
   const [activeTab, setActiveTab] = useState('posts');
   const location = useLocation();
   const { pageId, token } = location.state;
+  const {darkTheme} = useContext(ThemeContext)
 
   const handleAboutClick = () => {
     setShowAbout(true);
@@ -88,7 +91,7 @@ const ViewPage = () => {
   if (error) return <p>{error}</p>;
 
   return (
-    <>
+    <div className={`page-main-container ${darkTheme ? 'dark' : ''}`}>
       <div className='page-main-container'>
         <Navbar />
         <div className="page-profile-container">
@@ -138,7 +141,7 @@ const ViewPage = () => {
           )}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

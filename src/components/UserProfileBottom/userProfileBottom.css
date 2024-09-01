@@ -267,6 +267,106 @@
     color: #0056b3; 
   }
 
+/* Dark Theme */
+.dark.profile-container-bottom {
+    background-color: #242526;
+}
+.dark .profile-locked {
+    background-color: #333;
+    color: #e0e0e0;
+}
+
+.dark .profile-locked h4 {
+    color: #4f9dff;
+}
+.dark .profile-locked p {
+    color: rgb(231, 230, 230);
+}
+.dark .profile-intro {
+    background-color: #333;
+    color: #e0e0e0;
+}
+.dark .profile-intro h2 {
+    color: white;
+}
+.dark .intro-icon {
+    color: #b0b0b0;
+}
+
+.dark .intro-item p {
+    color: #e0e0e0;
+}
+
+.dark .user-photos,
+.dark .user-friends {
+    background-color: #333;
+    color: #e0e0e0;
+}
+.dark .user-photos h2,
+.dark .user-friends h2 {
+    color: white;
+}
+.dark .user-photos p,
+.dark .user-friends p {
+    color: #0374ff;
+}
+
+.dark .user-post {
+    background-color: #333;
+    color: #e0e0e0;
+}
+
+.dark .user-post-top-info h3 {
+    color: #e0e0e0;
+}
+
+.dark .user-post-top-info p {
+    color: #b0b0b0;
+}
+
+.dark .user-post-img p {
+    color: #cacaca;
+}
+.dark .user-likes-comment-count {
+    color: #e0e0e0; /* Light text color for dark theme */
+}
+
+.dark .user-count-item p {
+    color: #e0e0e0; /* Light text color for dark theme */
+}
+
+.dark .user-count-item svg {
+    color: #b0b0b0; /* Light icon color for dark theme */
+}
+.dark .user-post-options {
+    border-top: 1px solid #7e7e7e;
+}
+
+.dark .user-post-option {
+    color: #bdbdbd;
+}
+
+.dark .post-header {
+    background-color: #333;
+    color: #e0e0e0;
+}
+
+.dark .post-header-top h2 {
+    color: #e0e0e0;
+}
+
+.dark .post-header-top-btn button {
+    background-color: #424242;
+    color: #e0e0e0;
+}
+
+.dark .post-header-bottom p {
+    color: #4f9dff;
+}
+
+.dark .post-header-bottom p:hover {
+    color: #b0b0b0;
+}
 
   /* Mobile Styles */
 @media (max-width: 767px) {

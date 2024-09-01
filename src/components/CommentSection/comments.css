@@ -115,6 +115,57 @@
     padding: 0;
     color: #555; /* Darker color for better contrast */
 }
+/* Dark Theme for Comments Container */
+.comments-container.dark {
+    background-color: #2c2c2c; /* Dark background for container */
+    color: #e0e0e0; /* Light text color */
+}
+
+/* Dark Theme for Comment Item */
+.comments-container.dark .comment-item {
+    background-color: #2c2c2c; /* Darker background for comments */
+    border-bottom: 1px solid #444; /* Darker border color */
+}
+
+.comments-container.dark .comment-item:hover {
+    background-color: #3a3a3a; /* Darker hover background */
+}
+
+/* Dark Theme for Comment Content */
+.comments-container.dark .comment-content {
+    color: #e0e0e0; /* Light color for comment text */
+}
+
+/* Dark Theme for Comment Header */
+.comments-container.dark .comment-author {
+    color: #e0e0e0; /* Light color for author name */
+}
+
+/* Dark Theme for Comment Form */
+.comments-container.dark .comment-form textarea {
+    background-color: #333; /* Dark background for textarea */
+    border: 1px solid #444; /* Darker border for textarea */
+    color: #e0e0e0; /* Light text color */
+}
+
+/* Dark Theme for Send Icon */
+.comments-container.dark .send-icon {
+    color: #e0e0e0; /* Light color for send icon */
+}
+
+.comments-container.dark .send-icon:hover {
+    color: #2e81f4; /* Highlight color on hover */
+}
+
+/* Dark Theme for More Icon */
+.comments-container.dark .more-icon {
+    color: #e0e0e0; /* Light color for more icon */
+}
+
+/* Dark Theme for Empty Comments */
+.comments-container.dark .comments-empty {
+    color: #888; /* Light color for empty comments text */
+}
 
 @media only screen and (max-width: 768px) {
     .comments-container {

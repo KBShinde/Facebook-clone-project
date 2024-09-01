@@ -1,3 +1,4 @@
+/* messanger.css */
 .messanger-container {
     background-color: #ffffff;
     border-radius: 8px;
@@ -9,6 +10,7 @@
     top: 50px; 
     right: 0; 
     z-index: 1000;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .messanger-header {
@@ -54,19 +56,37 @@
     border: none; 
 }
 
-.messanger-content {
-    text-align: center;
+/* Dark theme styles */
+.messanger-container.dark  {
+    background-color: #333; /* Dark background for dark theme */
+    color: #e0e0e0; /* Light text color for dark theme */
 }
 
-.no-chats {
-    color: #555;
-    font-size: 18px;
-    margin-top: 20px;
+.dark .messanger-header {
+    border-bottom: 1px solid #444; /* Darker border for dark theme */
 }
 
-.footer {
-    font-size: 12px;
-    color: #888;
-    text-align: center;
-    margin-top: 0px; 
+.dark .messanger-header h2 {
+    color: #e0e0e0; /* Light text color for dark theme */
+}
+
+.dark .more-icon {
+    color: #e0e0e0; /* Light icon color for dark theme */
+}
+
+.dark .more-icon:hover {
+    color: #1e90ff; /* Accent color for dark theme */
+}
+
+.dark .tab-button {
+    background: #3b3b3b; /* Darker background for dark theme */
+    color: #1e90ff; /* Accent color for dark theme */
+}
+
+.dark .messanger-content .no-chats {
+    color: #e0e0e0; /* Light text color for dark theme */
+}
+
+.dark .footer {
+    color: #aaa; /* Lighter text color for dark theme */
 }

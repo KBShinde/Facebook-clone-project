@@ -17,6 +17,8 @@ import { Avatar } from '@mui/material';
 import ViewPage from '../../components/Icons/ViewPage';
 import Promote from '../../components/Icons/Promote';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { useContext } from 'react';
+import { ThemeContext } from '../../App';
 
 const PagesDetails = () => {
   const [pages, setPages] = useState([]);
@@ -24,6 +26,7 @@ const PagesDetails = () => {
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
   const token = localStorage.getItem('token');
+  const {darkTheme} = useContext(ThemeContext)
 
   const handleBackClick = () => {
     navigate(-1);
@@ -76,7 +79,7 @@ const PagesDetails = () => {
   if (error) return <p>{error}</p>;
 
   return (
-    <div className="main-content">
+    <div className={`main-content ${darkTheme ? 'dark' : ''}`}>
       <div className='navbar-on-page'>
         <Navbar />
       </div>

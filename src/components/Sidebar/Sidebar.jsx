@@ -3,7 +3,7 @@ import SidebarRow from '../SidebarRow/SidebarRow'; // Ensure correct path
 import LocalHospital from '@mui/icons-material/LocalHospital';
 import EmojiFlags from '@mui/icons-material/EmojiFlags';
 import PeopleIcon from '@mui/icons-material/People';
-import ChatIcon from '@mui/icons-material/Chat';
+import MessangerIcon from "../Icons/MessangerIcon";
 import StorefrontIcon from '@mui/icons-material/Storefront';
 import VideoLibraryIcon from '@mui/icons-material/VideoLibrary';
 import ExpandMoreOutlined from '@mui/icons-material/ExpandMoreOutlined';
@@ -24,7 +24,7 @@ const Sidebar = ({ isMobileView }) => {
       <SidebarRow Icon={EmojiFlags} title="Pages" />
       <SidebarRow Icon={PeopleIcon} title="Friends" />
       <SidebarRow Icon={BookmarkIcon} title="Saved" />  
-      <SidebarRow Icon={ChatIcon} title="Messenger" />
+      <SidebarRow Icon={MessangerIcon} title="Messenger" />
       <SidebarRow Icon={StorefrontIcon} title="Marketplace" />
       <SidebarRow Icon={RssFeedIcon} title="Feeds" />
       <SidebarRow Icon={VideoLibraryIcon} title="Videos" />

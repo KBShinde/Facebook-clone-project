@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import "./navbar.css";
 import SearchIcon from '@mui/icons-material/Search';
 import HomeIcon from '@mui/icons-material/Home';
@@ -6,9 +6,6 @@ import FlagIcon from '@mui/icons-material/Flag';
 import SubscriptionsIcon from '@mui/icons-material/Subscriptions';
 import StorefrontIcon from '@mui/icons-material/Storefront';
 import GroupsIcon from '@mui/icons-material/Groups';
-import ChatIcon from '@mui/icons-material/Chat';
-import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
-import AddIcon from '@mui/icons-material/Add';
 import { Avatar, IconButton } from "@mui/material";
 import CloseIcon from '@mui/icons-material/Close';
 import Sidebar from "../Sidebar/Sidebar";
@@ -20,6 +17,7 @@ import Bell from "../Icons/Bell";
 import UserMenu from "../UserMenu/UserMenu";
 import NavbarMenu from "../NavbarMenu.jsx/NavbarbarMenu";
 import { useNavigate } from "react-router-dom";
+import { ThemeContext } from "../../App";
 
 const Navbar = ({ data = [] }) => {
   const [searchOpen, setSearchOpen] = useState(true);
@@ -35,6 +33,16 @@ const Navbar = ({ data = [] }) => {
   const navigate = useNavigate()
   const [activeOption, setActiveOption] = useState('home');
   const token = localStorage.getItem('token');
+  const { darkTheme } = useContext(ThemeContext);
+  
+  useEffect(() => {
+    if(darkTheme){
+      document.body.classList.add('dark-theme')
+    }
+    else {
+      document.body.classList.remove('dark-theme')
+    }
+  },[darkTheme])
 
  const handleSearch = (result) => {
   navigate('/user-profile', {
@@ -175,13 +183,13 @@ const handleHome = () => {
   navigate('/home');
 };
   return (
-    <div className="navbar">
+    <div className={`navbar ${darkTheme? 'dark-theme' : ''}`}>
       <div className="navbar-left">
         <img
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrwu8iD2o8LcgH2QPhFMH4aiWYJitD4Eu7hchjdam4zH0pjGRr"
           alt="Facebook Logo"
         />
-        <div className={`navbar-input ${searchOpen ? "active" : ""}`}>
+        <div className='navbar-input'>
           <SearchIcon onClick={handleSearchIconClick} />
           <input
             type="text"

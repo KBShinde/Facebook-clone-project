@@ -3,6 +3,7 @@
   width: 100%;
   max-width: 1000px;
   margin: 0 auto; /* Centers the component horizontally */
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .about-container {
@@ -57,6 +58,29 @@
   line-height: 1.5;
   margin-left: 50px;
   color: #333;
+}
+
+/* Dark theme styles */
+.dark .about-container {
+  background-color: #333; /* Dark background for dark theme */
+}
+
+.dark .about-tabs button {
+  color: #e0e0e0; /* Light text color for dark theme */
+}
+
+.dark .about-tabs button.active {
+  color: #1e90ff;
+}
+.dark .about-tabs button:hover {
+  background-color: #444;
+}
+.dark .about-content h3 {
+  color: #e0e0e0; /* Light text color for dark theme */
+}
+
+.dark .about-content p {
+  color: #dcdcdc; /* Light text color for dark theme */
 }
 
 /* Responsive Design */

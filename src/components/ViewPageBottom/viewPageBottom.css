@@ -268,6 +268,70 @@
     justify-content: center; /* Center content vertically and horizontally */
     margin-top: 20px; /* Space above the no posts message */
 }
+/* Dark mode styles */
+
+.page-profile-wrapper.dark {
+    background-color: #242526; /* Dark background for the profile wrapper */
+    color: #e0e0e0; /* Light text color */
+  }
+  
+  .page-profile-intro.dark {
+    background-color: #2c2c2c; /* Dark background for the intro section */
+  }
+  
+  .page-profile-intro.dark h2 {
+    color: #e0e0e0; /* Light text color for headings */
+  }
+  
+  .page-intro-item.dark {
+    color: #e0e0e0; 
+  }
+  
+  .page-intro-icon.dark {
+    color: #e0e0e0; 
+  }
+  .page-intro-item.dark p {
+    color: #e0e0e0; 
+  }
+  .page-user-photos.dark,
+  .page-user-friends.dark {
+    background-color: #2c2c2c; /* Dark background for sections */
+  }
+  
+  .page-user-photos.dark h2,
+  .page-user-friends.dark h2 {
+    color: #e0e0e0; 
+  }
+  
+  .page-user-photos.dark p,
+  .page-user-friends.dark p {
+    color: #0673f9; 
+  }
+  
+  .page-post-header.dark {
+    background-color: #2c2c2c;
+    color: #e0e0e0;
+    border-bottom: 1px solid #333;
+  }
+  
+  .page-post-header-top.dark h2 {
+    color: #e0e0e0;
+  }
+  .page-post-header-top.dark button {
+    background-color: #444;
+    color: #e0e0e0;
+  }
+  .page-user-post.dark {
+    background-color: #2c2c2c;
+  }
+  
+  .page-no-posts.dark {
+    background-color: #2c2c2c;
+    color: #e0e0e0;
+  }
+  
+  
+  
 @media (max-width: 767px) {
     /* Container for the entire profile section */
     .page-profile-container-bottom {

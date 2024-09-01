@@ -145,6 +145,116 @@
     color: #2e81f4;
 }
 
+.post.dark {
+    background-color: #333; /* Dark background color */
+    color: #E4E6EB; /* Light text color for contrast */
+  }
+  
+  .post-top.dark {
+    background-color: #333; /* Slightly lighter dark for contrast */
+  }
+  
+  .post-top-left.dark .post-avatar {
+    border: 2px solid #3A3B3C; /* Optional border for avatars in dark mode */
+  }
+  
+  .post-top-info.dark h3 {
+    color: #E4E6EB;
+  }
+  
+  .post-top-info.dark p {
+    color: #B0B3B8; 
+  }
+  
+  .post-top-right.dark .post-options-btn {
+    color: #B0B3B8;
+  }
+  
+  .post-top-right.dark .post-options-btn:hover {
+    color: #E4E6EB;
+  }
+
+  .post-menu-item.dark {
+    color: #E4E6EB;
+  }
+  
+  .post-menu-item.dark:hover {
+    background-color: #3A3B3C;
+  }
+  
+/* Dark Theme Background for Post Content */
+.post-bottom.dark {
+    color: #E4E6EB; /* Light text color for contrast */
+}
+
+.post-img.dark img {
+    border: 1px solid #3A3B3C; /* Optional border for images */
+}
+
+/* Likes and Comments Count */
+.likes-comment-count.dark {
+    background-color: #333; /* Dark background */
+}
+
+.count-item.dark p {
+    color: #E4E6EB; /* Light text color for contrast */
+}
+
+.count-item.dark .MuiIconButton-root {
+    color: #E4E6EB; /* Light color for icons */
+}
+
+/* Dark Theme for Post Options */
+.post-options.dark {
+    background-color: #333; /* Dark background for post options */
+    color: #B0B3B8; /* Light text color */
+}
+
+.post-options.dark .post-option {
+    color: #B0B3B8; /* Light text color for options */
+}
+
+.post-options.dark .post-option:hover {
+    background-color: #3A3B3C; /* Darker background on hover */
+    border-radius: 10px; /* Rounded corners on hover */
+}
+
+.post-options.dark .post-option .default-icon {
+    color: #B0B3B8; /* Light color for icons */
+}
+
+.post-options.dark .post-option .default-text {
+    color: #B0B3B8; /* Light color for text */
+}
+
+/* Dark Theme for Liked State */
+.post-option.liked {
+    color: #2e81f4; /* Highlight color for liked option */
+}
+
+.post-option.liked .liked-icon {
+    color: #2e81f4; /* Highlight color for liked icon */
+}
+
+.post-option.liked .liked-text {
+    color: #2e81f4; /* Highlight color for liked text */
+}
+
+/* Dark Theme for Comment Active State */
+.post-option.comment-active {
+    color: #E4E6EB; /* Light color for active comment option */
+}
+
+.post-option.comment-active .default-icon {
+    color: #E4E6EB; /* Light color for active comment icon */
+}
+
+.post-option.comment-active .default-text {
+    color: #E4E6EB; /* Light color for active comment text */
+}
+
+
+  
 
 @media (max-width: 768px) {
     .post-top-left {

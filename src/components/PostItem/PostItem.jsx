@@ -14,6 +14,8 @@ import CommentIcon from '../Icons/CommentIcon';
 import PhotoLibraryIcon from '@mui/icons-material/PhotoLibrary';
 import ShareIcon from '../Icons/ShareIcon';
 import LikeIcon from '../Icons/LikeIcon';
+import { useContext } from 'react';
+import { ThemeContext } from '../../App';
 
 const PostItem = ({ post, addPost }) => {
     const [likeCount, setLikeCount] = useState(post.likeCount);
@@ -26,6 +28,7 @@ const PostItem = ({ post, addPost }) => {
     const [anchorEl, setAnchorEl] = useState(null);
     const [openDialog, setOpenDialog] = useState(false);
     const token = localStorage.getItem('token');
+    const {darkTheme} = useContext(ThemeContext)
 
     const handleImageChange = (e) => {
         setImage(e.target.files[0]);
@@ -127,136 +130,166 @@ const PostItem = ({ post, addPost }) => {
     };
 
     return (
-        <div className='post'>
-            <div className='post-top'>
-                <div className='post-top-left' onClick={handleUser}>
-                    <Avatar src={post?.author?.profileImage} className='post-avatar' />
-                    <div className='post-top-info'>
-                        <h3>{post?.author?.name}</h3>
-                        <p>{formatDistanceToNow(new Date(post.createdAt), { addSuffix: true })}</p>
-                    </div>
+            <div className={`post ${darkTheme ? 'dark' : ''}`}>
+            <div className={`post-top ${darkTheme ? 'dark' : ''}`}>
+                <div className={`post-top-left ${darkTheme ? 'dark' : ''}`} onClick={handleUser}>
+                <Avatar src={post?.author?.profileImage} className={`post-avatar ${darkTheme ? 'dark' : ''}`} />
+                <div className={`post-top-info ${darkTheme ? 'dark' : ''}`}>
+                    <h3>{post?.author?.name}</h3>
+                    <p>{formatDistanceToNow(new Date(post.createdAt), { addSuffix: true })}</p>
                 </div>
-                <div className='post-top-right'>
-                    <IconButton onClick={handleClick} className='post-options-btn'>
-                        <MoreHorizIcon fontSize="large" />
-                    </IconButton>
-                    <Menu
-                        anchorEl={anchorEl}
-                        open={Boolean(anchorEl)}
-                        onClose={handleClose}
-                        anchorOrigin={{
-                            vertical: 'bottom',
-                            horizontal: 'right',
-                        }}
-                        transformOrigin={{
-                            vertical: 'top',
-                            horizontal: 'right',
-                        }}
-                        PaperProps={{
-                            style: {
-                                backgroundColor: '#fff',
-                                boxShadow: '0px 0px 15px rgba(0, 0, 0, 0.1)',
-                                borderRadius: '10px',
-                                padding: '8px 0',
-                            },
+                </div>
+                <div className={`post-top-right ${darkTheme ? 'dark' : ''}`}>
+                <IconButton onClick={handleClick} className={`post-options-btn ${darkTheme ? 'dark' : ''}`}>
+                    <MoreHorizIcon fontSize="large" />
+                </IconButton>
+                <Menu
+                    anchorEl={anchorEl}
+                    open={Boolean(anchorEl)}
+                    onClose={handleClose}
+                    anchorOrigin={{
+                    vertical: 'bottom',
+                    horizontal: 'right',
+                    }}
+                    transformOrigin={{
+                    vertical: 'top',
+                    horizontal: 'right',
+                    }}
+                    PaperProps={{
+                    style: {
+                        backgroundColor: darkTheme ? '#444' : '#fff',
+                        boxShadow: '0px 0px 15px rgba(0, 0, 0, 0.1)',
+                        borderRadius: '10px',
+                        padding: '8px 0',
+                    },
+                    }}
+                >
+                    <MenuItem onClick={handleEdit} className={`post-menu-item ${darkTheme ? 'dark' : ''}`}>
+                    <EditIcon fontSize='medium' style={{ marginRight: 8 }} /> Edit
+                    </MenuItem>
+                    <MenuItem onClick={handleDeletePost} className={`post-menu-item ${darkTheme ? 'dark' : ''}`}>
+                    <DeleteIcon fontSize='medium' style={{ marginRight: 8 }} /> Delete
+                    </MenuItem>
+                </Menu>
+                </div>
+            <Dialog
+                open={openDialog}
+                onClose={handleCloseDialog}
+                fullWidth
+                maxWidth="sm"
+                sx={{
+                    '& .MuiDialog-paper': {
+                        backgroundColor: darkTheme ? '#2c2c2c' : '#ffffff', // Dark mode background
+                        color: darkTheme ? '#e0e0e0' : '#000000', // Dark mode text color
+                        borderRadius: '15px', // Optional: rounded corners
+                    }
+                }}
+            >
+                <DialogTitle>
+                    Update Post
+                    <IconButton
+                        onClick={handleCloseDialog}
+                        sx={{
+                            position: 'absolute',
+                            right: 8,
+                            top: 8,
+                            color: darkTheme ? '#e0e0e0' : '#000000', // Dark mode close icon color
                         }}
                     >
-                        <MenuItem onClick={handleEdit} className='post-menu-item'>
-                            <EditIcon fontSize='medium' style={{ marginRight: 8 }} /> Edit
-                        </MenuItem>
-                        <MenuItem onClick={handleDeletePost} className='post-menu-item'>
-                            <DeleteIcon fontSize='medium' style={{ marginRight: 8 }} /> Delete
-                        </MenuItem>
-                    </Menu>
-                </div>
-
-                <Dialog open={openDialog} onClose={handleCloseDialog} fullWidth maxWidth="sm">
-                    <DialogTitle>
-                        Update Post
-                        <IconButton
-                            onClick={handleCloseDialog}
-                            style={{ position: 'absolute', right: 8, top: 8 }}
+                        <CloseIcon />
+                    </IconButton>
+                </DialogTitle>
+                <DialogContent>
+                    <div style={{ display: 'flex', alignItems: 'center', marginBottom: '16px' }}>
+                        <Avatar src={post?.author?.profileImage} />
+                        <Typography
+                            variant="h6"
+                            style={{ marginLeft: '8px', color: darkTheme ? '#e0e0e0' : '#000000' }} // Dark mode author name color
                         >
-                            <CloseIcon />
-                        </IconButton>
-                    </DialogTitle>
-                    <DialogContent>
-                        <div style={{ display: 'flex', alignItems: 'center', marginBottom: '16px' }}>
-                            <Avatar src={post?.author?.profileImage} />
-                            <Typography variant="h6" style={{ marginLeft: '8px' }}>
-                                {post?.author?.name}
-                            </Typography>
-                        </div>
-                        <TextField
-                            multiline
-                            rows={4}
-                            variant="outlined"
-                            fullWidth
-                            value={updatedContent}
-                            onChange={(e) => setUpdatedContent(e.target.value)}
-                            style={{ marginBottom: '16px' }}
+                            {post?.author?.name}
+                        </Typography>
+                    </div>
+                    <TextField
+                        multiline
+                        rows={4}
+                        variant="outlined"
+                        fullWidth
+                        value={updatedContent}
+                        onChange={(e) => setUpdatedContent(e.target.value)}
+                        sx={{
+                            marginBottom: '16px',
+                            '& .MuiOutlinedInput-root': {
+                                backgroundColor: darkTheme ? '#3c3c3c' : '#ffffff', // Dark mode input background
+                                color: darkTheme ? '#e0e0e0' : '#000000', // Dark mode input text color
+                            }
+                        }}
+                    />
+                    <div style={{ display: 'flex', alignItems: 'center', marginBottom: '16px' }}>
+                        <input
+                            type="file"
+                            accept="image/*"
+                            id="imageInput"
+                            style={{ display: 'none' }}
+                            onChange={handleImageChange}
                         />
-                        <div style={{ display: 'flex', alignItems: 'center', marginBottom: '16px' }}>
-                            <input
-                                type="file"
-                                accept="image/*"
-                                id="imageInput"
-                                style={{ display: 'none' }}
-                                onChange={handleImageChange}
-                            />
-                            <label htmlFor="imageInput">
-                                <IconButton component="span">
-                                    <PhotoLibraryIcon fontSize="large" style={{ color: "green" }} />
-                                </IconButton>
-                            </label>
-                            <span>{image ? image.name : "No file chosen"}</span>
-                        </div>
-                        <Button
-                            onClick={handleUpdatePost}
-                            variant="contained"
-                            color="primary"
-                            fullWidth
-                        >
-                            Post
-                        </Button>
-                    </DialogContent>
-                </Dialog>
+                        <label htmlFor="imageInput">
+                            <IconButton component="span">
+                                <PhotoLibraryIcon
+                                    fontSize="large"
+                                    style={{ color: 'green' }} // Dark mode photo library icon color
+                                />
+                            </IconButton>
+                        </label>
+                        <span style={{ color: darkTheme ? '#e0e0e0' : '#000000' }}>
+                            {image ? image.name : "No file chosen"}
+                        </span>
+                    </div>
+                    <Button
+                        onClick={handleUpdatePost}
+                        variant="contained"
+                        color='primary'
+                        fullWidth
+                    >
+                        Post
+                    </Button>
+                </DialogContent>
+            </Dialog>
+
             </div>
-            <div className="post-bottom">
-                <p>{post.content}</p>         
-            </div>
-            <div className='post-img'>
-                {post.images && post.images.length > 0 && (
-                    <img src={post.images[0]} alt='' />
-                )}
-            </div>
-            <div className='likes-comment-count'>
-                <div className='count-item'>
-                    <Tooltip title="Likes">
-                        <IconButton onClick={handleLikeClick}>
-                        <LikeIcon
-                            style={{
-                                color: "white",
-                                backgroundColor: "#007bff",
-                                borderRadius: "50%", // Makes the border circular
-                                padding: "3px" // Optional, to give some space around the icon
-                            }}
-                            />
-                        </IconButton>
-                    </Tooltip>
-                    <p>{likeCount}</p>
+            <div className={`post-bottom ${darkTheme ? 'dark' : ''}`}>
+                    <p>{post.content}</p>         
                 </div>
-                <div className='count-item'>
-                 <p>{commentCount}</p>
+                <div className={`post-img ${darkTheme ? 'dark' : ''}`}>
+                    {post.images && post.images.length > 0 && (
+                        <img src={post.images[0]} alt='' />
+                    )}
+                </div>
+                <div className={`likes-comment-count ${darkTheme ? 'dark' : ''}`}>
+                    <div className={`count-item ${darkTheme ? 'dark' : ''}`}>
+                        <Tooltip title="Likes">
+                            <IconButton onClick={handleLikeClick}>
+                                <LikeIcon
+                                    style={{
+                                        color: 'white',
+                                        backgroundColor: darkTheme ? '#007bff' : '#007bff',
+                                        borderRadius: '50%', // Makes the border circular
+                                        padding: '3px' // Optional, to give some space around the icon
+                                    }}
+                                />
+                            </IconButton>
+                        </Tooltip>
+                        <p>{likeCount}</p>
+            </div>
+                <div className={`count-item ${darkTheme ? 'dark' : ''}`}>
+                    <p>{commentCount}</p>
                     <Tooltip title="Comments">
                         <IconButton onClick={handleShowComment}>
-                            <CommentIcon style={{ color: ' #606770' }} />
+                            <CommentIcon style={{ color: darkTheme ? '#E4E6EB' : '#606770' }} />
                         </IconButton>
                     </Tooltip>
-                    
                 </div>
             </div>
-            <div className='post-options'>
+            <div className={`post-options ${darkTheme ? 'dark' : ''}`}>
                 <div className={`post-option ${liked ? 'liked' : ''}`} onClick={handleLikeClick}>
                     <ThumbUpOutlinedIcon className={liked ? 'liked-icon' : 'default-icon'} />
                     <p className={liked ? 'liked-text' : 'default-text'}>Like</p>
@@ -270,47 +303,58 @@ const PostItem = ({ post, addPost }) => {
                     <p className='default-text'>Share</p>
                 </div>
             </div>
-            <Dialog 
-                 open={showComment} 
-                 onClose={handleCloseComment} 
-                 fullWidth
-                 maxWidth={false}  
-                 sx={{
+
+            <Dialog
+                open={showComment}
+                onClose={handleCloseComment}
+                fullWidth
+                maxWidth={false}
+                sx={{
                     '& .MuiDialog-paper': {
-                     width: '50%', 
-                     maxWidth: 'none', 
-                     borderRadius: '15px',  
-                     padding: '10px',
-                        }
+                        width: '50%',
+                        maxWidth: 'none',
+                        borderRadius: '15px',
+                        padding: '10px',
+                        backgroundColor: darkTheme ? '#2c2c2c' : '#ffffff', // Dark mode background
+                        color: darkTheme ? '#e0e0e0' : '#000000', // Dark mode text color
+                    }
+                }}
+            >
+                <DialogTitle
+                    sx={{
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        alignItems: 'center',
+                        color: darkTheme ? '#e0e0e0' : '#000000', // Dark mode title color
+                        borderBottom: `1px solid ${darkTheme ? '#444' : '#e0e0e0'}` // Dark mode border color
                     }}
-                    >
-                    <DialogTitle>
-                        Comments
-                        <IconButton
-                            aria-label="close"
-                            onClick={handleCloseComment}
-                            sx={{
-                                position: 'absolute',
-                                right: 8,
-                                top: 8,
-                                color: (theme) => theme.palette.grey[500],
-                            }}
-                        >
-                            <CloseIcon />
-                        </IconButton>
-                    </DialogTitle>
-                    <DialogContent
+                >
+                    Comments
+                    <IconButton
+                        aria-label="close"
+                        onClick={handleCloseComment}
                         sx={{
-                            overflowX: 'hidden', 
-                            height:'500px', 
-            
+                            position: 'absolute',
+                            right: 8,
+                            top: 8,
+                            color: darkTheme ? '#e0e0e0' : (theme) => theme.palette.grey[500], // Dark mode close icon color
                         }}
                     >
-                        <PostItem post={post} />
-                        <Comments postId={post._id} updateCommentCount={updateCommentCount} />
-                    </DialogContent>
+                        <CloseIcon />
+                    </IconButton>
+                </DialogTitle>
+                <DialogContent
+                    sx={{
+                        overflowX: 'hidden',
+                        height: '500px',
+                        backgroundColor: darkTheme ? '#2c2c2c' : '#ffffff', // Dark mode background
+                        color: darkTheme ? '#e0e0e0' : '#000000', // Dark mode text color
+                    }}
+                >
+                    <PostItem post={post} />
+                    <Comments postId={post._id} updateCommentCount={updateCommentCount} />
+                </DialogContent>
             </Dialog>
-
 
         </div>
     );

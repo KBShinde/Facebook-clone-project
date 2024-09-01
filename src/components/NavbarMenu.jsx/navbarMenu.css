@@ -1,19 +1,18 @@
-/* navbarMenu.css */
-
+/* Light Theme Styles */
 .menu-container {
-    background-color: #ffffff; 
-    border-radius: 12px; 
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); 
+    background-color: #ffffff; /* Light background */
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     max-width: 500px;
-    margin: 20px 0; 
+    margin: 20px 0;
     padding: 15px;
     position: absolute;
-    top: 50px; 
-    right: 0; 
-    z-index: 1000; 
+    top: 50px;
+    right: 0;
+    z-index: 1000;
     display: flex;
     flex-direction: column;
-
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .menu-content {
@@ -21,30 +20,88 @@
     flex-direction: row;
 }
 
-
 .menu-section-left {
     flex: 3;
-
 }
 
 .menu-section-right {
-    flex: 1.6; 
-
+    flex: 1.6;
 }
 
-.menu-section-left h3, .menu-section-right h3 {
+.menu-section-left h3, 
+.menu-section-right h3 {
     margin: 0;
-    padding: 10px 30px; 
-    font-size: 1.2rem; 
+    padding: 10px 30px;
+    font-size: 1.2rem;
     font-weight: 600;
+    color: #333; /* Dark text color for light theme */
 }
 
 .menu-section .MuiListItem-root {
     border-radius: 8px;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease; 
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    padding: 10px;
+    display: flex;
+    align-items: center;
 }
 
 .menu-section .MuiListItem-root:hover {
-    background-color: #f9f9f9; 
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    background-color: #f9f9f9; /* Light background on hover */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Icon Styles */
+.menu-section .MuiListItemIcon-root {
+    min-width: 40px; /* Adjust width to align icons properly */
+    color: #007bff; /* Default icon color */
+    transition: color 0.3s ease;
+}
+
+.menu-section .MuiListItemIcon-root:hover {
+    color: #0056b3; /* Icon color on hover */
+}
+
+/* Text Styles */
+.menu-section .MuiListItemText-root .MuiTypography-root {
+    font-size: 16px; /* Primary text size */
+    font-weight: 600;
+    color: #333; /* Default text color */
+    transition: color 0.3s ease;
+}
+
+.menu-section .MuiListItemText-root .MuiTypography-root.MuiTypography-secondary {
+    font-size: 14px; /* Secondary text size */
+    color: #666; /* Secondary text color */
+}
+
+/* Dark Theme Styles */
+.menu-container.dark {
+    background-color: #333; /* Dark background for dark theme */
+    color: #e0e0e0; /* Light text color for dark theme */
+}
+
+.dark .menu-section-left h3, 
+.dark .menu-section-right h3 {
+    color: #e0e0e0; /* Light text color for dark theme */
+}
+
+.dark .menu-section .MuiListItem-root {
+    background-color: #444; /* Darker background for items in dark theme */
+    color: #e0e0e0; /* Light text color for dark theme */
+}
+
+.dark .menu-section .MuiListItem-root:hover {
+    background-color: #555; /* Slightly lighter background on hover in dark theme */
+}
+
+.dark .menu-section .MuiListItemIcon-root {
+    color: #e0e0e0; /* Light icon color for dark theme */
+}
+
+.dark .menu-section .MuiListItemText-root .MuiTypography-root {
+    color: #e0e0e0; /* Light text color for primary text in dark theme */
+}
+
+.dark .menu-section .MuiListItemText-root .MuiTypography-root.MuiTypography-secondary {
+    color: #bbb; /* Lighter secondary text color for dark theme */
 }

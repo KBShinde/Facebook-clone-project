@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
@@ -7,6 +7,7 @@ import SendIcon from '@mui/icons-material/Send';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import './comments.css'; 
+import { ThemeContext } from '../../App';
 
 const Comments = ({ postId, updateCommentCount }) => {
     const [comments, setComments] = useState([]);
@@ -16,6 +17,7 @@ const Comments = ({ postId, updateCommentCount }) => {
     const [isTyping, setIsTyping] = useState(false);
     const [anchorEl, setAnchorEl] = useState(null);
     const [selectedComment, setSelectedComment] = useState(null);
+    const {darkTheme} = useContext(ThemeContext)
 
     const token = localStorage.getItem("token");
     const userId = localStorage.getItem("userId");  
@@ -150,7 +152,7 @@ const Comments = ({ postId, updateCommentCount }) => {
     if (error) return <p className="comments-error">{error}</p>;
 
     return (
-        <div className="comments-container">
+        <div className={`comments-container ${darkTheme ? 'dark' : ''}`}>
             <div className="comment-form">
                 <textarea
                     value={newComment}
@@ -165,7 +167,7 @@ const Comments = ({ postId, updateCommentCount }) => {
                     <SendIcon />
                 </IconButton>
             </div>
-    
+
             {comments.length === 0 ? (
                 <p className="comments-empty">No comments yet.</p>
             ) : (
@@ -184,18 +186,33 @@ const Comments = ({ postId, updateCommentCount }) => {
                     </div>
                 ))
             )}
-
             <Menu
                 anchorEl={anchorEl}
                 open={Boolean(anchorEl)}
                 onClose={handleMenuClose}
+                sx={{
+                    '& .MuiPaper-root': {
+                        backgroundColor: darkTheme ? '#2c2c2c' : '#ffffff', // Dark mode background
+                        color: darkTheme ? '#e0e0e0' : '#000000', // Dark mode text color
+                    }
+                }}
             >
-                <MenuItem onClick={handleCommentDelete}>
-                    <DeleteIcon style={{ marginRight: 8 }} />
+                <MenuItem
+                    onClick={handleCommentDelete}
+                    sx={{
+                        color: darkTheme ? '#e0e0e0' : '#000000', // Dark mode text color
+                        '&:hover': {
+                            backgroundColor: darkTheme ? '#444' : '#f5f5f5' // Dark mode hover effect
+                        }
+                    }}
+                >
+                    <DeleteIcon style={{ marginRight: 8, color: darkTheme ? '#e0e0e0' : '#000000' }} />
                     Delete
                 </MenuItem>
             </Menu>
+
         </div>
+
     );
 };
 

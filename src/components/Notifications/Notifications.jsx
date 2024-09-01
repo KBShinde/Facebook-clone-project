@@ -1,10 +1,14 @@
-import React from 'react';
+// Notifications component
+import React, { useContext } from 'react';
 import './notifications.css';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
+import { ThemeContext } from '../../App';
 
 const Notifications = () => {
+  const { darkTheme } = useContext(ThemeContext);
+
   return (
-    <div className="notifications-container">
+    <div className={`notifications-container ${darkTheme ? 'dark' : ''}`}>
       <div className="notifications-header">
         <h2>Notifications</h2>
         <MoreHorizIcon className="more-icon" />
@@ -28,3 +32,4 @@ const Notifications = () => {
 }
 
 export default Notifications;
+

@@ -11,12 +11,14 @@ import FilterIcon from "../Icons/FilterIcon";
 import SettingIcon from "../Icons/SettingIcon";
 import GridIcon from "../Icons/GridIcon";
 import LiveViewIcon from "../Icons/LiveViewIcon";
+import { useContext } from "react";
+import { ThemeContext } from "../../App";
 
 const UserProfileBottom = ({ user, userInfo}) => {
-
+const {darkTheme} = useContext(ThemeContext)
 
   return (
-    <div className="profile-container-bottom">
+    <div className={`profile-container-bottom ${darkTheme ? 'dark' : ''}`}>
       <div className="profile-left">
         <div className="profile-locked">
           <img

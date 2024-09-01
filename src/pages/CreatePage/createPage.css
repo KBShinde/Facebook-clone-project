@@ -111,7 +111,60 @@
     text-decoration: underline;
   }
   
+  /* Dark theme styles */
+.dark .create-page-wrapper {
+  background-color: #18191a;
+  color: #e4e6eb;
   
+}
+
+.dark .create-page-container {
+  background-color: #242526;
+  color: #e4e6eb;
+  border: 1px solid #4a4b4d;
+}
+
+.dark .icon-heading h1 {
+  color: #e4e6eb;
+}
+
+.dark .icon-heading svg {
+  color: #e4e6eb;
+}
+
+.dark .create-page-form input,
+.dark .create-page-form textarea {
+  background-color: #3a3b3c;
+  color: #e4e6eb;
+  border: 1px solid #4a4b4d;
+}
+
+.dark .create-page-form input::placeholder,
+.dark .create-page-form textarea::placeholder {
+  color: #b0b3b8;
+}
+
+.dark .create-page-form label {
+  color: #b0b3b8;
+}
+
+.dark .create-page-button {
+  background-color: #2d88ff;
+  color: #fff;
+}
+
+.dark .create-page-button:hover {
+  background-color: #1877f2;
+}
+
+.dark .agreement-text a {
+  color: #2d88ff;
+}
+
+.dark .agreement-text a:hover {
+  color: #1877f2;
+}
+
   /* Responsive Design */
   @media (max-width: 768px) {
     .create-page-container {

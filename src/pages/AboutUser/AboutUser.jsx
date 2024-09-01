@@ -1,15 +1,18 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import './aboutUser.css';
+import { ThemeContext } from '../../App';
 
 const AboutUser = () => {
   const [activeTab, setActiveTab] = useState('overview');
+  const{darkTheme} = useContext(ThemeContext)
 
   const handleTabClick = (tab) => {
     setActiveTab(tab);
   };
 
+
   return (
-    <div className='about-user'>
+    <div className={`about-user ${darkTheme ? 'dark' : ''}`}>
       <div className='about-container'>
         <div className='about-tabs'>
           <h2>About</h2>

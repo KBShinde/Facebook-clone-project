@@ -12,38 +12,39 @@
     display: flex;
     flex-direction: column;
     gap: 15px;
-}
-
-.notifications-header {
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .notifications-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: 2px solid #eee; 
     padding-bottom: 10px;
-}
-
-.notifications-header h2 {
+  }
+  
+  .notifications-header h2 {
     margin: 0;
     font-size: 22px;
     font-weight: 600;
     color: #333; 
-}
-
-.notifications-header .MuiSvgIcon-root {
+  }
+  
+  .notifications-header .MuiSvgIcon-root {
     color: #555;
     transition: color 0.3s ease;
-}
-
-.notifications-header .MuiSvgIcon-root:hover {
+  }
+  
+  .notifications-header .MuiSvgIcon-root:hover {
     color: #007bff; 
-}
-
-.notifications-tabs {
+  }
+  
+  .notifications-tabs {
     display: flex;
     gap: 10px; 
-}
-
-.tab-button-notification {
+  }
+  
+  .tab-button-notification {
     background: #ebebeb; 
     color: #007bff;
     border-radius: 20px; 
@@ -53,9 +54,9 @@
     padding: 8px 20px; 
     cursor: pointer;
     transition: all 0.3s ease;
-}
-
-.tab-button-unread {
+  }
+  
+  .tab-button-unread {
     border: none;
     background: none; 
     font-size: 16px; 
@@ -63,49 +64,95 @@
     padding: 8px 20px; 
     cursor: pointer;
     transition: all 0.3s ease;
-}
-
-
-.notification-other-tab {
+  }
+  
+  .notification-other-tab {
     display: flex;
     justify-content: space-between; 
     align-items: center; 
     gap: 10px;
-}
-
-.notification-other-tab h4 {
+  }
+  
+  .notification-other-tab h4 {
     margin: 0;
     font-size: 18px; 
     font-weight: 600;
     color: #333; 
-}
-
-.notification-other-tab p {
+  }
+  
+  .notification-other-tab p {
     margin: 0;
     font-size: 16px; 
     color: #007bff; 
     cursor: pointer;
     transition: color 0.3s ease;
-}
-
-.notification-other-tab p:hover {
+  }
+  
+  .notification-other-tab p:hover {
     color: #0056b3;
     text-decoration: underline;
-}
-
-.notifications-content {
+  }
+  
+  .notifications-content {
     text-align: center;
-}
-
-.no-notifications {
+  }
+  
+  .no-notifications {
     color: #555;
     font-size: 18px;
     margin-top: 10px;
-}
-
-.footer {
+  }
+  
+  .footer {
     font-size: 12px;
     color: #888;
     text-align: center;
     margin-top: 0px;
-}
+  }
+  
+/* Ensure that dark theme selectors are specific */
+ .notifications-container.dark{
+    background-color: #333 !important; /* Use !important to override if needed */
+  }
+  
+  .dark .notifications-header {
+    border-bottom: 2px solid #444; /* Darker border for dark theme */
+  }
+  
+  .dark .notifications-header h2 {
+    color: #e0e0e0; /* Light text color for dark theme */
+  }
+  
+  .dark .notifications-header .MuiSvgIcon-root {
+    color: #e0e0e0; /* Light icon color for dark theme */
+  }
+  
+  .dark .notifications-header .MuiSvgIcon-root:hover {
+    color: #1e90ff; /* Accent color for dark theme */
+  }
+  
+  .dark .tab-button-notification {
+    background: #3b3b3b; /* Darker background for dark theme */
+    color: #1e90ff; /* Accent color for dark theme */
+  }
+  
+  .dark .tab-button-unread {
+    color: #e0e0e0; /* Light text color for dark theme */
+  }
+  
+  .dark .notification-other-tab h4 {
+    color: #e0e0e0; /* Light text color for dark theme */
+  }
+  
+  .dark .notification-other-tab p {
+    color: #1e90ff; /* Accent color for dark theme */
+  }
+  
+  .dark .notifications-content .no-notifications {
+    color: #e0e0e0; /* Light text color for dark theme */
+  }
+  
+  .dark .footer {
+    color: #aaa; /* Lighter text color for dark theme */
+  }
+  
