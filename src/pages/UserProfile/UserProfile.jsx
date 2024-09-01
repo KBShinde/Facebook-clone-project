@@ -177,7 +177,7 @@ const UserProfile = () => {
            </div>
               
           </div>  
-          <div>
+          <div style={{ backgroundColor: darkTheme ? '#242526' : '' }}>
           {showAbout ? <AboutUser /> : <UserProfileBottom user={user} userInfo={userInfo} />}
            </div> 
         </>
