@@ -294,7 +294,7 @@ const PostItem = ({ post, addPost }) => {
                             </IconButton>
                         </Tooltip>
                         <p>{likeCount}</p>
-            </div>
+                  </div>
                 <div className={`count-item ${darkTheme ? 'dark' : ''}`}>
                     <p>{commentCount}</p>
                     <Tooltip title="Comments">
@@ -326,12 +326,14 @@ const PostItem = ({ post, addPost }) => {
                 maxWidth={false}
                 sx={{
                     '& .MuiDialog-paper': {
-                        width: '50%',
+                        width: { xs: '100%', sm: '80%', md: '60%', lg: '50%' }, // Responsive width
                         maxWidth: 'none',
                         borderRadius: '15px',
                         padding: '10px',
-                        backgroundColor: darkTheme ? '#2c2c2c' : '#ffffff', // Dark mode background
-                        color: darkTheme ? '#e0e0e0' : '#000000', // Dark mode text color
+                        backgroundColor: darkTheme ? '#2c2c2c' : '#ffffff',
+                        color: darkTheme ? '#e0e0e0' : '#000000',
+                        margin: { xs: 0, sm: 'auto' }, // Margin auto for center alignment on larger screens
+                        height: { xs: '100vh', sm: 'auto' }, // Full height on mobile
                     }
                 }}
             >
@@ -340,8 +342,8 @@ const PostItem = ({ post, addPost }) => {
                         display: 'flex',
                         justifyContent: 'space-between',
                         alignItems: 'center',
-                        color: darkTheme ? '#e0e0e0' : '#000000', // Dark mode title color
-                        borderBottom: `1px solid ${darkTheme ? '#444' : '#e0e0e0'}` // Dark mode border color
+                        color: darkTheme ? '#e0e0e0' : '#000000',
+                        borderBottom: `1px solid ${darkTheme ? '#444' : '#e0e0e0'}`
                     }}
                 >
                     Comments
@@ -349,10 +351,7 @@ const PostItem = ({ post, addPost }) => {
                         aria-label="close"
                         onClick={handleCloseComment}
                         sx={{
-                            position: 'absolute',
-                            right: 8,
-                            top: 8,
-                            color: darkTheme ? '#e0e0e0' : (theme) => theme.palette.grey[500], // Dark mode close icon color
+                            color: darkTheme ? '#e0e0e0' : (theme) => theme.palette.grey[500],
                         }}
                     >
                         <CloseIcon />
@@ -361,15 +360,16 @@ const PostItem = ({ post, addPost }) => {
                 <DialogContent
                     sx={{
                         overflowX: 'hidden',
-                        height: '500px',
-                        backgroundColor: darkTheme ? '#2c2c2c' : '#ffffff', // Dark mode background
-                        color: darkTheme ? '#e0e0e0' : '#000000', // Dark mode text color
+                        height: { xs: 'calc(100vh - 64px)', sm: '500px' }, // Full height minus title on mobile
+                        backgroundColor: darkTheme ? '#2c2c2c' : '#ffffff',
+                        color: darkTheme ? '#e0e0e0' : '#000000',
                     }}
                 >
                     <PostItem post={post} />
                     <Comments postId={post._id} updateCommentCount={updateCommentCount} />
                 </DialogContent>
             </Dialog>
+
 
         </div>
     );

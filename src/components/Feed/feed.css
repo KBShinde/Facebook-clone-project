@@ -17,15 +17,10 @@
 
 @media (max-width: 768px) {
     .feed {
-        background-color: white;
         padding: 15px 20px;
         margin-right: 0; 
         margin-left: -25px; 
         margin-top: 70px; 
-        max-width: 100%; 
-    }
-
-    .feed > * {
         max-width: 100%; 
     }
 }

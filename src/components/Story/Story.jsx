@@ -1,13 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './story.css';
-import { useContext } from 'react';
 import { ThemeContext } from '../../App';
 
-
 const Story = ({ image, profileSrc, title }) => {
-  const {darkTheme} = useContext(ThemeContext)
+  const { darkTheme } = useContext(ThemeContext);
+
   return (
-    <div className="story" style={{ backgroundImage: `url(${image})` }}>
+    <div className={`story ${darkTheme ? 'dark' : ''}`} style={{ backgroundImage: `url(${image})` }}>
       <img src={profileSrc} alt={title} className="story-avatar" />
       <h4>{title}</h4>
     </div>

@@ -260,7 +260,7 @@
     .post-top-left {
         flex-direction: row;
         align-items: center;
-        margin-left: -15px;
+        margin-left: -10px;
     }
 
     .post-avatar {
@@ -280,7 +280,7 @@
 
     .post-bottom p {
         font-size: 20px;
-        margin-left: -20px;
+        margin-left: -10px;
         margin-top: 15px;
     }
 
@@ -289,22 +289,6 @@
         margin-left: 0px;
     }
 
-    .likes-comment-count {
-        flex-direction: row;
-    }
-
-    .count-item {
-        width: 100%;
-        padding: 5px 0;
-    }
-
-    .count-item p {
-        font-size: 12px;
-    }
-
-    .count-item .MuiIconButton-root {
-        padding: 4px;
-    }
 
     .post-options-btn {
         padding: 3px;
@@ -354,24 +338,6 @@
 
     .post-img img {
         max-height: 200px;
-    }
-
-    .likes-comment-count {
-        padding: 5px;
-    }
-
-    .count-item {
-        flex-direction: row;
-        align-items: center;
-        gap: 4px;
-    }
-
-    .count-item p {
-        font-size: 11px;
-    }
-
-    .count-item .MuiIconButton-root {
-        padding: 3px;
     }
 
     .post-option {

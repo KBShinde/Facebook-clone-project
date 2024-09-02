@@ -253,7 +253,7 @@
     .navbar {
         padding: 10px 15px;
         width: 100%;
-        height: auto; /* Adjust height to auto for better flexibility */
+        height: auto; 
         box-shadow: none;
         flex-direction: column;
         align-items: flex-start;
@@ -264,7 +264,7 @@
         display: flex;
         justify-content: space-between; /* Spread items evenly */
         align-items: center;
-        margin-bottom: 5px;
+        margin-bottom: 15px;
     }
 
     .navbar-right {
@@ -320,22 +320,26 @@
     .navbar-middle {
         width: 100%;
         margin: 0;
+        margin-left: -14px;
+        margin-top: 5px;
         display: flex;
         justify-content: space-around; 
+        border-top: 1px solid #8f8f8f;
+
     }
 
     .navbar-option {
-        padding: 10px 28px;
+        padding: 10px 30px;
         flex-grow: 1; /* Allow options to grow evenly */
         text-align: center; /* Center-align text */
-        font-size: 14px; /* Slightly reduce font size */
+        font-size: 15px; /* Slightly reduce font size */
         color: #555; /* Use a softer color */
 
     }
 
 
     .navbar-option .MuiSvgIcon-root {
-        font-size: 20px;
+        font-size: 25px;
     }
 
     .desktop-sidebar {
