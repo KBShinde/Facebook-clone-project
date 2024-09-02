@@ -252,6 +252,7 @@
   @media (max-width: 768px) {
     .navbar {
         padding: 10px 15px;
+        width: 100%;
         height: auto; /* Adjust height to auto for better flexibility */
         box-shadow: none;
         flex-direction: column;
