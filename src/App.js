@@ -13,9 +13,13 @@ export const ThemeContext = createContext();
 
 function App() {
   const [darkTheme, setDarkTheme] = useState(false);
+
   const toggleTheme = () => {
-    setDarkTheme((prevTheme) => !prevTheme);
-    console.log("darkk");
+    setDarkTheme((prevTheme) => {
+      const newTheme = !prevTheme;
+      localStorage.setItem('dark', JSON.stringify(newTheme));
+      return newTheme;
+    });
   };
 
   return (
@@ -28,9 +32,9 @@ function App() {
             <Route path="/home" element={<Home />} />
             <Route path="/user-profile" element={<UserProfile />} />
             <Route path="/pages" element={<PagesDetails />} />
-            <Route path="/pages/view-page" element={<ViewPage />} /> {/* Corrected path */}
-            <Route path="/pages/create-page" element={<CreatePage />} /> {/* Corrected path */}
-            <Route path="/about-user" element={<AboutUser />} /> {/* Added route */}
+            <Route path="/pages/view-page" element={<ViewPage />} /> 
+            <Route path="/pages/create-page" element={<CreatePage />} /> 
+            <Route path="/about-user" element={<AboutUser />} />
           </Routes>
         </Router>
       </div>
