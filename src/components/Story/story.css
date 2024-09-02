@@ -13,7 +13,6 @@
   position: relative;
   cursor: pointer;
   transition: transform 0.3s ease-in-out;
-  box-shadow: 0px 5px 17px -7px rgba(0,0,0,0.75);
   text-decoration: none;
 }
 
@@ -43,7 +42,7 @@
       width: 90px; 
       height: 160px;
       padding: 8px;
-      margin-right: 6px; 
+      margin-right: 6px;
   }
 
   .story-avatar {

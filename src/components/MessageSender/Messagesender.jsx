@@ -117,12 +117,12 @@ const MessageSender = ({ addPost }) => {
             <DialogTitle className={darkTheme ? 'dialog-title dark' : 'dialog-title'}>
                 Create Post
                 <IconButton
-                onClick={handleCloseDialog}
-                style={{ position: 'absolute', right: 8, top: 8 }}
-                className={darkTheme ? 'dark-icon' : ''}
-                >
-                <CloseIcon />
-                </IconButton>
+                    onClick={handleCloseDialog}
+                    className={`icon-button ${darkTheme ? 'dark-icon' : ''}`}
+                  >
+                    <CloseIcon />
+                  </IconButton>
+
             </DialogTitle>
             <DialogContent className={`dialog-content ${darkTheme ? 'dark' : ''}`}>
                 <div className={`dialog-avatar-container ${darkTheme ? 'dark' : ''}`}

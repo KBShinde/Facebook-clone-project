@@ -87,7 +87,11 @@
   .message-sender-bottom.dark .message-sender-option:hover {
     background-color: #363636; /* Dark hover effect */
   }
-  
+
+  .icon-button {
+     float: right;
+     font-size: large;
+  }
   
   .dialog-title.dark {
     background-color: #333;
@@ -131,20 +135,22 @@
   
 @media (max-width: 768px) {
     .message-sender {
-        width: 95%;
+        width: 100%;
         box-sizing: border-box;
         margin: 0;
         border-radius: 10px; 
+        margin-top: -10px;
     }
 
     .message-sender-top {
         flex-direction: row;
         align-items: center;
+        margin-top: -10px; 
     }
 
     .message-sender-top > form {
         width: 100%;
-        margin-top: 5px; /* Reduce margin */
+        
     }
 
     .message-sender-top > form > input {
@@ -152,42 +158,74 @@
         margin: 0;
         border: 1px solid #ddd;
         border-radius: 20px;
-        font-size: 14px; /* Reduce font size for mobile */
+        font-size: 14px;
     }
 
     .message-sender-form .MuiIconButton-root svg {
-        font-size: 20px; /* Adjust icon size */
+        width: 35px;
+        height: 35px;
     }
 
     .message-sender-bottom {
        display: none; /* Hide bottom options on mobile */
     }
     .dialog-container {
-        padding: 8px;
-        width: 100%;
-        overflow: hidden;
+      padding: 8px;
+    
     }
-
-    .dialog-header {
-        padding: 8px;
+  
+    .dialog-title {
+      font-size: 16px;
+      text-align: center;
     }
-
-    .dialog-avatar-container h6 {
-        font-size: 1rem;
-    }
-
+  
     .dialog-content {
-        gap: 12px;
+      padding: 8px;
     }
-
+  
+     .dialog-avatar-container {
+      flex-direction: row;
+      align-items: center;
+      gap: 5px;
+    } 
+  
+    .dialog-avatar-container .MuiAvatar-root {
+      width: 35px;
+      height: 35px;
+    }
+  
+    .dialog-textfield {
+      margin-bottom: 12px;
+    }
+  
+    .dialog-file-input {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .dialog-file-input input {
+      width: 100%;
+    }
+  
     .dialog-file-input span {
-        font-size: 0.875rem;
+      margin-top: 5px;
+      font-size: 14px;
     }
+  
+    .dialog-container .MuiButton-root {
+      width: 100%;
+      margin-top: 10px;
+    }
+  .icon-button {
+    right: 4px; /* Adjusted to provide more space on smaller screens */
+    width: 20px; /* Smaller button size for mobile */
+    height: 20px; /* Smaller button size for mobile */
+  }
 }
 
 @media (max-width: 480px) {
     .message-sender {
-        margin-left: -15px; /* Add some margin for very small screens */
+        margin-left: -10px; /* Add some margin for very small screens */
         padding: 8px; /* Further reduce padding */
     }
 

@@ -24,7 +24,7 @@ function App() {
 
   return (
     <ThemeContext.Provider value={{ darkTheme, toggleTheme }}>
-      <div className="App">
+      <div>
         <Router>
           <Routes>
             <Route path="/" element={<Login />} />

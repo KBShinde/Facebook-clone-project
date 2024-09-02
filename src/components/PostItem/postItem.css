@@ -266,12 +266,11 @@
     .post-avatar {
         width: 35px;
         height: 35px;
-        margin-bottom: 5px;
+       
     }
 
     .post-top-info h3 {
         font-size: 14px;
-        margin-top: -15px;
     }
 
     .post-top-info p {
@@ -282,6 +281,7 @@
     .post-bottom p {
         font-size: 20px;
         margin-left: -20px;
+        margin-top: 15px;
     }
 
     .post-img img {

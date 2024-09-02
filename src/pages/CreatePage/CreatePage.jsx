@@ -61,8 +61,10 @@ const CreatePage = () => {
 
     return (
         <div className={darkTheme ? 'dark' : ''}>
-
-            <Navbar />
+             <div className="create-page-navbar">
+             <Navbar />
+             </div>
+            
             <div className="create-page-wrapper">
                 <div className="create-page-container">
                     <div className="icon-heading">
