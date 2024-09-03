@@ -169,23 +169,29 @@ const Comments = ({ postId, updateCommentCount }) => {
             </div>
 
             {comments.length === 0 ? (
-                <p className="comments-empty">No comments yet.</p>
-            ) : (
-                comments.map((comment) => (
-                    <div key={comment._id} className="comment-item">
-                        <Avatar src={comment.author_details?.profileImage || '/default-avatar.png'} className="comment-avatar" />
-                        <div className="comment-content-wrapper">
-                            <div className="comment-header">
-                                <h4 className="comment-author">{comment.author_details?.name || user.name}</h4>
-                                <IconButton className="more-icon" onClick={(e) => handleMenuOpen(e, comment)}>
-                                    <MoreVertIcon />
-                                </IconButton>
-                            </div>
-                            <p className="comment-content">{comment.content}</p>
-                        </div>
-                    </div>
-                ))
-            )}
+    <p className="comments-empty">No comments yet.</p>
+) : (
+    comments.map((comment) => (
+        <div key={comment._id} className="comment-item">
+            <Avatar src={comment.author_details?.profileImage || '/default-avatar.png'} className="comment-avatar" />
+            <div className="comment-content-wrapper">
+                <div className="comment-header">
+                    <h4 className="comment-author">{comment.author_details?.name || user.name}</h4>
+                    <IconButton className="more-icon" onClick={(e) => handleMenuOpen(e, comment)}>
+                        <MoreVertIcon />
+                    </IconButton>
+                </div>
+                <p className="comment-content">{comment.content}</p>
+                {/* Add Like and Reply buttons or text here */}
+                <div className="comment-actions">
+                    <span className="comment-like">Like</span>
+                    <span className="comment-reply" >Reply</span>
+                </div>
+            </div>
+        </div>
+    ))
+)}
+
             <Menu
                 anchorEl={anchorEl}
                 open={Boolean(anchorEl)}
