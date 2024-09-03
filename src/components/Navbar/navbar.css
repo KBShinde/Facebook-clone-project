@@ -324,7 +324,7 @@
     .navbar-middle {
         width: 100%;
         margin: 0;
-       margin-left: -15px; 
+        margin-left: -20px; 
         margin-top: 5px;
         display: flex;
         justify-content: space-around; 
@@ -333,7 +333,7 @@
     }
 
     .navbar-option {
-        padding: 12px 30px;
+        padding: 12px 25px;
         flex-grow: 1; /* Allow options to grow evenly */
         text-align: center; /* Center-align text */
         font-size: 15px; /* Slightly reduce font size */
