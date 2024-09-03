@@ -7,12 +7,13 @@ import AboutUser from "./pages/AboutUser/AboutUser";
 import UserProfile from "./pages/UserProfile/UserProfile";
 import ViewPage from "./pages/ViewPage/ViewPage";
 import CreatePage from "./pages/CreatePage/CreatePage";
-import { createContext, useEffect, useState } from "react";
+import { createContext, useState } from "react";
 
 export const ThemeContext = createContext();
 
 
 function App() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [darkTheme, setDarkTheme] = useState(() => {
     const savedTheme = JSON.parse(localStorage.getItem('dark'));
     return savedTheme !== null ? savedTheme : false;
@@ -25,10 +26,14 @@ function App() {
       return newTheme;
     });
   };
-
+  const handleMenuClick = () => {
+    setIsMenuOpen((prevIsMenuOpen) => !prevIsMenuOpen);
+  
+  };
+  
 
   return (
-    <ThemeContext.Provider value={{ darkTheme, toggleTheme }}>
+    <ThemeContext.Provider value={{ darkTheme, toggleTheme, isMenuOpen, handleMenuClick }}>
       <div>
         <Router>
           <Routes>

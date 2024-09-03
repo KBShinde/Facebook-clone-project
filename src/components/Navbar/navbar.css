@@ -255,7 +255,7 @@
 
   @media (max-width: 768px) {
     .navbar {
-        padding: 10px 15px;
+        /* padding: 10px 15px; */
         width: 100%;
         height: auto; 
         box-shadow: none;
@@ -309,7 +309,7 @@
     .search-close {
         position: absolute;
         top: 15px;
-        right: 15px;
+        right: 45px;
         cursor: pointer;
         color: #888;
         transition: color 0.3s ease;
@@ -324,7 +324,7 @@
     .navbar-middle {
         width: 100%;
         margin: 0;
-        margin-left: -14px;
+       margin-left: -15px; 
         margin-top: 5px;
         display: flex;
         justify-content: space-around; 
@@ -333,7 +333,7 @@
     }
 
     .navbar-option {
-        padding: 10px 30px;
+        padding: 12px 30px;
         flex-grow: 1; /* Allow options to grow evenly */
         text-align: center; /* Center-align text */
         font-size: 15px; /* Slightly reduce font size */

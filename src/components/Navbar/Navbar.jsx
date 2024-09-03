@@ -32,8 +32,7 @@ const Navbar = ({ data = [] }) => {
   const navigate = useNavigate()
   const [activeOption, setActiveOption] = useState('home');
   const token = localStorage.getItem('token');
-  const { darkTheme } = useContext(ThemeContext);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { darkTheme, isMenuOpen, handleMenuClick } = useContext(ThemeContext);
   
   useEffect(() => {
     if(darkTheme){
@@ -154,10 +153,6 @@ const Navbar = ({ data = [] }) => {
     navigate('/pages')
     
 };
-const handleMenuClick = () => {
-  setIsMenuOpen(!isMenuOpen);  // Open the MobileMenu when the MenuIcon is clicked
-};
-
 
 const handleHome = () => {
   setActiveOption('home');
@@ -211,11 +206,9 @@ const handleHome = () => {
             </div>
           )}
         </div>
-        {/* Mobile Menu Icon */}
+
           <MobileMenu className="mobile-menu-icon" onClick={handleMenuClick} />
           </div>
-
-          {/* Conditionally render MobileMenu component */}
           {isMenuOpen && <MobileView />}
       <div className="navbar-middle">
       <div
