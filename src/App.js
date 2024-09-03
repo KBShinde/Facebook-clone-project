@@ -7,12 +7,16 @@ import AboutUser from "./pages/AboutUser/AboutUser";
 import UserProfile from "./pages/UserProfile/UserProfile";
 import ViewPage from "./pages/ViewPage/ViewPage";
 import CreatePage from "./pages/CreatePage/CreatePage";
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 export const ThemeContext = createContext();
 
+
 function App() {
-  const [darkTheme, setDarkTheme] = useState(false);
+  const [darkTheme, setDarkTheme] = useState(() => {
+    const savedTheme = JSON.parse(localStorage.getItem('dark'));
+    return savedTheme !== null ? savedTheme : false;
+  });
 
   const toggleTheme = () => {
     setDarkTheme((prevTheme) => {
@@ -21,6 +25,7 @@ function App() {
       return newTheme;
     });
   };
+
 
   return (
     <ThemeContext.Provider value={{ darkTheme, toggleTheme }}>

@@ -1,0 +1,217 @@
+/* Only display this component on mobile screens */
+@media (max-width: 768px) {
+  .mobile-view {
+    display: flex;
+    flex-direction: column; /* Change to column to stack the top and middle sections */
+    background-color: #f0f2f5; /* Light background color for the mobile view */
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    padding: 20px 15px; /* Adjust padding for consistency */
+    overflow-y: auto;
+    left: -10px;
+  }
+
+  .mobile-view-top {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px; /* Adjusted margin to account for fixed menu height */
+  }
+
+  .mobile-view-menu {
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0; /* Fixed to the top */
+    left: 0; /* Align with the left edge of the viewport */
+    width: 100%; /* Full width to cover the top area */
+    background-color: #f0f2f5; /* Background color for visibility */
+    z-index: 1100; /* Higher z-index to stay on top */
+    padding: 10px 15px; /* Padding for spacing */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Shadow for visibility */
+  }
+
+  .mobile-view-menu h1 {
+    font-size: 18px;
+    color: #333;
+    margin: 0; /* Reset margin */
+  }
+
+  .mobile-view-profile {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    padding: 20px 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Soft shadow for profile section */
+    margin-top: -10px;
+  }
+
+  .mobile-view-profile h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    margin-left: 10px;
+  }
+
+  .mobile-view-profile p {
+    margin: 0;
+    font-size: 13px;
+    color: #898989;
+    margin-left: 10px;
+    margin-top: 5px;
+  }
+
+  .mobile-view-middle {
+    display: flex;
+    flex-direction: row; /* Keep two columns for menu items */
+    justify-content: space-between; /* Add space between columns */
+    background-color: #f0f2f5; /* Light background color for the mobile view */
+    padding: 10px 0; /* Reduce padding to fit more content */
+
+  }
+
+  .mobile-menu-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 0 5px; /* Reduce padding to fit better in smaller screens */
+  }
+
+  .mobile-menu-item {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    padding: 12px 10px; /* Adjusted padding */
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effects */
+    border-radius: 10px; /* Rounded corners for items */
+    background-color: white; /* White background for menu items */
+  }
+
+  .mobile-menu-item:hover {
+    background-color: #e4e6eb; /* Light grey background on hover */
+    color: #1877f2; /* Facebook blue color for text on hover */
+  }
+
+  .mobile-menu-item svg {
+    margin-right: 12px; /* Adjusted spacing */
+    color: #1877f2; /* Facebook blue color for icons */
+    font-size: 24px; /* Slightly larger icon size */
+    transition: color 0.3s; /* Smooth color transition */
+  }
+
+  .mobile-menu-item span {
+    font-size: 16px;
+    color: #171717;
+    font-weight: 500;
+    margin-top: 7px;
+  }
+
+  /* Hover effect for icons */
+  .mobile-menu-item:hover svg {
+    color: #0975e9; /* Darker blue on hover for contrast */
+    height: 25px;
+    width: 25px;
+  }
+
+  .mobile-view-bottom {
+    margin-top: auto; /* Pushes the bottom section to the bottom of the view */
+    border-top: 1px solid #ddd; /* Add a border for separation */
+    padding-top: 10px; /* Padding at the top */
+    padding-bottom: 20px; /* Padding at the bottom */
+  }
+  
+  .mobile-view-bottom .mobile-menu-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 10px; 
+    padding: 20px 10px;
+    background-color: #ffffff; 
+    border-radius: 8px; /* Rounded corners for items */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Soft shadow for items */
+  }
+  
+  .mobile-view-bottom .mobile-menu-item:hover {
+    background-color: #f0f2f5; /* Slightly different color on hover */
+  }
+  
+  .mobile-view-bottom .mobile-menu-item svg {
+    color: #555454; /* Icon color */
+  }
+
+  /* Dark mode styles */
+  .mobile-view.dark {
+    background-color: #121212; /* Dark background color */
+    color: #e0e0e0; /* Light text color for dark mode */
+  }
+
+  .mobile-view.dark .mobile-view-menu {
+    background-color: #1e1e1e; /* Darker background for fixed menu */
+    color: #e0e0e0; /* Light text color */
+  }
+
+  .mobile-view.dark .mobile-view-menu h1 {
+    color: #e0e0e0; /* Light color for menu heading */
+  }
+
+  .mobile-view.dark .mobile-view-profile {
+    background-color: #1e1e1e; /* Darker background for profile section */
+  }
+
+  .mobile-view.dark .mobile-view-profile h3 {
+    color: #e0e0e0; /* Light text color */
+  }
+
+  .mobile-view.dark .mobile-view-profile p {
+    color: #b0b0b0; /* Lighter text color for profile details */
+  }
+
+  .mobile-view.dark .mobile-view-middle {
+    background-color: #121212; /* Dark background color for middle section */
+  }
+
+  .mobile-view.dark .mobile-menu-item {
+    background-color: #1e1e1e; /* Dark background for menu items */
+    color: #e0e0e0; /* Light text color for menu items */
+  }
+
+  .mobile-view.dark .mobile-menu-item:hover {
+    background-color: #333333; /* Darker background on hover */
+    color: #e0e0e0; /* Light text color on hover */
+  }
+
+  .mobile-view.dark .mobile-view-bottom .mobile-menu-item svg {
+    color: #e0e0e0; /* Light color for icons */
+  }
+
+  .mobile-view.dark .mobile-menu-item span {
+    color: #e0e0e0; /* Light text color */
+  }
+
+  .mobile-view.dark .mobile-view-bottom {
+    background-color: #121212; /* Darker background for bottom section */
+    border-top: 1px solid #333333; /* Darker border color */
+  }
+
+  .mobile-view.dark .mobile-view-bottom .mobile-menu-item {
+    background-color: #1e1e1e; /* Darker background for bottom section items */
+  }
+
+  .mobile-view.dark .mobile-view-bottom .mobile-menu-item:hover {
+    background-color: #333333; /* Darker background on hover for bottom section items */
+  }
+}
+
+/* Hide the component on larger screens */
+@media (min-width: 769px) {
+  .mobile-view {
+    display: none;
+  }
+}

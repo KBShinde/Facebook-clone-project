@@ -8,7 +8,6 @@ import StorefrontIcon from '@mui/icons-material/Storefront';
 import GroupsIcon from '@mui/icons-material/Groups';
 import { Avatar, IconButton } from "@mui/material";
 import CloseIcon from '@mui/icons-material/Close';
-import Sidebar from "../Sidebar/Sidebar";
 import Messanger from "../Messanger/Messanger";
 import Notifications from "../Notifications/Notifications";
 import MessangerIcon from "../Icons/MessangerIcon";
@@ -18,11 +17,11 @@ import UserMenu from "../UserMenu/UserMenu";
 import NavbarMenu from "../NavbarMenu.jsx/NavbarbarMenu";
 import { useNavigate } from "react-router-dom";
 import { ThemeContext } from "../../App";
+import MobileMenu from "../Icons/MobileMenu";
+import MobileView from "../MobileView/MobileView";
 
 const Navbar = ({ data = [] }) => {
   const [searchOpen, setSearchOpen] = useState(true);
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [notificationsOpen, setNotificationsOpen] = useState(false);
@@ -34,6 +33,7 @@ const Navbar = ({ data = [] }) => {
   const [activeOption, setActiveOption] = useState('home');
   const token = localStorage.getItem('token');
   const { darkTheme } = useContext(ThemeContext);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   
   useEffect(() => {
     if(darkTheme){
@@ -53,26 +53,6 @@ const Navbar = ({ data = [] }) => {
 });
 }
 
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  useEffect(() => {
-    const closeSidebar = (e) => {
-      if (isSidebarOpen && !e.target.closest('.mobile-sidebar') && !e.target.closest('.navbar-right')) {
-        setIsSidebarOpen(false);
-      }
-    };
-
-    document.addEventListener('click', closeSidebar);
-    return () => document.removeEventListener('click', closeSidebar);
-  }, [isSidebarOpen]);
 
   useEffect(() => {
     if (searchQuery.length > 0) {
@@ -120,9 +100,6 @@ const Navbar = ({ data = [] }) => {
     }
   }, [searchQuery]);
 
-  const handleMoreClick = () => {
-    setIsSidebarOpen(!isSidebarOpen);
-  };
 
   const handleSearchIconClick = () => {
     setSearchOpen(true);
@@ -177,6 +154,10 @@ const Navbar = ({ data = [] }) => {
     navigate('/pages')
     
 };
+const handleMenuClick = () => {
+  setIsMenuOpen(!isMenuOpen);  // Open the MobileMenu when the MenuIcon is clicked
+};
+
 
 const handleHome = () => {
   setActiveOption('home');
@@ -230,8 +211,12 @@ const handleHome = () => {
             </div>
           )}
         </div>
-      </div>
+        {/* Mobile Menu Icon */}
+          <MobileMenu className="mobile-menu-icon" onClick={handleMenuClick} />
+          </div>
 
+          {/* Conditionally render MobileMenu component */}
+          {isMenuOpen && <MobileView />}
       <div className="navbar-middle">
       <div
         className={`navbar-option ${activeOption === 'home' ? 'active' : ''}`}
@@ -271,11 +256,6 @@ const handleHome = () => {
         </IconButton>
       </div>
 
-      {isMobile && isSidebarOpen && (
-        <div className="mobile-sidebar">
-          <Sidebar isMobileView={true} />
-        </div>
-      )}
 
       {navbarMenuOpen && (
         <div className="navbar-menu-dropdown">

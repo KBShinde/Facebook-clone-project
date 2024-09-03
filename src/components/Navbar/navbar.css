@@ -247,7 +247,11 @@
   .dark-theme .search-close:hover {
     color: #e4e6eb;
   }
-  
+  .mobile-menu-icon {
+    display: none; /* Hide by default */
+    cursor: pointer;
+    position: absolute;
+  }
 
   @media (max-width: 768px) {
     .navbar {
@@ -337,7 +341,12 @@
 
     }
 
-
+    .mobile-menu-icon {
+      display: block; /* Show in mobile view */
+      right: 50px;
+      color: #757575;
+    }
+  
     .navbar-option .MuiSvgIcon-root {
         font-size: 25px;
     }
